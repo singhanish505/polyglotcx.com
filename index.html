@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polyglot — AI Call Intelligence for Every Language Your Customers Speak</title>
+<meta name="description" content="Polyglot turns 100% of your contact centre calls into transcripts, QA scores, coaching plans and CRM tickets — in any language. Book a demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#F5F8FD;--navy2:#FFFFFF;--navy3:#EDF3FB;--navy4:#E2ECF9;
+  --blue:#2563EB;--purple:#6D54EB;--green:#0E9F6E;--amber:#D97706;--rose:#E11D48;
+  --white:#101D31;--w70:rgba(16,29,49,.74);--w45:rgba(16,29,49,.52);
+  --w15:rgba(16,29,49,.14);--w08:rgba(16,29,49,.085);--w04:rgba(16,29,49,.045);
+  --grad:linear-gradient(135deg,var(--blue),var(--purple));
+  --fd:'Plus Jakarta Sans',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace;
+  --px:clamp(20px,5vw,64px);
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(37,99,235,.18)}
+button{font-family:var(--fb)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 var(--px);height:70px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--w08);backdrop-filter:blur(20px);background:rgba(255,255,255,.88)}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
+.logo svg{width:40px;height:37px}
+.logo-t{font-family:var(--fd);font-size:21px;font-weight:700;letter-spacing:-.5px}
+.logo-t span{color:var(--blue)}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{color:var(--w70);text-decoration:none;font-size:14px;padding:7px 13px;border-radius:7px;transition:all .2s;cursor:pointer}
+.nav-links a:hover{color:var(--white);background:var(--w08)}
+.nav-links a.active{color:var(--white);background:var(--w08);box-shadow:inset 0 -2px 0 var(--blue)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.btn-ghost{background:none;border:1px solid var(--w15);color:var(--w70);padding:8px 18px;border-radius:8px;font-size:14px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--blue);color:var(--white)}
+.btn-grad{background:var(--grad);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .25s;position:relative;overflow:hidden}
+.btn-grad:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.25)}
+.hamb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamb span{display:block;width:24px;height:2px;background:var(--w70);border-radius:2px;transition:all .3s}
+.hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamb.open span:nth-child(2){opacity:0}
+.hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:rgba(245,248,253,.98);backdrop-filter:blur(24px);z-index:199;flex-direction:column;padding:20px var(--px);overflow-y:auto}
+.drawer.open{display:flex}
+.drawer ul{list-style:none}
+.drawer li{border-bottom:1px solid var(--w08)}
+.drawer a{display:block;padding:17px 4px;font-size:18px;color:var(--w70);text-decoration:none;cursor:pointer}
+.drawer a.active{color:var(--blue)}
+.drawer .nav-cta{flex-direction:column;margin-top:24px;gap:12px}
+.drawer .btn-ghost,.drawer .btn-grad{width:100%;padding:14px;text-align:center}
+
+#page{padding-top:70px;min-height:100vh}
+.pg{animation:pgIn .35s ease both}
+@keyframes pgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ── SHARED ── */
+.wrap{padding:88px var(--px)}
+.eyebrow{font-size:11px;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--blue)}
+.h2{font-family:var(--fd);font-size:clamp(23px,2.8vw,36px);font-weight:600;line-height:1.2;letter-spacing:-0.3px}
+.h2 .bl{color:var(--blue)}
+.h2 .gr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:15.5px;color:var(--w70);line-height:1.75;margin-top:14px;max-width:580px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--navy2);border:1px solid var(--w08);border-radius:16px;padding:30px;position:relative;overflow:hidden;transition:all .25s}
+.card:hover{border-color:rgba(37,99,235,.35);transform:translateY(-3px);box-shadow:0 14px 36px rgba(23,52,103,.10)}
+.card-ico{width:46px;height:46px;border-radius:12px;background:var(--w08);border:1px solid var(--w15);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:21px}
+.card-t{font-family:var(--fd);font-size:16.5px;font-weight:600;letter-spacing:-.2px;margin-bottom:8px}
+.card-d{font-size:13.5px;color:var(--w70);line-height:1.65}
+.tagrow{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.tag{font-size:11px;font-family:var(--fm);color:var(--w45);background:var(--w04);border:1px solid var(--w08);border-radius:5px;padding:3px 9px}
+
+/* ── HERO ── */
+.hero{min-height:calc(100vh - 70px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px var(--px) 50px;position:relative;overflow:hidden;text-align:center}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.07) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 75% 60% at 50% 42%,black 25%,transparent 100%)}
+.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(2px)}
+.g1{top:-140px;left:50%;transform:translateX(-50%);width:860px;height:860px;background:radial-gradient(circle,rgba(37,99,235,.10) 0%,transparent 68%)}
+.g2{top:24%;left:14%;width:420px;height:420px;background:radial-gradient(circle,rgba(109,84,235,.09) 0%,transparent 70%)}
+.g3{top:18%;right:10%;width:380px;height:380px;background:radial-gradient(circle,rgba(14,159,110,.05) 0%,transparent 70%)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:var(--w08);border:1px solid var(--w15);border-radius:100px;padding:7px 18px;font-size:12px;color:var(--blue);font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:30px;animation:fadeUp .6s ease both}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(14,159,110,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(14,159,110,0)}}
+.hero h1{font-family:var(--fd);font-size:clamp(30px,4.4vw,56px);font-weight:600;line-height:1.14;letter-spacing:-0.5px;max-width:940px;animation:fadeUp .7s .08s ease both}
+.hero h1 .gr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(15px,1.6vw,18px);color:var(--w70);max-width:640px;line-height:1.7;margin-top:22px;animation:fadeUp .7s .16s ease both}
+.hero-sub b{color:var(--white);font-weight:600}
+.hero-ctas{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .24s ease both}
+.btn-xl{padding:15px 34px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all .25s;border:none}
+.btn-xl.primary{background:var(--grad);color:#fff;box-shadow:0 4px 18px rgba(37,99,235,.22)}
+.btn-xl.primary:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(37,99,235,.32)}
+.btn-xl.outline{background:var(--w08);border:1px solid var(--w15);color:var(--white)}
+.btn-xl.outline:hover{background:var(--w15);transform:translateY(-2px)}
+.hero-trust{margin-top:30px;font-size:12.5px;color:var(--w45);animation:fadeUp .7s .3s ease both}
+.hero-trust b{color:var(--w70);font-weight:500}
+
+/* ── LIVE PIPELINE (signature) ── */
+.pipe-wrap{width:100%;max-width:1060px;margin-top:64px;animation:fadeUp .9s .38s ease both}
+.pipe-frame{background:linear-gradient(180deg,var(--navy2),rgba(255,255,255,.65));border:1px solid var(--w15);border-radius:20px;padding:28px clamp(16px,3vw,40px) 32px;box-shadow:0 24px 70px rgba(23,52,103,.13),inset 0 1px 0 #fff;position:relative;overflow:hidden}
+.pipe-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.pipe-title{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:12px;color:var(--w45);letter-spacing:1px;text-transform:uppercase}
+.pipe-live{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--green);font-family:var(--fm)}
+.pipe-live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+.pipe-lang{font-family:var(--fm);font-size:11px;color:var(--blue);background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);padding:4px 12px;border-radius:6px}
+.wave{display:flex;align-items:center;gap:3px;height:46px;margin-bottom:26px;justify-content:center}
+.wave i{width:3.5px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--purple));opacity:.85;animation:wv 1.1s ease-in-out infinite}
+@keyframes wv{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.stages{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;position:relative}
+.stage{background:var(--w04);border:1px solid var(--w08);border-radius:11px;padding:13px 8px 11px;text-align:center;transition:all .4s;position:relative}
+.stage .si{font-size:17px;margin-bottom:6px;display:block;filter:grayscale(.7);opacity:.55;transition:all .4s}
+.stage .sn{font-size:10px;color:var(--w45);font-weight:500;line-height:1.3;display:block;transition:color .4s}
+.stage .sd{font-family:var(--fm);font-size:8.5px;color:var(--w45);opacity:0;margin-top:4px;display:block;transition:opacity .4s}
+.stage.on{background:rgba(37,99,235,.07);border-color:rgba(37,99,235,.45);box-shadow:0 0 24px rgba(37,99,235,.12)}
+.stage.on .si{filter:none;opacity:1;transform:scale(1.12)}
+.stage.on .sn{color:var(--white)}
+.stage.on .sd{opacity:1;color:var(--blue)}
+.stage.done{border-color:rgba(14,159,110,.3)}
+.stage.done .si{filter:none;opacity:.9}
+.stage.done .sn{color:var(--w70)}
+.stage.done::after{content:'✓';position:absolute;top:5px;right:7px;font-size:9px;color:var(--green)}
+.pipe-out{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pout{background:var(--w04);border:1px solid var(--w08);border-radius:10px;padding:12px 14px;text-align:left;opacity:.35;transition:all .5s;transform:translateY(6px)}
+.pout.show{opacity:1;transform:none;border-color:var(--w15)}
+.pout .pl{font-size:9.5px;font-family:var(--fm);text-transform:uppercase;letter-spacing:1px;color:var(--w45);display:flex;align-items:center;gap:6px}
+.pout .pl i{width:6px;height:6px;border-radius:2px;flex-shrink:0}
+.pout .pv{font-size:12px;color:var(--w70);margin-top:5px;line-height:1.45}
+.pout .pv b{color:var(--white);font-weight:600}
+.pipe-timer{position:absolute;bottom:14px;right:20px;font-family:var(--fm);font-size:10.5px;color:var(--w45)}
+.pipe-timer b{color:var(--green)}
+
+/* ── STAT BAND ── */
+.stats-band{border-top:1px solid var(--w08);border-bottom:1px solid var(--w08);background:linear-gradient(180deg,rgba(37,99,235,.025),transparent);padding:54px var(--px)}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:1100px;margin:0 auto}
+.stat{text-align:center}
+.stat .sv{font-family:var(--fd);font-size:clamp(28px,3.2vw,42px);font-weight:600;letter-spacing:-.6px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat .sl{font-size:12.5px;color:var(--w45);margin-top:6px;line-height:1.5}
+.stat .sl b{color:var(--w70);font-weight:500}
+
+/* ── PROBLEM/COMPARE ── */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.cmp-col{border-radius:18px;padding:34px;border:1px solid var(--w08)}
+.cmp-col.bad{background:rgba(225,29,72,.04);border-color:rgba(225,29,72,.18)}
+.cmp-col.good{background:rgba(14,159,110,.04);border-color:rgba(14,159,110,.22)}
+.cmp-h{font-family:var(--fd);font-size:17px;font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.cmp-li{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--w08);font-size:14px;color:var(--w70);line-height:1.55}
+.cmp-li b{color:var(--white);font-weight:600}
+.cmp-li .x{color:var(--rose);flex-shrink:0;font-weight:700}
+.cmp-li .y{color:var(--green);flex-shrink:0;font-weight:700}
+
+/* ── FEATURE SHOWCASE ── */
+.feat-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:54px}
+.feat-hero.rev{grid-template-columns:1fr 1.05fr}
+.feat-hero.rev .fh-visual{order:-1}
+.fh-k{font-family:var(--fm);font-size:11px;color:var(--purple);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.fh-t{font-family:var(--fd);font-size:clamp(20px,2.3vw,28px);font-weight:600;letter-spacing:-.3px;line-height:1.25}
+.fh-d{font-size:14.5px;color:var(--w70);line-height:1.75;margin-top:14px}
+.fh-list{margin-top:20px;display:flex;flex-direction:column;gap:11px}
+.fh-li{display:flex;gap:11px;font-size:13.5px;color:var(--w70);line-height:1.5}
+.fh-li::before{content:'→';color:var(--blue);font-weight:700;flex-shrink:0}
+.fh-li b{color:var(--white);font-weight:600}
+.fh-visual{background:var(--navy2);border:1px solid var(--w15);border-radius:18px;padding:22px;box-shadow:0 18px 56px rgba(23,52,103,.12);position:relative;overflow:hidden}
+.fh-visual::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.08),transparent 70%)}
+.mini-row{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--w04);border:1px solid var(--w08);border-radius:9px;margin-bottom:8px;font-size:12px}
+.mini-row .mn{color:var(--w70)}
+.score-pill{font-family:var(--fm);font-size:11px;padding:3px 10px;border-radius:100px;font-weight:500}
+.sp-g{background:rgba(14,159,110,.12);color:var(--green);border:1px solid rgba(14,159,110,.3)}
+.sp-b{background:rgba(37,99,235,.1);color:var(--blue);border:1px solid rgba(37,99,235,.3)}
+.sp-y{background:rgba(217,119,6,.1);color:var(--amber);border:1px solid rgba(217,119,6,.3)}
+.sp-r{background:rgba(225,29,72,.1);color:var(--rose);border:1px solid rgba(225,29,72,.3)}
+.tbar{height:9px;border-radius:5px;background:var(--w08);overflow:hidden;display:flex;margin:8px 0 4px}
+.tbar i{height:100%}
+.tleg{display:flex;flex-wrap:wrap;gap:10px;font-size:10px;color:var(--w45);margin-top:8px}
+.tleg span{display:flex;align-items:center;gap:5px}
+.tleg i{width:8px;height:8px;border-radius:2px}
+.transcript-line{display:flex;gap:10px;padding:8px 10px;border-radius:8px;font-size:12px;line-height:1.5;margin-bottom:6px}
+.transcript-line.agent{background:rgba(37,99,235,.05)}
+.transcript-line.cust{background:var(--w04)}
+.tl-who{font-family:var(--fm);font-size:10px;color:var(--w45);flex-shrink:0;padding-top:2px;width:34px}
+.tl-txt{color:var(--w70)}
+.tl-txt .hl{color:var(--blue);background:rgba(37,99,235,.1);padding:0 4px;border-radius:3px}
+.tl-txt .pii{color:var(--rose);background:rgba(225,29,72,.1);padding:0 4px;border-radius:3px;font-family:var(--fm);font-size:10.5px}
+
+/* ── ROI CALC ── */
+.roi{background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(109,84,235,.05));border:1px solid var(--w15);border-radius:22px;padding:clamp(26px,4vw,48px);margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px)}
+.roi-l h3{font-family:var(--fd);font-size:21px;font-weight:600;letter-spacing:-.2px;margin-bottom:8px}
+.roi-l p{font-size:13.5px;color:var(--w70);margin-bottom:28px}
+.slider-g{margin-bottom:24px}
+.slider-g label{display:flex;justify-content:space-between;font-size:13px;color:var(--w70);margin-bottom:10px}
+.slider-g label b{color:var(--white);font-family:var(--fm);font-weight:500}
+input[type=range]{width:100%;-webkit-appearance:none;height:5px;border-radius:4px;background:var(--w15);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--grad);cursor:pointer;border:2px solid var(--navy);box-shadow:0 0 12px rgba(37,99,235,.5)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid var(--navy)}
+.roi-r{display:flex;flex-direction:column;justify-content:center;gap:14px}
+.roi-card{background:rgba(255,255,255,.85);border:1px solid var(--w08);border-radius:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.roi-card .rl{font-size:12.5px;color:var(--w45)}
+.roi-card .rv{font-family:var(--fd);font-size:clamp(19px,2.1vw,26px);font-weight:600;letter-spacing:-.2px}
+.roi-card.hl{background:rgba(14,159,110,.06);border-color:rgba(14,159,110,.3)}
+.roi-card.hl .rv{color:var(--green)}
+.roi-note{font-size:10.5px;color:var(--w45);line-height:1.5}
+
+/* ── INTEGRATIONS ── */
+.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.int-c{background:var(--navy2);border:1px solid var(--w08);border-radius:13px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:all .2s}
+.int-c:hover{border-color:rgba(37,99,235,.3);transform:translateY(-2px)}
+.int-ic{width:38px;height:38px;border-radius:9px;background:var(--w08);border:1px solid var(--w15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.int-n{font-size:14px;font-weight:600;letter-spacing:-.2px}
+.int-d{font-size:11.5px;color:var(--w45);margin-top:3px;line-height:1.5;font-family:var(--fm)}
+
+/* ── PRICING ── */
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;align-items:stretch}
+.price-c{background:var(--navy2);border:1px solid var(--w08);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;position:relative;transition:all .25s}
+.price-c:hover{transform:translateY(-4px);border-color:var(--w15)}
+.price-c.pop{border-color:rgba(37,99,235,.45);background:linear-gradient(180deg,rgba(37,99,235,.06),var(--navy2) 38%);box-shadow:0 16px 64px rgba(37,99,235,.12)}
+.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 16px;border-radius:100px}
+.price-n{font-family:var(--fd);font-size:17px;font-weight:600}
+.price-v{font-family:var(--fd);font-size:32px;font-weight:600;letter-spacing:-.4px;margin-top:14px}
+.price-v span{font-size:13px;color:var(--w45);font-weight:400;font-family:var(--fb);letter-spacing:0}
+.price-d{font-size:12px;color:var(--w45);margin-top:4px;font-family:var(--fm)}
+.price-f{margin:22px 0;display:flex;flex-direction:column;gap:9px;flex:1}
+.price-f div{display:flex;gap:9px;font-size:13px;color:var(--w70);line-height:1.45}
+.price-f div::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.price-c .btn-grad,.price-c .btn-ghost{width:100%;padding:12px;text-align:center;font-size:14px}
+
+/* ── MANAGED ── */
+.mg-band{background:linear-gradient(135deg,rgba(109,84,235,.07),rgba(37,99,235,.06));border:1px solid var(--w15);border-radius:22px;padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(26px,4vw,60px);align-items:center;margin-top:50px}
+
+/* ── FAQ ── */
+.faq{max-width:780px;margin:48px auto 0}
+.faq-i{border:1px solid var(--w08);border-radius:13px;margin-bottom:11px;background:var(--navy2);overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-size:15px;font-weight:600;padding:19px 22px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--fb)}
+.faq-q span{transition:transform .3s;color:var(--blue);font-size:19px;flex-shrink:0}
+.faq-i.open .faq-q span{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a div{padding:0 22px 20px;font-size:14px;color:var(--w70);line-height:1.75}
+
+/* ── CTA BAND / FORM ── */
+.cta-band{margin:80px var(--px) 0;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(109,84,235,.1));border:1px solid rgba(37,99,235,.25);border-radius:26px;padding:clamp(36px,6vw,72px);text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at center,black,transparent 80%)}
+.cta-band h2{font-family:var(--fd);font-size:clamp(23px,3vw,38px);font-weight:600;letter-spacing:-0.4px;position:relative}
+.cta-band p{color:var(--w70);margin:14px auto 32px;max-width:520px;font-size:15.5px;position:relative}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;margin:40px auto 0;text-align:left}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:12px;color:var(--w70);font-weight:500;letter-spacing:.3px}
+.fg input,.fg select,.fg textarea{background:#FFFFFF;border:1px solid var(--w15);border-radius:9px;padding:13px 15px;color:var(--white);font-size:14px;font-family:var(--fb);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
+.fg select option{background:var(--navy2)}
+.form-note{font-size:11px;color:var(--w45);margin-top:14px;text-align:center}
+.form-success{display:none;background:rgba(14,159,110,.08);border:1px solid rgba(14,159,110,.35);border-radius:13px;padding:22px;margin-top:24px;color:var(--green);font-size:14.5px;text-align:center}
+
+/* ── STICKY CTA ── */
+.sticky-cta{position:fixed;bottom:22px;right:22px;z-index:150;display:flex;align-items:center;gap:10px;background:var(--grad);border:none;color:#fff;padding:14px 24px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 10px 30px rgba(37,99,235,.30);transition:all .3s;opacity:0;transform:translateY(16px);pointer-events:none}
+.sticky-cta.show{opacity:1;transform:none;pointer-events:auto}
+.sticky-cta:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(37,99,235,.38)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--w08);padding:56px var(--px) 36px;margin-top:90px}
+.foot-g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;max-width:1140px;margin:0 auto}
+.foot-d{font-size:13px;color:var(--w45);line-height:1.7;margin-top:14px;max-width:300px}
+.foot-h{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--w45);margin-bottom:16px}
+.foot-l{list-style:none}
+.foot-l li{margin-bottom:10px}
+.foot-l a{color:var(--w70);text-decoration:none;font-size:13.5px;cursor:pointer;transition:color .2s}
+.foot-l a:hover{color:var(--blue)}
+.foot-b{max-width:1140px;margin:44px auto 0;padding-top:24px;border-top:1px solid var(--w08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--w45)}
+
+/* ── PAGE HERO (inner pages) ── */
+.phero{padding:76px var(--px) 56px;position:relative;overflow:hidden;border-bottom:1px solid var(--w08)}
+.phero-in{position:relative;max-width:820px}
+.phero h1{font-family:var(--fd);font-size:clamp(25px,3.3vw,42px);font-weight:600;line-height:1.18;letter-spacing:-0.4px;margin-bottom:16px}
+.phero h1 .gr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phero p{font-size:16px;color:var(--w70);line-height:1.75;max-width:620px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .grid3,.grid4,.price-grid,.int-grid{grid-template-columns:repeat(2,1fr)}
+  .stages{grid-template-columns:repeat(4,1fr);gap:10px}
+  .pipe-out{grid-template-columns:repeat(2,1fr)}
+  .stats-in{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:880px){
+  .nav-links,.nav-cta{display:none}
+  .hamb{display:flex}
+  .feat-hero,.feat-hero.rev{grid-template-columns:1fr}
+  .feat-hero.rev .fh-visual{order:0}
+  .cmp,.roi,.mg-band,.grid2,.form-grid{grid-template-columns:1fr}
+  .foot-g{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .grid3,.grid4,.price-grid,.int-grid,.stats-in{grid-template-columns:1fr}
+  .stages{grid-template-columns:repeat(2,1fr)}
+  .pipe-out{grid-template-columns:1fr}
+  .foot-g{grid-template-columns:1fr}
+  .sticky-cta{right:14px;bottom:14px;padding:12px 18px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="logo" data-page="home">
+    <svg viewBox="0 0 48 44" fill="none"><rect x="1" y="3" width="31" height="27" rx="8" fill="#3B82F6"/><path d="M8 28v10l11-9z" fill="#3B82F6"/><rect x="7" y="11" width="3.4" height="11" rx="1.7" fill="#DCE9FF"/><rect x="12.6" y="7.5" width="3.4" height="18" rx="1.7" fill="#FFFFFF"/><rect x="18.2" y="12.5" width="3.4" height="9" rx="1.7" fill="#DCE9FF"/><rect x="23.8" y="9" width="3.4" height="15" rx="1.7" fill="#FFFFFF"/><rect x="34" y="6" width="13" height="9" rx="4.5" fill="#14B8A6"/><circle cx="37.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="40.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="43.6" cy="10.5" r="1.15" fill="#fff"/><rect x="33.5" y="21.5" width="12.5" height="9.5" rx="4.75" fill="#F59E0B"/><rect x="36.6" y="24" width="1.9" height="4.5" rx=".95" fill="#fff"/><rect x="39.7" y="23.1" width="1.9" height="6.3" rx=".95" fill="#fff"/><rect x="42.8" y="24.6" width="1.9" height="3.6" rx=".95" fill="#fff"/></svg>
+    <div class="logo-t">Polyglot<span>CX</span></div>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a data-page="platform">Platform</a></li>
+    <li><a data-page="integrations">Integrations</a></li>
+    <li><a data-page="pricing">Pricing</a></li>
+    <li><a data-page="managed">Managed Services</a></li>
+    <li><a data-page="why">Why Polyglot</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-ghost" data-page="contact">Talk to us</button>
+    <button class="btn-grad" data-page="contact">Book a demo →</button>
+  </div>
+  <button class="hamb" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="drawer" id="nav-drawer">
+  <ul>
+    <li><a data-page="home">Home</a></li>
+    <li><a data-page="platform">Platform</a></li>
+    <li><a data-page="integrations">Integrations</a></li>
+    <li><a data-page="pricing">Pricing</a></li>
+    <li><a data-page="managed">Managed Services</a></li>
+    <li><a data-page="why">Why Polyglot</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-ghost" data-page="contact">Talk to us</button>
+    <button class="btn-grad" data-page="contact">Book a demo →</button>
+  </div>
+</div>
+
+<div id="page"></div>
+
+<button class="sticky-cta" id="sticky-cta" data-page="contact">📅 Book a demo</button>
+
+<footer>
+  <div class="foot-g">
+    <div>
+      <div class="logo"><svg viewBox="0 0 48 44" fill="none" style="width:30px;height:28px"><rect x="1" y="3" width="31" height="27" rx="8" fill="#3B82F6"/><path d="M8 28v10l11-9z" fill="#3B82F6"/><rect x="7" y="11" width="3.4" height="11" rx="1.7" fill="#DCE9FF"/><rect x="12.6" y="7.5" width="3.4" height="18" rx="1.7" fill="#FFFFFF"/><rect x="18.2" y="12.5" width="3.4" height="9" rx="1.7" fill="#DCE9FF"/><rect x="23.8" y="9" width="3.4" height="15" rx="1.7" fill="#FFFFFF"/><rect x="34" y="6" width="13" height="9" rx="4.5" fill="#14B8A6"/><circle cx="37.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="40.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="43.6" cy="10.5" r="1.15" fill="#fff"/><rect x="33.5" y="21.5" width="12.5" height="9.5" rx="4.75" fill="#F59E0B"/><rect x="36.6" y="24" width="1.9" height="4.5" rx=".95" fill="#fff"/><rect x="39.7" y="23.1" width="1.9" height="6.3" rx=".95" fill="#fff"/><rect x="42.8" y="24.6" width="1.9" height="3.6" rx=".95" fill="#fff"/></svg><div class="logo-t" style="font-size:18px">Polyglot<span>CX</span></div></div>
+      <p class="foot-d">Multilingual AI call intelligence. 100% QA coverage, evidence-backed coaching, and screen behaviour analytics — from any telephony source.</p>
+    </div>
+    <div>
+      <div class="foot-h">Product</div>
+      <ul class="foot-l">
+        <li><a data-page="platform">Platform</a></li>
+        <li><a data-page="integrations">Integrations</a></li>
+        <li><a data-page="pricing">Pricing</a></li>
+        <li><a data-page="managed">Managed Services</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-h">Company</div>
+      <ul class="foot-l">
+        <li><a data-page="why">Why Polyglot</a></li>
+        <li><a data-page="contact">Contact</a></li>
+        <li><a data-page="contact">Book a demo</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-h">Get in touch</div>
+      <ul class="foot-l">
+        <li><a href="mailto:contactus@polyglotcx.com">contactus@polyglotcx.com</a></li>
+        <li><a>Bangalore, India HQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-b">
+    <span>© 2026 PolyglotCX. All rights reserved.</span>
+    <span>Built for contact centres that speak every language.</span>
+  </div>
+</footer>
+
+<script>
+/* ════════ PAGE TEMPLATES ════════ */
+const PAGES = {};
+/* ════════ HOME ════════ */
+PAGES.home = `
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+  <div class="hero-badge">Multilingual call intelligence · Live</div>
+  <h1>Your customers speak 40 languages.<br><span class="gr">Now your QA does too.</span></h1>
+  <p class="hero-sub">Polyglot turns <b>100% of your calls</b> — in any language, even code-switched Hinglish — into transcripts, QA scores, coaching plans, screen behaviour reports, and CRM tickets. <b>Automatically. In under 90 seconds per call.</b></p>
+  <div class="hero-ctas">
+    <button class="btn-xl primary" data-page="contact">Book a live demo →</button>
+    <button class="btn-xl outline" data-page="platform">Explore the platform</button>
+  </div>
+  <p class="hero-trust">Connects to <b>Amazon Connect</b> · <b>Genesys Cloud</b> · <b>Twilio</b> · <b>SIPREC</b> · any telephony source — in under a day</p>
+
+  <div class="pipe-wrap">
+    <div class="pipe-frame">
+      <div class="pipe-head">
+        <div class="pipe-title">⚙ Processing pipeline</div>
+        <div class="pipe-lang" id="pipe-lang">Detected: English + Hindi (code-switched)</div>
+        <div class="pipe-live">Live</div>
+      </div>
+      <div class="wave" id="wave"></div>
+      <div class="stages" id="stages">
+        <div class="stage"><span class="si">🎙</span><span class="sn">Transcribe</span><span class="sd">whisper-asr</span></div>
+        <div class="stage"><span class="si">👥</span><span class="sn">Diarize</span><span class="sd">speakers:2</span></div>
+        <div class="stage"><span class="si">🛡</span><span class="sn">Redact PII</span><span class="sd">4 events</span></div>
+        <div class="stage"><span class="si">📝</span><span class="sn">Summarise</span><span class="sd">4 chains</span></div>
+        <div class="stage"><span class="si">🔍</span><span class="sn">Ground</span><span class="sd">claims✓</span></div>
+        <div class="stage"><span class="si">🎫</span><span class="sn">Ticket</span><span class="sd">P2·billing</span></div>
+        <div class="stage"><span class="si">📊</span><span class="sn">QA Score</span><span class="sd">87/100</span></div>
+        <div class="stage"><span class="si">⚡</span><span class="sn">Rules</span><span class="sd">auto-approve</span></div>
+      </div>
+      <div class="pipe-out" id="pipe-out">
+        <div class="pout"><div class="pl"><i style="background:var(--blue)"></i>Transcript</div><div class="pv">Word-level, speaker-labelled, <b>PII redacted</b></div></div>
+        <div class="pout"><div class="pl"><i style="background:var(--purple)"></i>CRM Ticket</div><div class="pv"><b>P2 · Billing</b> — refund request, 3 action items</div></div>
+        <div class="pout"><div class="pl"><i style="background:var(--green)"></i>QA Evaluation</div><div class="pv"><b>87/100</b> — evidence quoted per criterion</div></div>
+        <div class="pout"><div class="pl"><i style="background:var(--amber)"></i>Coaching Plan</div><div class="pv">2 strengths · <b>1 priority action</b></div></div>
+      </div>
+      <div class="pipe-timer">end-to-end <b id="pipe-t">0.0s</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="stats-in">
+    <div class="stat reveal"><div class="sv">100%</div><div class="sl">of calls QA-evaluated<br><b>vs the 1–3% industry norm</b></div></div>
+    <div class="stat reveal"><div class="sv">&lt;90s</div><div class="sl">to process a 5-minute call<br><b>end-to-end, on CPU</b></div></div>
+    <div class="stat reveal"><div class="sv">20→2</div><div class="sl">minutes per QA review<br><b>a 90% reduction</b></div></div>
+    <div class="stat reveal"><div class="sv">40+</div><div class="sl">languages auto-detected<br><b>including code-switching</b></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="eyebrow reveal">The problem</div>
+  <h2 class="h2 reveal">97% of your calls are never reviewed.<br><span class="bl">That's where the risk lives.</span></h2>
+  <div class="cmp">
+    <div class="cmp-col bad reveal">
+      <div class="cmp-h">😓 Manual QA today</div>
+      <div class="cmp-li"><span class="x">✕</span><span>Quality managers audit <b>1–3% of calls</b> — the rest go unseen</span></div>
+      <div class="cmp-li"><span class="x">✕</span><span><b>~20 minutes</b> per manual evaluation, scores based on gut feel</span></div>
+      <div class="cmp-li"><span class="x">✕</span><span>Non-English and code-switched calls transcribe poorly — <b>or not at all</b></span></div>
+      <div class="cmp-li"><span class="x">✕</span><span>What agents do <b>on screen</b> during calls is completely invisible</span></div>
+      <div class="cmp-li"><span class="x">✕</span><span>Compliance breaches surface <b>weeks later</b> — in complaints or audits</span></div>
+    </div>
+    <div class="cmp-col good reveal">
+      <div class="cmp-h">⚡ With Polyglot</div>
+      <div class="cmp-li"><span class="y">✓</span><span><b>Every call</b> scored against your scorecard, automatically</span></div>
+      <div class="cmp-li"><span class="y">✓</span><span><b>&lt;2 minutes</b> to review — every score backed by a transcript quote</span></div>
+      <div class="cmp-li"><span class="y">✓</span><span>Auto language detection with custom vocabulary — <b>Hinglish included</b></span></div>
+      <div class="cmp-li"><span class="y">✓</span><span><b>Screen Behaviour QA</b> — see CRM usage, idle time, distractions</span></div>
+      <div class="cmp-li"><span class="y">✓</span><span>Compliance risks flagged <b>within seconds</b> of the call ending</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:20px">
+  <div class="eyebrow reveal">Platform highlights</div>
+  <h2 class="h2 reveal">One platform. <span class="gr">Five superpowers.</span></h2>
+
+  <div class="feat-hero reveal">
+    <div>
+      <div class="fh-k">01 · AI Quality Management</div>
+      <div class="fh-t">Every score comes with receipts</div>
+      <p class="fh-d">Polyglot evaluates every call against your weighted scorecard and quotes the exact transcript line behind every score. Supervisors calibrate when they disagree — and the rule engine auto-approves, flags, or escalates evaluations the moment they land.</p>
+      <div class="fh-list">
+        <div class="fh-li"><span><b>Evidence-backed scoring</b> — justification + direct quote per criterion</span></div>
+        <div class="fh-li"><span><b>Channel-aware scorecards</b> for human agents, AI bots, and IVR flows</span></div>
+        <div class="fh-li"><span><b>Rule engine</b> — auto-approve · flag for review · escalate · notify</span></div>
+      </div>
+    </div>
+    <div class="fh-visual">
+      <div class="mini-row"><span class="mn">Opening &amp; Greeting</span><span class="score-pill sp-g">9/10</span></div>
+      <div class="mini-row"><span class="mn">Communication Skills</span><span class="score-pill sp-g">8/10</span></div>
+      <div class="mini-row"><span class="mn">Knowledge Accuracy</span><span class="score-pill sp-b">7/10</span></div>
+      <div class="mini-row"><span class="mn">Resolution Effectiveness</span><span class="score-pill sp-y">6/10</span></div>
+      <div class="mini-row"><span class="mn">Compliance Adherence</span><span class="score-pill sp-g">10/10</span></div>
+      <div class="mini-row" style="background:rgba(14,159,110,.06);border-color:rgba(14,159,110,.3)"><span class="mn" style="font-weight:600;color:#fff">Total · weighted</span><span class="score-pill sp-g">87/100 → auto-approved</span></div>
+      <div style="font-size:11px;color:var(--w45);margin-top:10px;font-family:var(--fm)">💬 "I can certainly waive that fee today" — 02:41, cited as evidence for Resolution</div>
+    </div>
+  </div>
+
+  <div class="feat-hero rev reveal">
+    <div class="fh-visual">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-size:13px;font-weight:600">Screen Behaviour Score</span><span class="score-pill sp-b">78 · Proficient</span></div>
+      <div class="tbar"><i style="width:46%;background:var(--blue)"></i><i style="width:18%;background:var(--purple)"></i><i style="width:14%;background:var(--green)"></i><i style="width:12%;background:var(--w15)"></i><i style="width:10%;background:var(--rose)"></i></div>
+      <div class="tleg"><span><i style="background:var(--blue)"></i>CRM 46%</span><span><i style="background:var(--purple)"></i>Knowledge Base 18%</span><span><i style="background:var(--green)"></i>Call Mgmt 14%</span><span><i style="background:var(--w15)"></i>Idle 12%</span><span><i style="background:var(--rose)"></i>Distraction 10%</span></div>
+      <div class="mini-row" style="margin-top:14px"><span class="mn">After-call work</span><span class="score-pill sp-y">04:10 · acw_too_long</span></div>
+      <div class="mini-row"><span class="mn">CRM updated during call</span><span class="score-pill sp-g">✓ Yes</span></div>
+      <div class="mini-row"><span class="mn">Behaviour flags</span><span class="score-pill sp-r">distraction_detected</span></div>
+    </div>
+    <div>
+      <div class="fh-k">02 · Screen Behaviour QA</div>
+      <div class="fh-t">The first QA tool that can see the screen</div>
+      <p class="fh-d">Voice tells half the story. Upload the agent's screen recording and Polyglot's vision AI reconstructs how they actually worked the call — CRM time, knowledge-base lookups, idle gaps, hold overuse, even sensitive data left on screen.</p>
+      <div class="fh-list">
+        <div class="fh-li"><span><b>0–100 behaviour score</b> with time distribution across activities</span></div>
+        <div class="fh-li"><span><b>8 behaviour flags</b> — from crm_never_opened to sensitive_data_exposed</span></div>
+        <div class="fh-li"><span><b>Frame-by-frame timeline</b> with coaching observations per moment</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-hero reveal">
+    <div>
+      <div class="fh-k">03 · Multilingual ASR + Custom Vocabulary</div>
+      <div class="fh-t">Built for the way Asia actually talks</div>
+      <p class="fh-d">Most ASR engines fall apart when a customer switches from English to Hindi mid-sentence. Polyglot detects languages automatically, handles code-switching natively, and learns your product names, acronyms and competitor terms through queue-scoped custom vocabulary.</p>
+      <div class="fh-list">
+        <div class="fh-li"><span><b>Auto language detection</b> — word-level timestamps and confidence</span></div>
+        <div class="fh-li"><span><b>PII redacted before any AI call</b> — cards, IDs, phones, emails, DOBs</span></div>
+        <div class="fh-li"><span><b>Custom vocabulary</b> scoped global → customer → queue</span></div>
+      </div>
+    </div>
+    <div class="fh-visual">
+      <div class="transcript-line agent"><span class="tl-who">AGT</span><span class="tl-txt">Thank you for calling! How may I help you today?</span></div>
+      <div class="transcript-line cust"><span class="tl-who">CUS</span><span class="tl-txt">Haan, mera <span class="hl">broadband plan</span> upgrade karna hai — the <span class="hl">FibreMax 500</span> one.</span></div>
+      <div class="transcript-line agent"><span class="tl-who">AGT</span><span class="tl-txt">Sure! Can I confirm the card ending <span class="pii">[CARD ****]</span> and your number <span class="pii">[PHONE ****]</span>?</span></div>
+      <div class="transcript-line cust"><span class="tl-who">CUS</span><span class="tl-txt">Yes correct. Aur billing date bhi change kar dijiye please.</span></div>
+      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">lang: en+hi · custom vocab matched: "FibreMax 500" · 2 PII events redacted</div>
+    </div>
+  </div>
+
+  <div class="feat-hero rev reveal">
+    <div class="fh-visual">
+      <div class="mini-row"><span class="mn">🎯 Program · Empathy Excellence Q3</span><span class="score-pill sp-b">active</span></div>
+      <div class="mini-row"><span class="mn">Priya R. — avg score 64</span><span class="score-pill sp-r">needs coaching</span></div>
+      <div class="mini-row" style="flex-direction:column;align-items:flex-start;gap:6px"><span class="mn" style="font-weight:600;color:#fff">AI-seeded session · from eval #4821</span>
+      <span style="font-size:11.5px;color:var(--w70);line-height:1.6">✦ Strength: warm greeting, clear ownership<br>✦ Development: interrupting during objections<br>→ Priority action: complete "active listening" module by Fri</span></div>
+      <div class="mini-row"><span class="mn">Agent acknowledgment</span><span class="score-pill sp-g">✓ acknowledged</span></div>
+    </div>
+    <div>
+      <div class="fh-k">04 · Coaching Hub</div>
+      <div class="fh-t">From AI insight to closed coaching loop</div>
+      <p class="fh-d">Every evaluation generates a coaching plan. The Coaching Hub turns those plans into structured programs, scheduled sessions, and trackable action items — and automatically flags agents who need attention before performance becomes a problem.</p>
+      <div class="fh-list">
+        <div class="fh-li"><span><b>One-click sessions</b> seeded from any evaluation's coaching plan</span></div>
+        <div class="fh-li"><span><b>Action items with due dates</b> — open, in progress, done</span></div>
+        <div class="fh-li"><span><b>Needs-coaching radar</b> — low scores and open items surface automatically</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-hero reveal">
+    <div>
+      <div class="fh-k">05 · Multi-tenant SaaS, enterprise-grade</div>
+      <div class="fh-t">Run one platform. Serve every business unit.</div>
+      <p class="fh-d">Polyglot is multi-tenant from the ground up — strict data isolation per organisation, per-customer token quotas and billing, BYOK API keys encrypted at rest, and role-based access from agent to platform sysadmin.</p>
+      <div class="fh-list">
+        <div class="fh-li"><span><b>Hard tenant isolation</b> — cross-customer access blocked at the API layer</span></div>
+        <div class="fh-li"><span><b>Token quotas &amp; cost tracking</b> per customer, per month, per call</span></div>
+        <div class="fh-li"><span><b>BYOK</b> — customers bring their own AI keys, encrypted with Fernet</span></div>
+        <div class="fh-li"><span><b>Onboard a new organisation in under 5 minutes</b></span></div>
+      </div>
+    </div>
+    <div class="fh-visual">
+      <div class="mini-row"><span class="mn">🏢 Acme Insurance</span><span class="score-pill sp-b">Professional · 38% used</span></div>
+      <div class="mini-row"><span class="mn">🏢 TeleSouth BPO</span><span class="score-pill sp-y">Standard · 84% used</span></div>
+      <div class="mini-row"><span class="mn">🏢 GovServe SG</span><span class="score-pill sp-g">Enterprise · BYOK ✓</span></div>
+      <div class="mini-row"><span class="mn">Cross-tenant data leaks</span><span class="score-pill sp-g">0 · enforced at API</span></div>
+      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">sysadmin console · quotas · licenses · model overrides per tenant</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:10px">
+  <div class="eyebrow reveal">ROI calculator</div>
+  <h2 class="h2 reveal">See what manual QA <span class="bl">is really costing you</span></h2>
+  <div class="roi reveal">
+    <div class="roi-l">
+      <h3>Your contact centre</h3>
+      <p>Drag the sliders — savings update live.</p>
+      <div class="slider-g"><label>Calls per month <b id="rv-calls">10,000</b></label><input type="range" id="r-calls" min="1000" max="100000" step="1000" value="10000"></div>
+      <div class="slider-g"><label>QA analysts on staff <b id="rv-analysts">4</b></label><input type="range" id="r-analysts" min="1" max="30" step="1" value="4"></div>
+      <div class="slider-g"><label>Avg analyst cost / month (USD) <b id="rv-cost">$3,500</b></label><input type="range" id="r-cost" min="1500" max="9000" step="250" value="3500"></div>
+    </div>
+    <div class="roi-r">
+      <div class="roi-card"><span class="rl">Calls reviewed today (3%)</span><span class="rv" id="ro-now">300</span></div>
+      <div class="roi-card"><span class="rl">Calls reviewed with Polyglot</span><span class="rv" style="color:var(--blue)" id="ro-after">10,000</span></div>
+      <div class="roi-card hl"><span class="rl">Est. annual QA cost saved</span><span class="rv" id="ro-save">$134,000</span></div>
+      <div class="roi-card"><span class="rl">Coverage increase</span><span class="rv" style="color:var(--purple)" id="ro-x">33×</span></div>
+      <p class="roi-note">Assumes analysts shift from scoring calls (~20 min each) to calibrating AI evaluations (~2 min), freeing ~80% of QA capacity. Indicative only — get a tailored model in your demo.</p>
+      <button class="btn-grad" style="padding:13px" data-page="contact">Get my tailored ROI report →</button>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:10px">
+  <div class="eyebrow reveal">Plug into your stack</div>
+  <h2 class="h2 reveal">Nine ways in. <span class="gr">Zero rip-and-replace.</span></h2>
+  <p class="sub reveal">Polyglot sits beside your telephony, not instead of it. Every source lands in the same pipeline.</p>
+  <div class="int-grid">
+    <div class="int-c reveal"><div class="int-ic">☁️</div><div><div class="int-n">Amazon Connect</div><div class="int-d">CTR events + S3 recordings</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">🌐</div><div><div class="int-n">Genesys AudioHook</div><div class="int-d">real-time WebSocket v2</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">📞</div><div><div class="int-n">Twilio</div><div class="int-d">RecordingStatusCallback</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">🔌</div><div><div class="int-n">SIPREC (RFC 7866)</div><div class="int-d">Avaya · Cisco · Oracle SBC</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">🪣</div><div><div class="int-n">S3 Bucket Watcher</div><div class="int-d">auto-ingest on drop</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">🔄</div><div><div class="int-n">Kafka / Kinesis</div><div class="int-d">HMAC-verified streams</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">⬆️</div><div><div class="int-n">REST + Drag &amp; Drop</div><div class="int-d">POST /api/calls</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">📡</div><div><div class="int-n">WebSocket Stream</div><div class="int-d">live audio in</div></div></div>
+    <div class="int-c reveal"><div class="int-ic">📁</div><div><div class="int-n">Directory Watcher</div><div class="int-d">on-prem folders</div></div></div>
+  </div>
+  <div style="text-align:center;margin-top:34px" class="reveal"><button class="btn-ghost" data-page="integrations" style="padding:12px 28px">See all integration details →</button></div>
+</section>
+
+<section class="wrap" style="padding-top:10px">
+  <div class="eyebrow reveal">Common questions</div>
+  <h2 class="h2 reveal">Before you ask…</h2>
+  <div class="faq" id="faq-home"></div>
+</section>
+
+<div class="cta-band reveal">
+  <h2>See your own calls scored.<br>Live. In the demo.</h2>
+  <p>Bring a recording. We'll run it through the full pipeline in front of you — transcript, QA score, coaching plan and ticket, in under two minutes.</p>
+  <button class="btn-xl primary" data-page="contact">Book your demo →</button>
+</div>
+`;
+
+/* ════════ PLATFORM ════════ */
+PAGES.platform = `
+<section class="phero">
+  <div class="hero-grid-bg"></div>
+  <div class="phero-in">
+    <div class="eyebrow">Platform</div>
+    <h1>An eight-stage pipeline that turns <span class="gr">audio into action</span></h1>
+    <p>Every call — from any source, in any language — flows through the same intelligence pipeline and lands as structured, evidence-backed output your team can act on immediately.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="grid3">
+    <div class="card reveal"><div class="card-ico">🎙</div><div class="card-t">Stage 1 · Transcription</div><div class="card-d">Whisper-class ASR with word-level timestamps, confidence scores and voice-activity detection. Auto-detects 40+ languages and handles code-switching natively.</div><div class="tagrow"><span class="tag">faster-whisper</span><span class="tag">VAD</span><span class="tag">hotwords</span></div></div>
+    <div class="card reveal"><div class="card-ico">👥</div><div class="card-t">Stage 2 · Diarization</div><div class="card-d">Optional speaker separation assigns every segment to the right voice — agent, customer, or third party — for clean attribution downstream.</div><div class="tagrow"><span class="tag">pyannote 3.1</span><span class="tag">flag-gated</span></div></div>
+    <div class="card reveal"><div class="card-ico">🛡</div><div class="card-t">Stage 3 · PII Redaction</div><div class="card-d">Cards (Luhn-validated), national IDs, phones, emails and birthdates are blanked before any AI model sees the transcript. Full audit trail of every redaction.</div><div class="tagrow"><span class="tag">pre-LLM</span><span class="tag">audit log</span></div></div>
+    <div class="card reveal"><div class="card-ico">📝</div><div class="card-t">Stage 4 · Summarisation ×4</div><div class="card-d">Four parallel summaries, each written for its reader: structured CRM fields, a polite customer recap, supervisor coaching cues, and a severity-ranked compliance audit.</div><div class="tagrow"><span class="tag">4 parallel chains</span><span class="tag">prompt caching</span></div></div>
+    <div class="card reveal"><div class="card-ico">🔍</div><div class="card-t">Stage 5 · Grounding</div><div class="card-d">Every factual claim in every summary is mapped back to the exact transcript segment and timestamp that supports it. No hallucinated summaries — verifiable ones.</div><div class="tagrow"><span class="tag">claim→quote</span><span class="tag">timestamps</span></div></div>
+    <div class="card reveal"><div class="card-ico">🎫</div><div class="card-t">Stage 6 · Voice-to-Ticket</div><div class="card-d">A complete CRM ticket from the conversation itself: priority, category, subject, narrative, action items and customer sentiment — ready to publish to your CRM.</div><div class="tagrow"><span class="tag">P1–P4</span><span class="tag">sentiment</span><span class="tag">action items</span></div></div>
+    <div class="card reveal"><div class="card-ico">📊</div><div class="card-t">Stage 7 · QM Evaluation</div><div class="card-d">Weighted scorecard evaluation with guaranteed structured output. Per-criterion score, justification and direct evidence quote. Supervisors calibrate; both scores are kept.</div><div class="tagrow"><span class="tag">0–100 weighted</span><span class="tag">calibration</span></div></div>
+    <div class="card reveal"><div class="card-ico">⚡</div><div class="card-t">Stage 7b · Rule Engine</div><div class="card-d">Your policy, automated: auto-approve strong calls, flag borderline ones, escalate compliance failures, notify the right people — all logged for audit.</div><div class="tagrow"><span class="tag">AND/OR logic</span><span class="tag">priority order</span></div></div>
+    <div class="card reveal"><div class="card-ico">📡</div><div class="card-t">Stage 8 · Publisher</div><div class="card-d">Structured results stream to Kafka for your CRM, BI warehouse and alerting systems — making Polyglot a data source, not a data silo.</div><div class="tagrow"><span class="tag">Kafka/Redpanda</span><span class="tag">JSON events</span></div></div>
+  </div>
+</section>
+<section class="wrap" style="padding-top:0">
+  <div class="eyebrow reveal">Beyond the pipeline</div>
+  <h2 class="h2 reveal">The workspaces your team lives in</h2>
+  <div class="grid2" style="margin-top:40px">
+    <div class="card reveal"><div class="card-ico">🖥</div><div class="card-t">Screen Behaviour QA</div><div class="card-d">Upload a desktop recording and vision AI scores how the agent actually worked: CRM vs idle vs distraction time, hold overuse, after-call work duration, and 8 behaviour flags — with a frame-by-frame coaching timeline. Independent of the audio pipeline; run or re-run any time.</div></div>
+    <div class="card reveal"><div class="card-ico">🎯</div><div class="card-t">Coaching Hub</div><div class="card-d">Turn AI coaching plans into structured programs, enrollments, sessions and due-dated action items. Agents acknowledge sessions; supervisors track completion; the needs-coaching radar flags low scorers automatically.</div></div>
+    <div class="card reveal"><div class="card-ico">🗂</div><div class="card-t">Agent &amp; Queue Management</div><div class="card-d">Queue-scoped supervision, agent profiles with per-criterion radar charts and evaluation history, and support for human, AI-bot and IVR "agents" — so you can QA your virtual agents with the same rigour as your people.</div></div>
+    <div class="card reveal"><div class="card-ico">📈</div><div class="card-t">Admin Analytics</div><div class="card-d">Pipeline health, compliance pass rates, language and sentiment distribution, agent leaderboards and score distributions — filterable by queue, live via WebSocket push.</div></div>
+    <div class="card reveal"><div class="card-ico">🔤</div><div class="card-t">Custom Vocabulary</div><div class="card-d">Teach the ASR your product names, acronyms and competitor terms. Phrases resolve global → customer → queue and apply at transcription time plus post-ASR correction.</div></div>
+    <div class="card reveal"><div class="card-ico">🏢</div><div class="card-t">Multi-Tenant Console</div><div class="card-d">Onboard customers in minutes. Licenses, seat counts, token quotas with per-customer overrides, BYOK key management (encrypted at rest), and per-tenant AI model configuration.</div></div>
+  </div>
+</section>
+<div class="cta-band reveal">
+  <h2>Two minutes. One call. <br>Full intelligence.</h2>
+  <p>Watch the pipeline run on your own recording in a live demo.</p>
+  <button class="btn-xl primary" data-page="contact">Book a demo →</button>
+</div>
+`;
+
+/* ════════ INTEGRATIONS ════════ */
+PAGES.integrations = `
+<section class="phero">
+  <div class="hero-grid-bg"></div>
+  <div class="phero-in">
+    <div class="eyebrow">Integrations</div>
+    <h1>Works with the stack <span class="gr">you already run</span></h1>
+    <p>Nine ingestion paths, one unified pipeline. Every source is validated, deduplicated by content hash, and processed identically — safe for retries, safe for scale.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="eyebrow reveal">CCaaS &amp; telephony</div>
+  <div class="grid3" style="margin-top:30px">
+    <div class="card reveal"><div class="card-ico">☁️</div><div class="card-t">Amazon Connect</div><div class="card-d">CTR event integration plus S3 recording pickup. Calls land in Polyglot the moment Connect writes them — agent ID, queue and metadata included.</div><div class="tagrow"><span class="tag">CTR + S3 events</span><span class="tag">API key auth</span></div></div>
+    <div class="card reveal"><div class="card-ico">🌐</div><div class="card-t">Genesys Cloud CX</div><div class="card-d">AudioHook v2 WebSocket streaming for real-time audio capture, authenticated by organisation ID.</div><div class="tagrow"><span class="tag">AudioHook v2</span><span class="tag">WebSocket</span></div></div>
+    <div class="card reveal"><div class="card-ico">📞</div><div class="card-t">Twilio</div><div class="card-d">RecordingStatusCallback with full signature validation — recordings flow in as they complete.</div><div class="tagrow"><span class="tag">signature verified</span></div></div>
+    <div class="card reveal"><div class="card-ico">🔌</div><div class="card-t">SIPREC (RFC 7866)</div><div class="card-d">Standards-based session recording from Avaya, Cisco and Oracle SBCs — for the estates that aren't in the cloud yet. HMAC-SHA256 secured.</div><div class="tagrow"><span class="tag">Avaya · Cisco · SBC</span><span class="tag">HMAC</span></div></div>
+    <div class="card reveal"><div class="card-ico">🔄</div><div class="card-t">Kafka Connect / Kinesis Firehose</div><div class="card-d">Stream recordings at scale through your existing event backbone. SHA-256 dedup makes retries idempotent by design.</div><div class="tagrow"><span class="tag">idempotent</span><span class="tag">HMAC</span></div></div>
+    <div class="card reveal"><div class="card-ico">🪣</div><div class="card-t">S3 / Directory Watchers</div><div class="card-d">Point Polyglot at a bucket or a folder. New recordings are picked up automatically — ideal for batch backfills and on-prem recorders.</div><div class="tagrow"><span class="tag">auto-poll</span><span class="tag">backfill</span></div></div>
+  </div>
+  <div class="eyebrow reveal" style="margin-top:60px">Developer-first</div>
+  <div class="grid3" style="margin-top:30px">
+    <div class="card reveal"><div class="card-ico">⬆️</div><div class="card-t">REST API + Drag &amp; Drop</div><div class="card-d">POST a multipart file or drop it in the browser. WAV, MP3, M4A, OGG, FLAC, WebM, MP4, MOV — all validated by magic bytes, not just extension.</div></div>
+    <div class="card reveal"><div class="card-ico">📡</div><div class="card-t">WebSocket Streaming</div><div class="card-d">Push live audio over an API-key-authenticated socket for near-real-time processing scenarios.</div></div>
+    <div class="card reveal"><div class="card-ico">📤</div><div class="card-t">Results out via Kafka</div><div class="card-d">Every processed call publishes a structured JSON event — call ID, language, ticket, summaries, evaluation — for your CRM, BI and alerting consumers.</div></div>
+  </div>
+</section>
+<div class="cta-band reveal">
+  <h2>Don't see your platform?</h2>
+  <p>If it can produce an audio file or a webhook, we can ingest it. Tell us what you run.</p>
+  <button class="btn-xl primary" data-page="contact">Talk to an architect →</button>
+</div>
+`;
+
+/* ════════ PRICING ════════ */
+PAGES.pricing = `
+<section class="phero">
+  <div class="hero-grid-bg"></div>
+  <div class="phero-in">
+    <div class="eyebrow">Pricing</div>
+    <h1>Start free. <span class="gr">Scale when it proves itself.</span></h1>
+    <p>Simple monthly plans sized by call volume. Every plan includes the full pipeline — transcription, QA, coaching and analytics. Bring your own AI key on any tier.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="price-grid">
+    <div class="price-c reveal">
+      <div class="price-n">Trial</div>
+      <div class="price-v">Free<span> · 14 days</span></div>
+      <div class="price-d">~90 calls / month</div>
+      <div class="price-f">
+        <div>Full 8-stage pipeline</div>
+        <div>All 4 AI summaries</div>
+        <div>Automated QA scoring</div>
+        <div>1 organisation</div>
+        <div>Community support</div>
+      </div>
+      <button class="btn-ghost" data-page="contact">Start free trial</button>
+    </div>
+    <div class="price-c reveal">
+      <div class="price-n">Starter</div>
+      <div class="price-v">Talk to us<span></span></div>
+      <div class="price-d">~500 calls / month</div>
+      <div class="price-f">
+        <div>Everything in Trial</div>
+        <div>Custom scorecards + rule engine</div>
+        <div>Custom vocabulary</div>
+        <div>Coaching Hub</div>
+        <div>Email support</div>
+      </div>
+      <button class="btn-ghost" data-page="contact">Get a quote</button>
+    </div>
+    <div class="price-c pop reveal">
+      <div class="pop-badge">Most popular</div>
+      <div class="price-n">Professional</div>
+      <div class="price-v">Talk to us<span></span></div>
+      <div class="price-d">~2,000 calls / month</div>
+      <div class="price-f">
+        <div>Everything in Starter</div>
+        <div>Screen Behaviour QA</div>
+        <div>All 9 ingestion sources</div>
+        <div>Kafka results publishing</div>
+        <div>BYOK (bring your own AI key)</div>
+        <div>Priority support</div>
+      </div>
+      <button class="btn-grad" data-page="contact">Book a demo →</button>
+    </div>
+    <div class="price-c reveal">
+      <div class="price-n">Enterprise</div>
+      <div class="price-v">Custom<span></span></div>
+      <div class="price-d">Unlimited calls</div>
+      <div class="price-f">
+        <div>Everything in Professional</div>
+        <div>Unlimited token quota</div>
+        <div>Multi-tenant / BPO mode</div>
+        <div>Per-tenant model configuration</div>
+        <div>Managed Services option</div>
+        <div>SLA + dedicated architect</div>
+      </div>
+      <button class="btn-ghost" data-page="contact">Contact sales</button>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:12.5px;color:var(--w45);margin-top:28px" class="reveal">Volumes are indicative, based on typical 5-minute calls. Quotas are token-based with transparent per-customer usage tracking — and you can bring your own key to pay AI costs at source.</p>
+</section>
+<section class="wrap" style="padding-top:10px">
+  <div class="eyebrow reveal">Pricing questions</div>
+  <h2 class="h2 reveal">Fair questions, straight answers</h2>
+  <div class="faq" id="faq-pricing"></div>
+</section>
+<div class="cta-band reveal">
+  <h2>Not sure which plan fits?</h2>
+  <p>Tell us your monthly call volume and languages — we'll size it in one call.</p>
+  <button class="btn-xl primary" data-page="contact">Get a tailored quote →</button>
+</div>
+`;
+
+/* ════════ MANAGED ════════ */
+PAGES.managed = `
+<section class="phero">
+  <div class="hero-grid-bg"></div>
+  <div class="phero-in">
+    <div class="eyebrow">Managed Services</div>
+    <h1>Your QA function, <span class="gr">run for you</span></h1>
+    <p>Don't have a QA team — or want yours focused on coaching, not scoring? Our managed service operates Polyglot on your behalf: calibration, scorecard tuning, weekly insight reports and compliance escalation, run by contact-centre QA specialists.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="grid3">
+    <div class="card reveal"><div class="card-ico">🛠</div><div class="card-t">Platform Operations</div><div class="card-d">We run ingestion, monitor pipeline health, manage custom vocabulary and keep your scorecards aligned to evolving business rules.</div></div>
+    <div class="card reveal"><div class="card-ico">⚖️</div><div class="card-t">Human Calibration</div><div class="card-d">Our QA specialists review AI evaluations weekly, calibrate scores, and tune rule-engine thresholds so auto-approval stays trustworthy.</div></div>
+    <div class="card reveal"><div class="card-ico">📋</div><div class="card-t">Insight Reporting</div><div class="card-d">Weekly executive summaries: agent leaderboards, compliance trends, coaching priorities and root-cause themes across your queues.</div></div>
+    <div class="card reveal"><div class="card-ico">🚨</div><div class="card-t">Compliance Watch</div><div class="card-d">High-severity risks are triaged and escalated to your named contacts within agreed SLAs — with the evidence quote attached.</div></div>
+    <div class="card reveal"><div class="card-ico">🎓</div><div class="card-t">Coaching Program Design</div><div class="card-d">We design and run coaching programs in the Hub — enrollment, session cadence, action-item follow-through — informed by your evaluation data.</div></div>
+    <div class="card reveal"><div class="card-ico">🚀</div><div class="card-t">Onboarding &amp; Migration</div><div class="card-d">From telephony connection to first scored call in days. We handle source integration, scorecard build and team training.</div></div>
+  </div>
+  <div class="mg-band reveal">
+    <div>
+      <h2 class="h2" style="font-size:clamp(20px,2.4vw,30px)">Built by people who've run contact centres — <span class="bl">not just built software</span></h2>
+      <p class="sub" style="margin-top:14px">Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We know what a QA week actually looks like — and what supervisors will and won't adopt.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="roi-card"><span class="rl">Time to first scored call</span><span class="rv" style="font-size:20px;color:var(--blue)">&lt; 1 week</span></div>
+      <div class="roi-card"><span class="rl">Calibration cadence</span><span class="rv" style="font-size:20px">Weekly</span></div>
+      <div class="roi-card"><span class="rl">Compliance escalation SLA</span><span class="rv" style="font-size:20px;color:var(--green)">Same day</span></div>
+    </div>
+  </div>
+</section>
+<div class="cta-band reveal">
+  <h2>QA coverage without the headcount</h2>
+  <p>Tell us your volumes and languages — we'll scope a managed engagement in one call.</p>
+  <button class="btn-xl primary" data-page="contact">Scope my engagement →</button>
+</div>
+`;
+
+/* ════════ WHY ════════ */
+PAGES.why = `
+<section class="phero">
+  <div class="hero-grid-bg"></div>
+  <div class="phero-in">
+    <div class="eyebrow">Why Polyglot</div>
+    <h1>Four gaps every other tool leaves open. <span class="gr">We built for them.</span></h1>
+    <p>Plenty of products transcribe calls. Polyglot was designed around the four failures that keep multilingual contact centres stuck with 3% QA coverage.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="grid2">
+    <div class="card reveal"><div class="card-ico">🗣</div><div class="card-t">Gap 1 — Multilingual reality</div><div class="card-d">Western-built ASR collapses on code-switched speech. Polyglot detects languages automatically, transcribes Hinglish and mixed-language calls natively, and lets you teach it your product vocabulary per queue. Accurate data in, accurate intelligence out.</div></div>
+    <div class="card reveal"><div class="card-ico">🧾</div><div class="card-t">Gap 2 — Scores without evidence</div><div class="card-d">An AI score nobody trusts is a score nobody uses. Every Polyglot evaluation quotes the transcript line behind every criterion, grounds every summary claim to a timestamp, and keeps supervisor calibrations side-by-side with AI scores.</div></div>
+    <div class="card reveal"><div class="card-ico">🖥</div><div class="card-t">Gap 3 — The invisible screen</div><div class="card-d">QA has always been deaf to what agents do on screen. Polyglot's vision-based Screen Behaviour QA scores CRM usage, idle time, hold overuse and distraction — the half of agent performance no voice tool can see.</div></div>
+    <div class="card reveal"><div class="card-ico">🏢</div><div class="card-t">Gap 4 — Bolted-on multi-tenancy</div><div class="card-d">Most platforms added tenancy later; the seams show in quota leaks and shared keys. Polyglot is multi-tenant at the core: API-enforced isolation, per-customer quotas and billing, encrypted BYOK keys, per-tenant model config.</div></div>
+  </div>
+  <div class="eyebrow reveal" style="margin-top:64px">Trust &amp; security</div>
+  <h2 class="h2 reveal">Engineered for regulated environments</h2>
+  <div class="grid3" style="margin-top:36px">
+    <div class="card reveal"><div class="card-ico">🛡</div><div class="card-t">PII never reaches the LLM</div><div class="card-d">Cards, IDs, phones, emails and birthdates are detected and blanked before any AI call — with a full redaction audit trail.</div></div>
+    <div class="card reveal"><div class="card-ico">🔐</div><div class="card-t">Keys encrypted at rest</div><div class="card-d">BYOK API keys are stored with Fernet symmetric encryption and never returned by the API — only a configured flag and prefix.</div></div>
+    <div class="card reveal"><div class="card-ico">🔏</div><div class="card-t">Verified ingestion</div><div class="card-d">HMAC-SHA256 signature verification on streaming sources; content-hash dedup makes every retry safe.</div></div>
+    <div class="card reveal"><div class="card-ico">👤</div><div class="card-t">Role-based access</div><div class="card-d">Sysadmin, admin and supervisor roles with queue-level scoping. Cross-tenant requests return 403 — enforced at the API, not the UI.</div></div>
+    <div class="card reveal"><div class="card-ico">⏱</div><div class="card-t">Short-lived sessions</div><div class="card-d">8-hour token TTL with server-side invalidation on logout, and case-insensitive login that never locks users out over a capital letter.</div></div>
+    <div class="card reveal"><div class="card-ico">📜</div><div class="card-t">Everything is logged</div><div class="card-d">Rule triggers, redactions, calibrations and token usage are all auditable — per call, per customer, per month.</div></div>
+  </div>
+</section>
+<div class="cta-band reveal">
+  <h2>The proof is your own audio</h2>
+  <p>Bring your hardest call — heavy accent, mixed language, compliance-sensitive. We'll score it live.</p>
+  <button class="btn-xl primary" data-page="contact">Put us to the test →</button>
+</div>
+`;
+
+/* ════════ CONTACT ════════ */
+PAGES.contact = `
+<section class="phero">
+  <div class="hero-grid-bg"></div>
+  <div class="phero-in">
+    <div class="eyebrow">Contact</div>
+    <h1>See Polyglot on <span class="gr">your own calls</span></h1>
+    <p>30 minutes. We run your recording through the live pipeline, size your ROI, and map the integration to your telephony. No slideware.</p>
+  </div>
+</section>
+<section class="wrap" style="max-width:900px;margin:0 auto">
+  <div class="form-grid" id="lead-form">
+    <div class="fg"><label for="f-name">Full name *</label><input id="f-name" type="text" placeholder="Jane Tan" required></div>
+    <div class="fg"><label for="f-email">Work email *</label><input id="f-email" type="email" placeholder="jane@company.com" required></div>
+    <div class="fg"><label for="f-company">Company *</label><input id="f-company" type="text" placeholder="Acme Insurance" required></div>
+    <div class="fg"><label for="f-role">Your role</label><input id="f-role" type="text" placeholder="Head of CX / QA Manager / IT"></div>
+    <div class="fg"><label for="f-vol">Monthly call volume</label><select id="f-vol"><option>Under 1,000</option><option selected>1,000 – 10,000</option><option>10,000 – 50,000</option><option>50,000+</option></select></div>
+    <div class="fg"><label for="f-tel">Telephony platform</label><select id="f-tel"><option>Amazon Connect</option><option>Genesys Cloud CX</option><option>Twilio</option><option>Avaya / Cisco (SIPREC)</option><option>Other / multiple</option></select></div>
+    <div class="fg full"><label for="f-msg">What problem are you trying to solve?</label><textarea id="f-msg" rows="4" placeholder="e.g. We review under 2% of calls and our Tamil + English mix breaks our current transcription tool…"></textarea></div>
+    <div class="fg full"><button class="btn-xl primary" style="width:100%" id="lead-submit">Request my demo →</button></div>
+  </div>
+  <p class="form-note">We reply within one business day. Your details are used only to arrange the demo — no mailing lists, no spam.</p>
+  <div class="form-success" id="form-success">✓ Thanks — your demo request is in. We'll be in touch within one business day. (Tip: have a sample recording ready for the session.)</div>
+  <div class="grid3" style="margin-top:56px">
+    <div class="card reveal" style="text-align:center"><div style="font-size:26px;margin-bottom:10px">📧</div><div class="card-t">Email</div><div class="card-d">contactus@polyglotcx.com</div></div>
+    <div class="card reveal" style="text-align:center"><div style="font-size:26px;margin-bottom:10px">📍</div><div class="card-t">Based in</div><div class="card-d">India — serving APAC and beyond</div></div>
+    <div class="card reveal" style="text-align:center"><div style="font-size:26px;margin-bottom:10px">⚡</div><div class="card-t">Response time</div><div class="card-d">Within one business day</div></div>
+  </div>
+</section>
+`;
+
+/* ════════ FAQ DATA ════════ */
+const FAQ_HOME = [
+  ["Do we have to replace our telephony platform?","No. Polyglot sits beside your existing stack — Amazon Connect, Genesys, Twilio, Avaya/Cisco via SIPREC, or even a folder of recordings. Nine ingestion paths, no rip-and-replace, typically connected in under a day."],
+  ["How accurate is it on non-English and mixed-language calls?","Language is auto-detected per call, and code-switched speech (like Hinglish) is transcribed natively rather than forced into one language. You can also add custom vocabulary — product names, acronyms, competitor terms — scoped per queue or per organisation, which is applied both at transcription time and as post-ASR correction."],
+  ["What about customer privacy and PII?","Card numbers (Luhn-validated), national IDs, phone numbers, emails and birthdates are detected and blanked before any AI model sees the transcript — with an audit log of every redaction. BYOK keys are encrypted at rest, and tenant isolation is enforced at the API layer."],
+  ["Will supervisors trust AI scores?","That's exactly why every score carries evidence: a justification plus a direct transcript quote per criterion. Supervisors can calibrate any score, and both the AI score and the calibrated score are kept side by side — trust is built in, not assumed."],
+  ["How fast can we go live?","A typical 5-minute call processes end-to-end in under 90 seconds, a new organisation can be onboarded in under 5 minutes, and most telephony integrations connect within a day. First scored calls usually happen in the first week."],
+];
+const FAQ_PRICING = [
+  ["How does token-based quota work?","Each plan includes a monthly AI token allowance (roughly proportional to call volume). Usage is tracked per customer per month with a transparent usage table — you always see consumption and estimated cost before you hit a limit."],
+  ["What is BYOK and why would I use it?","Bring Your Own Key: store your own Anthropic API key (encrypted at rest) and AI costs are billed directly to your account at provider rates. Ideal for enterprises with existing AI agreements or data-governance requirements."],
+  ["Can we run multiple business units or clients on one deployment?","Yes — Polyglot is multi-tenant by design. Each organisation gets isolated data, its own quota and license, optional model overrides, and its own scorecards. BPOs can serve many clients from a single deployment."],
+  ["Is there a commitment?","The trial is free for 14 days with no card. Paid plans are monthly; enterprise terms are annual with SLAs. You keep your data either way."],
+];
+
+/* ════════ ROUTER ════════ */
+function navigate(page){
+  if(!PAGES[page]) page='home';
+  const el=document.getElementById('page');
+  el.innerHTML='<div class="pg">'+PAGES[page]+'</div>';
+  window.scrollTo({top:0,behavior:'instant'});
+  document.querySelectorAll('.nav-links a, .drawer a').forEach(a=>{
+    a.classList.toggle('active',a.dataset.page===page);
+  });
+  const titles={home:'Polyglot — AI Call Intelligence',platform:'Platform — Polyglot',integrations:'Integrations — Polyglot',pricing:'Pricing — Polyglot',managed:'Managed Services — Polyglot',why:'Why Polyglot',contact:'Book a Demo — Polyglot'};
+  document.title=titles[page]||'Polyglot';
+  // close drawer
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('nav-drawer').classList.remove('open');
+  document.body.style.overflow='';
+  history.pushState({page},'', '#'+(page==='home'?'':page));
+  initPageWidgets(page);
+}
+
+/* ════════ WIDGET INIT ════════ */
+let pipeTimer=null, pipeRAF=null;
+function initPageWidgets(page){
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // FAQ
+  const buildFaq=(id,data)=>{
+    const host=document.getElementById(id); if(!host)return;
+    host.innerHTML=data.map((q,i)=>`<div class="faq-i"><button class="faq-q" data-i="${i}">${q[0]}<span>+</span></button><div class="faq-a"><div>${q[1]}</div></div></div>`).join('');
+    host.querySelectorAll('.faq-q').forEach(btn=>btn.addEventListener('click',()=>{
+      const item=btn.parentElement, a=item.querySelector('.faq-a'), open=item.classList.contains('open');
+      host.querySelectorAll('.faq-i').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').style.maxHeight=null});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+    }));
+  };
+  buildFaq('faq-home',FAQ_HOME);
+  buildFaq('faq-pricing',FAQ_PRICING);
+
+  // hero waveform + pipeline animation
+  clearInterval(pipeTimer);
+  const wave=document.getElementById('wave');
+  if(wave){
+    wave.innerHTML='';
+    for(let i=0;i<72;i++){
+      const b=document.createElement('i');
+      b.style.height=(8+Math.random()*34)+'px';
+      b.style.animationDelay=(Math.random()*1.1)+'s';
+      b.style.animationDuration=(0.7+Math.random()*0.9)+'s';
+      wave.appendChild(b);
+    }
+    const stages=[...document.querySelectorAll('#stages .stage')];
+    const outs=[...document.querySelectorAll('#pipe-out .pout')];
+    const tEl=document.getElementById('pipe-t');
+    const langs=['English + Hindi (code-switched)','Bahasa Melayu','Mandarin + English','Tamil','Tagalog + English','Thai','Vietnamese','Cantonese + English'];
+    const langEl=document.getElementById('pipe-lang');
+    let step=0, t=0, cycle=0;
+    pipeTimer=setInterval(()=>{
+      if(step<stages.length){
+        stages.forEach((s,i)=>{s.classList.toggle('on',i===step);if(i<step)s.classList.add('done')});
+        if(step>=4) outs[Math.min(step-4,3)].classList.add('show');
+        t+=8+Math.random()*6;
+        if(tEl)tEl.textContent=t.toFixed(1)+'s';
+        step++;
+      } else {
+        outs.forEach(o=>o.classList.add('show'));
+        setTimeout(()=>{ // reset cycle
+          stages.forEach(s=>s.classList.remove('on','done'));
+          outs.forEach(o=>o.classList.remove('show'));
+          step=0;t=0;cycle++;
+          if(langEl)langEl.textContent='Detected: '+langs[cycle%langs.length];
+        },1800);
+        step++; // park until reset
+        if(step>stages.length+2){step=stages.length+2}
+      }
+    },820);
+  }
+
+  // ROI calc
+  const rc=document.getElementById('r-calls');
+  if(rc){
+    const ra=document.getElementById('r-analysts'),rco=document.getElementById('r-cost');
+    const fmt=n=>n.toLocaleString('en-US');
+    const upd=()=>{
+      const calls=+rc.value, an=+ra.value, cost=+rco.value;
+      document.getElementById('rv-calls').textContent=fmt(calls);
+      document.getElementById('rv-analysts').textContent=an;
+      document.getElementById('rv-cost').textContent='$'+fmt(cost);
+      const now=Math.round(calls*0.03);
+      document.getElementById('ro-now').textContent=fmt(now);
+      document.getElementById('ro-after').textContent=fmt(calls);
+      const saved=Math.round(an*cost*0.8*12);
+      document.getElementById('ro-save').textContent='$'+fmt(saved);
+      document.getElementById('ro-x').textContent=(now>0?Math.round(calls/now):'∞')+'×';
+    };
+    [rc,ra,rco].forEach(s=>s.addEventListener('input',upd));
+    upd();
+  }
+
+  // lead form
+  const sub=document.getElementById('lead-submit');
+  if(sub){
+    sub.addEventListener('click',()=>{
+      const name=document.getElementById('f-name'),email=document.getElementById('f-email'),co=document.getElementById('f-company');
+      let ok=true;
+      [name,email,co].forEach(f=>{
+        if(!f.value.trim()){f.style.borderColor='var(--rose)';ok=false}
+        else f.style.borderColor='var(--w15)';
+      });
+      if(email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.style.borderColor='var(--rose)';ok=false}
+      if(!ok)return;
+      document.getElementById('lead-form').style.display='none';
+      document.querySelector('.form-note').style.display='none';
+      document.getElementById('form-success').style.display='block';
+      window.scrollTo({top:document.getElementById('form-success').offsetTop-140,behavior:'smooth'});
+    });
+  }
+}
+
+/* ════════ GLOBAL ════════ */
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-page]');
+  if(a){e.preventDefault();navigate(a.dataset.page)}
+});
+window.addEventListener('scroll',()=>{
+  document.getElementById('main-nav').style.background=window.scrollY>40?'rgba(255,255,255,.97)':'rgba(255,255,255,.88)';
+  document.getElementById('sticky-cta').classList.toggle('show',window.scrollY>700 && !location.hash.includes('contact'));
+});
+document.getElementById('hamburger').addEventListener('click',()=>{
+  const h=document.getElementById('hamburger'),d=document.getElementById('nav-drawer');
+  h.classList.toggle('open');d.classList.toggle('open');
+  document.body.style.overflow=d.classList.contains('open')?'hidden':'';
+});
+window.addEventListener('popstate',e=>{
+  navigate((e.state&&e.state.page)||location.hash.replace('#','')||'home');
+});
+navigate(location.hash.replace('#','')||'home');
+
+</script>
+</body>
+</html>
