@@ -245,7 +245,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 
 /* ── CTA BAND / FORM ── */
 .cta-band{margin:80px var(--px) 0;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(109,84,235,.1));border:1px solid rgba(37,99,235,.25);border-radius:26px;padding:clamp(36px,6vw,72px);text-align:center;position:relative;overflow:hidden}
-.cta-band::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at center,black,transparent 80%)}
+.cta-band::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at center,black,transparent 80%)}
 .cta-band h2{font-family:var(--fd);font-size:clamp(23px,3vw,38px);font-weight:600;letter-spacing:-0.4px;position:relative}
 .cta-band p{color:var(--w70);margin:14px auto 32px;max-width:520px;font-size:15.5px;position:relative}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;margin:40px auto 0;text-align:left}
