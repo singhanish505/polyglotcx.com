@@ -855,6 +855,7 @@ ${ctaBand({ h2: 'Don&rsquo;t see your platform?', p: 'If it can produce an audio
 
 // Capabilities that ship today — described here, and linked to the live product.
 const CAPABILITIES = [
+  ['Quality management', 'Contact center quality management', 'What contact center QA is &mdash; coverage, scorecards, calibration and coaching &mdash; and how PolyglotCX runs all of it automatically, on 100% of calls.'],
   ['AI Quality Management', 'Automated AI quality assurance', 'Every call scored against your weighted scorecard automatically &mdash; 100% coverage, in any language, in under 90 seconds per call.'],
   ['AI call scoring', 'Evidence-backed scoring', 'A per-criterion score with a direct transcript quote behind it, plus supervisor calibration kept side by side with the AI score.'],
   ['Agent coaching', 'AI agent coaching &amp; Coaching Hub', 'Every evaluation generates a coaching plan; the Coaching Hub turns those into programs, scheduled sessions and tracked, due-dated action items.'],
@@ -865,7 +866,6 @@ const CAPABILITIES = [
 
 // How-to articles / explainers — genuinely still being written.
 const GUIDES = [
-  ['Guide', 'What is contact center quality management?', 'The fundamentals: coverage, scorecards, calibration and coaching.'],
   ['Guide', 'AI contact center QA: a buyer&rsquo;s guide', 'What to evaluate in automated call QA, and the questions that expose weak vendors.'],
   ['Guide', 'Contact center softphone guide', 'WebRTC, CTI, provider abstraction and what "browser-based" really means.'],
   ['Guide', 'What is a unified agent desktop?', 'Bringing voice, digital, context and AI assistance into one workspace.'],
