@@ -127,3 +127,14 @@ export const webPageJsonLd = ({ name, description, url }) => ({
   isPartOf: { '@id': SITE + '/#website' },
   publisher: { '@id': ORG_ID },
 });
+
+export const serviceJsonLd = ({ name, description, url, serviceType }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name,
+  description,
+  serviceType,
+  url: SITE + url,
+  provider: { '@id': ORG_ID },
+  areaServed: 'Worldwide',
+});

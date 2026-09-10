@@ -27,6 +27,13 @@ export const SOLUTIONS = [
   { slug: 'government', name: 'Government & Public Sector', desc: 'Compliance, transparency and multilingual service.' },
 ];
 
+export const SERVICES = [
+  { slug: 'professional-services', name: 'Professional Services', short: 'Professional Services',
+    desc: 'Contact center transformation — advisory, migration, implementation and enablement.' },
+  { slug: 'managed-services', name: 'Managed Services', short: 'Managed Services',
+    desc: 'We run your quality operations — calibration, reporting and compliance escalation.' },
+];
+
 export const INTEGRATIONS = [
   { slug: 'amazon-connect', name: 'Amazon Connect', desc: 'CTR events and S3 recording ingestion.' },
   { slug: 'genesys-cloud', name: 'Genesys Cloud CX', desc: 'AudioHook streaming and org-scoped auth.' },
@@ -44,6 +51,8 @@ export function navHtml() {
     npLink(`/products/${p.slug}/`, p.name, p.desc, p.status)).join('');
   const solutionLinks = SOLUTIONS.map(s =>
     npLink(`/solutions/${s.slug}/`, s.name, s.desc)).join('');
+  const serviceLinks = SERVICES.map(s =>
+    npLink(`/services/${s.slug}/`, s.name, s.desc)).join('');
   const integrationLinks = INTEGRATIONS.map(i =>
     npLink(`/integrations/${i.slug}/`, i.name, i.desc)).join('');
 
@@ -60,6 +69,12 @@ export function navHtml() {
       <div class="nav-panel" role="menu">
         <div class="np-grid">${solutionLinks}</div>
         <div class="np-foot"><span>By team and sector.</span><a href="/solutions/">All solutions &rarr;</a></div>
+      </div>
+    </div>
+    <div class="nav-item"><button type="button" aria-haspopup="true" aria-expanded="false">Services ${CARET}</button>
+      <div class="nav-panel" role="menu">
+        <div class="np-grid">${serviceLinks}</div>
+        <div class="np-foot"><span>Transform faster, or let us run it.</span><a href="/services/">All services &rarr;</a></div>
       </div>
     </div>
     <div class="nav-item"><button type="button" aria-haspopup="true" aria-expanded="false">Integrations ${CARET}</button>
@@ -88,6 +103,8 @@ export function navHtml() {
     <div class="m-sub">${PRODUCTS.map(p => `<a href="/products/${p.slug}/"><span class="np-dot ${p.status}"></span>${p.name}</a>`).join('')}<a href="/products/">All products</a></div></div>
   <div class="m-section"><button class="m-toggle" type="button" aria-expanded="false">Solutions ${CARET}</button>
     <div class="m-sub">${SOLUTIONS.map(s => `<a href="/solutions/${s.slug}/">${s.name}</a>`).join('')}<a href="/solutions/">All solutions</a></div></div>
+  <div class="m-section"><button class="m-toggle" type="button" aria-expanded="false">Services ${CARET}</button>
+    <div class="m-sub">${SERVICES.map(s => `<a href="/services/${s.slug}/">${s.name}</a>`).join('')}<a href="/services/">All services</a></div></div>
   <div class="m-section"><button class="m-toggle" type="button" aria-expanded="false">Integrations ${CARET}</button>
     <div class="m-sub">${INTEGRATIONS.map(i => `<a href="/integrations/${i.slug}/">${i.name}</a>`).join('')}<a href="/integrations/">All integrations</a></div></div>
   <a class="m-flat" href="/resources/">Resources</a>
@@ -124,6 +141,12 @@ export function footerHtml() {
       ['Government', '/solutions/government/'],
       ['Integrations', '/integrations/'],
       ['Pricing', '/pricing/'],
+    ])}
+    ${col('Services', [
+      ['Professional Services', '/services/professional-services/'],
+      ['Managed Services', '/services/managed-services/'],
+      ['Contact Center Transformation', '/services/professional-services/'],
+      ['All services', '/services/'],
     ])}
     ${col('Company', [
       ['About', '/company/'],

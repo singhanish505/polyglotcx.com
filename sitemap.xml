@@ -73,6 +73,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://polyglotcx.com/services/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://polyglotcx.com/services/professional-services/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://polyglotcx.com/services/managed-services/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://polyglotcx.com/integrations/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>

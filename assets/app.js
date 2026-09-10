@@ -44,7 +44,10 @@
     'x-circle': '<svg ' + _s + '><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>',
     sparkles: '<svg ' + _s + '><path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4z M18.5 3.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>',
     mail: '<svg ' + _s + '><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>',
-    'map-pin': '<svg ' + _s + '><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>'
+    'map-pin': '<svg ' + _s + '><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>',
+    academic: '<svg ' + _s + '><path d="M12 4l10 5-10 5L2 9z M6 11v5c0 1.6 2.7 3 6 3s6-1.4 6-3v-5M22 9v5"/></svg>',
+    alert: '<svg ' + _s + '><path d="M12 3l10 17H2z M12 9v5M12 17h.01"/></svg>',
+    rocket: '<svg ' + _s + '><path d="M12 3c3.2 1.2 6 4.3 6 9.2L15 14l-6 0-3-1.8C6 7.3 8.8 4.2 12 3z M9 14l-3 3 3 1 1 3 3-3"/><circle cx="12" cy="9" r="1"/></svg>'
   };
 
   function hydrateIcons(root) {

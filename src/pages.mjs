@@ -1,7 +1,7 @@
-import { SITE, PRODUCTS, SOLUTIONS, INTEGRATIONS, statusLabel } from './nav.mjs';
+import { SITE, PRODUCTS, SOLUTIONS, SERVICES, INTEGRATIONS, statusLabel } from './nav.mjs';
 import {
   phero, section, ctaBand, cardGrid, cardHtml, vlist, faq, statusPill,
-  orgJsonLd, websiteJsonLd, softwareAppJsonLd, webPageJsonLd,
+  orgJsonLd, websiteJsonLd, softwareAppJsonLd, webPageJsonLd, serviceJsonLd,
 } from './ui.mjs';
 
 const bc = (...items) => items;
@@ -147,7 +147,7 @@ ${STATS_BAND}
   <h2 class="h2 reveal">One platform for the <span class="gr">whole contact center</span></h2>
   <p class="sub reveal">PolyglotCX started with automated quality management and is expanding into a full contact-center and customer-experience suite. Every product runs on the same provider-agnostic backend, security model and AI services &mdash; and each is labelled by stage, so you always know what is available.</p>
   <div class="prod-grid">${PRODUCTS.map(productHubCard).join('')}</div>
-  <p class="center reveal" style="font-size:12.5px;color:var(--w45);margin-top:24px">Plus <a href="/solutions/" style="color:var(--blue)">managed services</a> &mdash; our specialists run the QA function for you.</p>
+  <p class="center reveal" style="font-size:12.5px;color:var(--w45);margin-top:24px">Plus <a href="/services/" style="color:var(--blue)">Professional &amp; Managed Services</a> &mdash; transformation delivery, or we run your quality operations for you.</p>
 </section>
 
 <section class="wrap" style="padding-top:0">
@@ -732,9 +732,9 @@ ${phero({ eyebrow: 'Solutions', h1: 'Contact center solutions, <span class="gr">
   ${cardGrid(SOLUTIONS.map((s) => ({ icon: SOLUTION_ICON[s.slug], title: s.name, body: s.desc, link: ['See the solution', `/solutions/${s.slug}/`] })), 2)}
   <div class="mg-band reveal" style="margin-top:44px">
     <div>
-      <h2 class="h2" style="font-size:clamp(20px,2.4vw,30px)">Prefer we run it? <span class="bl">Managed Services</span></h2>
-      <p class="sub" style="margin-top:14px">Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We can operate PolyglotCX on your behalf: calibration, scorecard tuning, weekly insight reports and compliance escalation.</p>
-      <div style="margin-top:22px"><a class="btn-xl primary" href="/contact/" style="padding:13px 26px;font-size:15px">Scope a managed engagement &rarr;</a></div>
+      <h2 class="h2" style="font-size:clamp(20px,2.4vw,30px)">Need help getting there? <span class="bl">Services</span></h2>
+      <p class="sub" style="margin-top:14px"><a href="/services/professional-services/" style="color:var(--blue)">Professional Services</a> plans and delivers the transformation; <a href="/services/managed-services/" style="color:var(--blue)">Managed Services</a> runs your quality operations once it is live &mdash; calibration, reporting and compliance escalation.</p>
+      <div style="margin-top:22px"><a class="btn-xl primary" href="/services/" style="padding:13px 26px;font-size:15px">Explore services &rarr;</a></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:12px">
       <div class="roi-card"><span class="rl">Time to first scored call</span><span class="rv" style="font-size:20px;color:var(--blue)">&lt; 1 week</span></div>
@@ -848,6 +848,158 @@ ${phero({ eyebrow: 'Integrations', h1: 'Works with the stack <span class="gr">yo
   ], 3)}
 </section>
 ${ctaBand({ h2: 'Don&rsquo;t see your platform?', p: 'If it can produce an audio file or a webhook, we can ingest it. Tell us what you run.', cta: ['Talk to an architect', '/contact/'] })}
+`,
+};
+
+/* ═════════════════ SERVICES ═════════════════ */
+
+const SERVICE_ICON = { 'professional-services': 'settings', 'managed-services': 'headset' };
+
+const servicesHub = {
+  path: '/services/',
+  title: 'Contact Center Services | Professional & Managed Services | PolyglotCX',
+  description: 'PolyglotCX services: Professional Services for contact center transformation — advisory, CCaaS migration and implementation — and Managed Services to run your quality operations for you.',
+  breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Services' }),
+  jsonLd: [webPageJsonLd({ name: 'PolyglotCX Services', description: 'Professional Services and Managed Services for the contact center.', url: '/services/' })],
+  body: `
+${phero({
+  eyebrow: 'Services',
+  h1: 'Get to value faster &mdash; <span class="gr">with people who have run contact centers</span>',
+  lead: 'Software is half the job. PolyglotCX offers <b>Professional Services</b> to plan and deliver a contact center transformation, and <b>Managed Services</b> to run your quality operations once it is live.',
+})}
+<section class="wrap">
+  ${cardGrid(SERVICES.map((s) => ({
+    icon: SERVICE_ICON[s.slug], title: s.name, body: s.desc,
+    link: ['Learn more', `/services/${s.slug}/`],
+  })), 2)}
+  <div class="mg-band reveal" style="margin-top:44px">
+    <div>
+      <h2 class="h2" style="font-size:clamp(20px,2.4vw,30px)">Built by CCaaS practitioners, <span class="bl">not just software engineers</span></h2>
+      <p class="sub" style="margin-top:14px">Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We know what a QA week actually looks like &mdash; and what supervisors will and won&rsquo;t adopt.</p>
+      <div style="margin-top:22px"><a class="btn-xl primary" href="/contact/" style="padding:13px 26px;font-size:15px">Scope an engagement &rarr;</a></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="roi-card"><span class="rl">Time to first scored call</span><span class="rv" style="font-size:20px;color:var(--blue)">&lt; 1 week</span></div>
+      <div class="roi-card"><span class="rl">Calibration cadence</span><span class="rv" style="font-size:20px">Weekly</span></div>
+      <div class="roi-card"><span class="rl">Compliance escalation SLA</span><span class="rv" style="font-size:20px;color:var(--green)">Same day</span></div>
+    </div>
+  </div>
+</section>
+${ctaBand({ h2: 'Tell us where you are on the journey', p: 'A short call on your current stack, quality process and goals &mdash; we&rsquo;ll propose the right mix of software and services.' })}
+`,
+};
+
+const psFaq = faq([
+  ['What does a contact center transformation engagement cover?', 'Typically: a current-state assessment, a target operating model, CCaaS platform selection or migration, PolyglotCX implementation (ingestion, scorecards, rules, vocabulary), integration engineering, and training and change management for supervisors and agents.'],
+  ['Do you only work with PolyglotCX customers?', 'Professional Services is usually delivered around a PolyglotCX deployment, but the advisory and operating-model work stands on its own. Talk to us about your situation.'],
+  ['How long does a typical engagement run?', 'A focused implementation is a few weeks to first scored calls. A broader transformation — migrating CCaaS, redesigning QA and rolling out coaching — is typically a few months, run in stages so value lands early.'],
+  ['Who delivers the work?', 'Practitioners who have built and run contact-center and CCaaS programmes for banks, insurers, telcos and public sector — not a generalist body shop.'],
+]);
+
+const professionalServices = {
+  path: '/services/professional-services/',
+  title: 'Contact Center Transformation | Professional Services | PolyglotCX',
+  description: 'PolyglotCX Professional Services for contact center transformation: advisory, target operating model, CCaaS migration, platform implementation, integration engineering, and training.',
+  breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Services', href: '/services/' }, { name: 'Professional Services' }),
+  ogType: 'website',
+  jsonLd: [
+    serviceJsonLd({ name: 'PolyglotCX Professional Services', description: 'Contact center transformation: advisory, CCaaS migration, platform implementation, integration engineering and enablement.', url: '/services/professional-services/', serviceType: 'Contact center transformation and implementation' }),
+    psFaq.jsonLd,
+  ],
+  body: `
+${phero({
+  eyebrow: 'Professional Services',
+  h1: 'Contact center <span class="gr">transformation</span>, delivered',
+  lead: 'Advisory and delivery for teams modernising their contact center &mdash; from operating model and CCaaS migration through PolyglotCX implementation, integrations and enablement. Run in stages so value lands early.',
+  extra: `<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px"><a class="btn-xl primary" href="/contact/">Scope an engagement &rarr;</a><a class="btn-xl outline" href="/services/managed-services/">See Managed Services</a></div>`,
+})}
+<section class="wrap">
+  <div class="eyebrow reveal">What we do</div>
+  <h2 class="h2 reveal">From strategy to <span class="gr">first scored call</span></h2>
+  ${cardGrid([
+    { icon: 'search', title: 'Assessment &amp; strategy', body: 'Current-state review of your telephony, QA process, tooling and metrics, and a target operating model with a staged roadmap.' },
+    { icon: 'refresh', title: 'CCaaS selection &amp; migration', body: 'Provider-agnostic advice on Amazon Connect, Genesys, Twilio and others &mdash; and hands-on migration support with minimal disruption.' },
+    { icon: 'settings', title: 'Platform implementation', body: 'Stand up PolyglotCX end to end: ingestion, weighted scorecards, the rule engine, custom vocabulary, queues and roles.' },
+    { icon: 'link', title: 'Integration engineering', body: 'Wire PolyglotCX into your CRM, BI warehouse, ticketing and alerting over Kafka, webhooks and APIs.' },
+    { icon: 'academic', title: 'Training &amp; enablement', body: 'Working sessions for QA leads, supervisors and agents so the new process is adopted, not just installed.' },
+    { icon: 'trending-up', title: 'Change management', body: 'Rollout planning, calibration workshops and success metrics to make the transformation stick.' },
+  ], 3)}
+</section>
+<section class="wrap" style="padding-top:0">
+  <div class="eyebrow reveal">Why PolyglotCX</div>
+  <h2 class="h2 reveal">Practitioners, not a body shop</h2>
+  ${vlist([
+    '<b>CCaaS delivery experience</b> across banking, insurance, telco and public sector in Asia',
+    '<b>Provider-agnostic</b> &mdash; advice that isn&rsquo;t tied to one telephony vendor',
+    '<b>Staged delivery</b> &mdash; first scored calls in weeks, not a big-bang cutover',
+    '<b>Evidence-first QA design</b> &mdash; scorecards and rules supervisors will actually trust',
+    '<b>Multilingual by default</b> &mdash; built for real, code-switched customer conversations',
+    '<b>Hand-off to Managed Services</b> if you&rsquo;d rather we keep running it',
+  ])}
+</section>
+<section class="wrap" style="padding-top:10px">
+  <div class="eyebrow reveal">Common questions</div>
+  <h2 class="h2 reveal">Professional Services, in short</h2>
+  ${psFaq.html}
+</section>
+${ctaBand({ h2: 'Plan your transformation with us', p: 'A scoping call on your current stack, quality process and goals &mdash; we&rsquo;ll come back with a staged plan.', cta: ['Scope an engagement', '/contact/'] })}
+`,
+};
+
+const msFaq = faq([
+  ['What exactly do you run?', 'Platform operations, weekly human calibration of AI evaluations, rule-engine tuning, executive insight reporting, and same-day triage and escalation of high-severity compliance risks &mdash; with the evidence quote attached.'],
+  ['Do we lose visibility if you manage it?', 'No. You keep full access to the platform and every evaluation. Managed Services is an operating layer on top, with weekly reviews and shared dashboards.'],
+  ['Can you also design and run coaching programs?', 'Yes. We design coaching programs in the Coaching Hub — enrollment, session cadence and action-item follow-through — informed by your evaluation data.'],
+  ['How fast can you take over?', 'From telephony connection to first scored call in days. Full managed operation, including calibrated scorecards and reporting, is typically running inside the first month.'],
+  ['Is it a fixed scope?', 'Engagements are scoped to your volumes, languages and compliance needs, with a monthly cadence and clear SLAs for calibration and escalation.'],
+]);
+
+const managedServices = {
+  path: '/services/managed-services/',
+  title: 'Managed Contact Center QA Services | PolyglotCX',
+  description: 'PolyglotCX Managed Services runs your quality operations: platform operations, weekly human calibration, executive insight reporting, compliance escalation and coaching program design.',
+  breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Services', href: '/services/' }, { name: 'Managed Services' }),
+  ogType: 'website',
+  jsonLd: [
+    serviceJsonLd({ name: 'PolyglotCX Managed Services', description: 'Managed contact center quality operations: platform operations, human calibration, insight reporting, compliance escalation and coaching program design.', url: '/services/managed-services/', serviceType: 'Managed contact center quality operations' }),
+    msFaq.jsonLd,
+  ],
+  body: `
+${phero({
+  eyebrow: 'Managed Services',
+  h1: 'Your quality function, <span class="gr">run for you</span>',
+  lead: 'Don&rsquo;t have a QA team &mdash; or want yours focused on coaching, not scoring? Our specialists operate PolyglotCX on your behalf: calibration, scorecard tuning, weekly insight reports and compliance escalation.',
+  extra: `<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px"><a class="btn-xl primary" href="/contact/">Scope a managed engagement &rarr;</a><a class="btn-xl outline" href="/services/professional-services/">See Professional Services</a></div>`,
+})}
+<section class="wrap">
+  <div class="eyebrow reveal">What we operate</div>
+  <h2 class="h2 reveal">QA coverage <span class="gr">without the headcount</span></h2>
+  ${cardGrid([
+    { icon: 'settings', title: 'Platform operations', body: 'We run ingestion, monitor pipeline health, manage custom vocabulary and keep your scorecards aligned to evolving business rules.' },
+    { icon: 'scale', title: 'Human calibration', body: 'Our QA specialists review AI evaluations weekly, calibrate scores, and tune rule-engine thresholds so auto-approval stays trustworthy.' },
+    { icon: 'clipboard', title: 'Insight reporting', body: 'Weekly executive summaries: agent leaderboards, compliance trends, coaching priorities and root-cause themes across your queues.' },
+    { icon: 'alert', title: 'Compliance watch', body: 'High-severity risks are triaged and escalated to your named contacts within agreed SLAs &mdash; with the evidence quote attached.' },
+    { icon: 'academic', title: 'Coaching program design', body: 'We design and run coaching programs in the Coaching Hub &mdash; enrollment, session cadence and action-item follow-through.' },
+    { icon: 'rocket', title: 'Onboarding &amp; migration', body: 'From telephony connection to first scored call in days. We handle source integration, scorecard build and team training.' },
+  ], 3)}
+  <div class="mg-band reveal">
+    <div>
+      <h2 class="h2" style="font-size:clamp(20px,2.4vw,30px)">Built by people who&rsquo;ve run contact centers &mdash; <span class="bl">not just built software</span></h2>
+      <p class="sub" style="margin-top:14px">Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We know what a QA week actually looks like &mdash; and what supervisors will and won&rsquo;t adopt.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="roi-card"><span class="rl">Time to first scored call</span><span class="rv" style="font-size:20px;color:var(--blue)">&lt; 1 week</span></div>
+      <div class="roi-card"><span class="rl">Calibration cadence</span><span class="rv" style="font-size:20px">Weekly</span></div>
+      <div class="roi-card"><span class="rl">Compliance escalation SLA</span><span class="rv" style="font-size:20px;color:var(--green)">Same day</span></div>
+    </div>
+  </div>
+</section>
+<section class="wrap" style="padding-top:10px">
+  <div class="eyebrow reveal">Common questions</div>
+  <h2 class="h2 reveal">Managed Services, in short</h2>
+  ${msFaq.html}
+</section>
+${ctaBand({ h2: 'QA coverage without the headcount', p: 'Tell us your volumes and languages &mdash; we&rsquo;ll scope a managed engagement in one call.', cta: ['Scope a managed engagement', '/contact/'] })}
 `,
 };
 
@@ -1052,6 +1204,7 @@ export const PAGES = [
   productsHub, aiqm, softphone, agentDesktop, caseMgmt, crm,
   solutionsHub,
   ...SOLUTIONS.map((s) => solutionPage(s.slug)),
+  servicesHub, professionalServices, managedServices,
   integrationsHub,
   ...INTEGRATIONS.map((i) => integrationPage(i.slug)),
   resourcesHub,

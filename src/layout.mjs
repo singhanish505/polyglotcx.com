@@ -5,7 +5,7 @@ const FONTS =
   'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
 
 // Legacy hash-route redirect (old SPA links like /#platform) — runs before paint.
-const HASH_REDIRECT = `<script>(function(){var m={platform:"/products/ai-quality-management/",phone:"/products/softphone/",desktop:"/products/agent-desktop/",products:"/products/",integrations:"/integrations/",pricing:"/pricing/",managed:"/solutions/",why:"/company/",contact:"/contact/",home:"/"};var h=location.hash.replace('#','');if(h&&m[h])location.replace(m[h]);})();</script>`;
+const HASH_REDIRECT = `<script>(function(){var m={platform:"/products/ai-quality-management/",phone:"/products/softphone/",desktop:"/products/agent-desktop/",products:"/products/",integrations:"/integrations/",pricing:"/pricing/",managed:"/services/managed-services/",services:"/services/",why:"/company/",contact:"/contact/",home:"/"};var h=location.hash.replace('#','');if(h&&m[h])location.replace(m[h]);})();</script>`;
 
 /**
  * @param {object} p
