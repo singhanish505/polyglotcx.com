@@ -853,6 +853,17 @@ ${ctaBand({ h2: 'Don&rsquo;t see your platform?', p: 'If it can produce an audio
 
 /* ═════════════════ RESOURCES ═════════════════ */
 
+// Capabilities that ship today — described here, and linked to the live product.
+const CAPABILITIES = [
+  ['AI Quality Management', 'Automated AI quality assurance', 'Every call scored against your weighted scorecard automatically &mdash; 100% coverage, in any language, in under 90 seconds per call.'],
+  ['AI call scoring', 'Evidence-backed scoring', 'A per-criterion score with a direct transcript quote behind it, plus supervisor calibration kept side by side with the AI score.'],
+  ['Agent coaching', 'AI agent coaching &amp; Coaching Hub', 'Every evaluation generates a coaching plan; the Coaching Hub turns those into programs, scheduled sessions and tracked, due-dated action items.'],
+  ['Speech analytics', 'Speech &amp; conversation analytics', 'Transcription, diarization, sentiment, topics and compliance analysis across every voice conversation &mdash; the input to scoring and coaching.'],
+  ['Screen Behaviour QA', 'Screen Behaviour QA', 'Vision AI scores how the agent actually worked the call &mdash; CRM vs idle vs distraction time, hold overuse, after-call work and 8 behaviour flags.'],
+  ['Multilingual', 'Multilingual &amp; code-switching analytics', 'Auto language detection, native transcription of mixed-language speech such as Hinglish, and queue-scoped custom vocabulary.'],
+];
+
+// How-to articles / explainers — genuinely still being written.
 const GUIDES = [
   ['Guide', 'What is contact center quality management?', 'The fundamentals: coverage, scorecards, calibration and coaching.'],
   ['Guide', 'AI contact center QA: a buyer&rsquo;s guide', 'What to evaluate in automated call QA, and the questions that expose weak vendors.'],
@@ -860,10 +871,6 @@ const GUIDES = [
   ['Guide', 'What is a unified agent desktop?', 'Bringing voice, digital, context and AI assistance into one workspace.'],
   ['Guide', 'Amazon Connect softphone &amp; QA guide', 'CTR events, S3 recordings, the CCP, and adding automated quality management.'],
   ['Guide', 'Genesys Cloud softphone &amp; QA guide', 'AudioHook streaming, embeddables and layering AI QA on Genesys.'],
-  ['Explainer', 'AI call scoring, explained', 'Weighted scorecards, evidence quotes, calibration and why trust matters.'],
-  ['Explainer', 'Multilingual contact center analytics', 'Auto language detection, code-switching and custom vocabulary.'],
-  ['Explainer', 'AI agent coaching', 'Turning evaluations into programs, sessions and tracked action items.'],
-  ['Explainer', 'Contact center speech analytics', 'From transcript to sentiment, topics, compliance and QA.'],
   ['Explainer', 'Contact center case management', 'Voice-to-ticket, workflows, SLAs and escalation.'],
   ['Explainer', 'Contact center CRM &amp; Customer 360', 'Why service teams need an interaction-first customer record.'],
 ];
@@ -871,20 +878,29 @@ const GUIDES = [
 const resourcesHub = {
   path: '/resources/',
   title: 'Contact Center Resources & Guides | PolyglotCX',
-  description: 'Guides and explainers on contact center quality management, softphones, agent desktops, AI call scoring and multilingual speech analytics.',
+  description: 'Automated AI quality management, evidence-backed call scoring, agent coaching and speech analytics are available today. Plus guides on contact center technology, in production.',
   breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Resources' }),
-  jsonLd: [webPageJsonLd({ name: 'PolyglotCX Resources', description: 'Guides on contact center technology.', url: '/resources/' })],
+  jsonLd: [webPageJsonLd({ name: 'PolyglotCX Resources', description: 'Available AI quality management and coaching capabilities, plus guides on contact center technology.', url: '/resources/' })],
   body: `
-${phero({ eyebrow: 'Resources', h1: 'Guides for the <span class="gr">modern contact center</span>', lead: 'Practical explainers on quality management, agent tooling and multilingual analytics. New articles are published here regularly &mdash; the ones below are in production.' })}
+${phero({ eyebrow: 'Resources', h1: 'Learn the <span class="gr">modern contact center</span>', lead: 'Automated AI quality management &mdash; scoring, speech analytics and agent coaching for voice conversations &mdash; is available on the platform today. Written guides and explainers are in production alongside it.' })}
 <section class="wrap">
-  <div class="eyebrow reveal">In production</div>
-  <h2 class="h2 reveal">What&rsquo;s coming</h2>
+  <div class="eyebrow reveal">Available on the platform today</div>
+  <h2 class="h2 reveal">Automated AI QA &amp; coaching &mdash; <span class="gr">live now</span></h2>
+  <p class="sub reveal">These are shipping capabilities of <a href="/products/ai-quality-management/" style="color:var(--blue)">AI Quality Management</a>, not roadmap items. Each links to the details.</p>
+  <div class="res-grid">
+    ${CAPABILITIES.map(([k, t, d]) => `<a class="res-card is-live reveal" href="/products/ai-quality-management/"><div class="rk">${k}</div><h3>${t}</h3><p>${d}</p><span class="badge-live">Available now</span></a>`).join('')}
+  </div>
+</section>
+<section class="wrap" style="padding-top:0">
+  <div class="eyebrow reveal">Guides &amp; explainers</div>
+  <h2 class="h2 reveal">In production</h2>
+  <p class="sub reveal">Deep-dive articles on the topics below. The capability exists today where it maps to a shipping feature &mdash; these are the written guides that are still on the way.</p>
   <div class="res-grid">
     ${GUIDES.map(([k, t, d]) => `<article class="res-card reveal"><div class="rk">${k}</div><h3>${t}</h3><p>${d}</p><span class="badge-soon">Coming soon</span></article>`).join('')}
   </div>
   <p class="center reveal" style="margin-top:32px;font-size:13px;color:var(--w45)">Want one of these sooner, or a topic that isn&rsquo;t listed? <a href="/contact/" style="color:var(--blue)">Tell us</a>.</p>
 </section>
-${ctaBand({ h2: 'Rather see it than read it?', p: 'Book a working session and we&rsquo;ll walk your calls through the platform live.' })}
+${ctaBand({ h2: 'Rather see it than read it?', p: 'Book a working session and we&rsquo;ll run your calls through automated QA and coaching, live.' })}
 `,
 };
 
