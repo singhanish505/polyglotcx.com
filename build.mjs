@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { renderPage } from './src/layout.mjs';
 import { SITE } from './src/nav.mjs';
 import { PAGES } from './src/pages.mjs';
+import { INDEXNOW_KEY } from './src/indexnow-key.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const LASTMOD = '2026-09-10';
@@ -81,6 +82,12 @@ written.push(write('site.webmanifest', JSON.stringify({
     { src: '/assets/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
   ],
 }, null, 2) + '\n'));
+
+// ── IndexNow key file (Bing / Yandex / Seznam / Naver URL submission) ──
+if (INDEXNOW_KEY) {
+  written.push(write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY + '\n'));
+  written.push(write('assets/' + INDEXNOW_KEY + '.txt', INDEXNOW_KEY + '\n'));
+}
 
 // ── .nojekyll (skip GitHub Pages Jekyll processing) ──
 if (!existsSync(join(ROOT, '.nojekyll'))) written.push(write('.nojekyll', ''));

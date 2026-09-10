@@ -44,13 +44,15 @@ export function renderPage(p) {
 <meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${SITE}/assets/og-default.png">
+<meta property="og:image" content="${SITE}/assets/og-default.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PolyglotCX — AI-Powered Contact Center & Customer Experience Platform">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(p.title)}">
 <meta name="twitter:description" content="${esc(p.description)}">
-<meta name="twitter:image" content="${SITE}/assets/og-default.png">
+<meta name="twitter:image" content="${SITE}/assets/og-default.jpg">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
