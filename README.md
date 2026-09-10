@@ -1,58 +1,60 @@
-# PolyglotCX — Marketing Website
+# PolyglotCX — marketing site
 
-Marketing website for **Polyglot**, an AI-powered Contact Center Analytics, Quality Assurance, and Managed Services platform.
+The public site for **PolyglotCX**, an AI-powered contact center & customer
+experience platform. Static, multi-page, hosted on GitHub Pages at
+`polyglotcx.com`.
 
-> Polyglot turns 100% of your contact centre calls into transcripts, QA scores, coaching plans and CRM tickets — in any language.
+## Architecture
 
-🌐 **Live site:** [polyglotcx.com](https://polyglotcx.com)
-📧 **Contact:** contactus@polyglotcx.com
+Zero-dependency static-site generator (Node 18+ built-ins only). Page content
+lives in `src/`; running the build writes real directory-style HTML files that
+are committed and served directly.
 
-## About
+```
+build.mjs              generator entry point  —  `node build.mjs`
+src/
+  layout.mjs           full HTML document (head, meta, OG/Twitter, JSON-LD, nav, footer)
+  nav.mjs              nav + footer + breadcrumb markup; product / solution / integration catalogue
+  ui.mjs               shared content components + Schema.org helpers
+  pages.mjs            every page: path, title, description, breadcrumbs, JSON-LD, body
+assets/
+  styles.css          all styles (one cacheable file)
+  app.js              all interactions (nav, reveal-on-scroll, pipeline, ROI, FAQ, form)
+  favicon.svg / .ico / icon-*.png / apple-touch-icon.png / og-default.png
 
-A single-file, dependency-free marketing site built with hand-written HTML, CSS, and vanilla JavaScript. It uses a lightweight client-side SPA router to switch between pages (Platform, Integrations, Pricing, Managed Services, Why Polyglot, Contact) without a full page reload.
+<generated, committed>
+  index.html
+  products/…/index.html   solutions/…/index.html   integrations/…/index.html
+  resources/  pricing/  company/  contact/  404.html
+  sitemap.xml  robots.txt  site.webmanifest  .nojekyll
+```
 
-## Features
-
-- **Zero build step** — one self-contained `index.html`, no bundler or framework
-- **Fully responsive** — fluid `clamp()` typography, breakpoints at 1024px / 880px / 560px, and a mobile hamburger drawer
-- **Accessible motion** — respects `prefers-reduced-motion`
-- **Animated pipeline + ROI calculator** built in plain JS
-- **Custom SVG logo and iconography**
-
-## Running locally
-
-No build tooling required. Just open the file, or serve it for clean routing:
+## Build
 
 ```bash
-# Option 1: open directly
-open index.html
-
-# Option 2: serve locally (recommended for the SPA router)
-python3 -m http.server 8000
-# then visit http://localhost:8000
+node build.mjs
 ```
 
-## Deploying with GitHub Pages
+Regenerate after editing anything under `src/`. The generated `*.html` files
+and `sitemap.xml` are committed so GitHub Pages can serve them without a build
+step.
 
-Because the entry point is `index.html`, this repo is GitHub Pages–ready:
+## Adding a page (e.g. a new product or blog article)
 
-1. Push to GitHub (see commands below).
-2. In the repo, go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to *Deploy from a branch*, branch `main`, folder `/ (root)`.
-4. Save. Your site publishes at `https://<username>.github.io/polyglotcx-website/`.
-5. To use the custom domain `polyglotcx.com`, add it under **Settings → Pages → Custom domain** and point your DNS accordingly. (A `CNAME` file is included as a starting point — edit or remove as needed.)
+1. Add an entry to the relevant array/map in `src/nav.mjs` (for nav/footer) and
+   a page object to `PAGES` in `src/pages.mjs`.
+2. `node build.mjs`.
+3. Commit the new `<path>/index.html` plus the regenerated `sitemap.xml`.
 
-## Project structure
+## Product status labels
 
-```
-polyglotcx-website/
-├── index.html      # the entire site (HTML + CSS + JS)
-├── CNAME           # custom domain for GitHub Pages
-├── .gitignore
-├── LICENSE
-└── README.md
-```
+Products are labelled by stage and never oversold:
 
-## License
+| Label            | Meaning                                   | Schema used              |
+|------------------|-------------------------------------------|--------------------------|
+| **Available Now**| Generally available today                 | `SoftwareApplication`    |
+| **In Development**| Building with design partners            | `SoftwareApplication`    |
+| **Roadmap**      | Planned; not sold today                   | `WebPage` only           |
 
-See [LICENSE](LICENSE).
+Today: AI Quality Management is *Available Now*; Softphone and Agent Desktop are
+*In Development*; Case Management and CRM / Customer 360 are *Roadmap*.

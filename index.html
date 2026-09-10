@@ -1,1839 +1,281 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PolyglotCX — AI-Native Contact Centre Solutions</title>
-<meta name="description" content="PolyglotCX is a provider-agnostic contact-centre platform. Flagship: AI Quality Management — automated QA for 100% of calls in any language. Coming soon: PolyglotCX Phone and Agent Desktop. Book a demo.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 44' fill='none'%3E%3Crect x='1' y='3' width='31' height='27' rx='8' fill='%233B82F6'/%3E%3Cpath d='M8 28v10l11-9z' fill='%233B82F6'/%3E%3Crect x='7' y='11' width='3.4' height='11' rx='1.7' fill='%23DCE9FF'/%3E%3Crect x='12.6' y='7.5' width='3.4' height='18' rx='1.7' fill='%23FFFFFF'/%3E%3Crect x='18.2' y='12.5' width='3.4' height='9' rx='1.7' fill='%23DCE9FF'/%3E%3Crect x='23.8' y='9' width='3.4' height='15' rx='1.7' fill='%23FFFFFF'/%3E%3Crect x='34' y='6' width='13' height='9' rx='4.5' fill='%2314B8A6'/%3E%3Ccircle cx='37.6' cy='10.5' r='1.15' fill='%23fff'/%3E%3Ccircle cx='40.6' cy='10.5' r='1.15' fill='%23fff'/%3E%3Ccircle cx='43.6' cy='10.5' r='1.15' fill='%23fff'/%3E%3Crect x='33.5' y='21.5' width='12.5' height='9.5' rx='4.75' fill='%23F59E0B'/%3E%3Crect x='36.6' y='24' width='1.9' height='4.5' rx='.95' fill='%23fff'/%3E%3Crect x='39.7' y='23.1' width='1.9' height='6.3' rx='.95' fill='%23fff'/%3E%3Crect x='42.8' y='24.6' width='1.9' height='3.6' rx='.95' fill='%23fff'/%3E%3C/svg%3E">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Contact Center Platform | Softphone, Agent Desktop &amp; AI QA | PolyglotCX</title>
+<meta name="description" content="PolyglotCX is an AI-powered contact center platform combining intelligent softphones, unified agent desktops, AI quality management, analytics and customer experience solutions.">
+<link rel="canonical" href="https://polyglotcx.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#FAFAFC">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PolyglotCX">
+<meta property="og:title" content="AI Contact Center Platform | Softphone, Agent Desktop &amp; AI QA | PolyglotCX">
+<meta property="og:description" content="PolyglotCX is an AI-powered contact center platform combining intelligent softphones, unified agent desktops, AI quality management, analytics and customer experience solutions.">
+<meta property="og:url" content="https://polyglotcx.com/">
+<meta property="og:image" content="https://polyglotcx.com/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Contact Center Platform | Softphone, Agent Desktop &amp; AI QA | PolyglotCX">
+<meta name="twitter:description" content="PolyglotCX is an AI-powered contact center platform combining intelligent softphones, unified agent desktops, AI quality management, analytics and customer experience solutions.">
+<meta name="twitter:image" content="https://polyglotcx.com/assets/og-default.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script>(function(){var m={platform:"/products/ai-quality-management/",phone:"/products/softphone/",desktop:"/products/agent-desktop/",products:"/products/",integrations:"/integrations/",pricing:"/pricing/",managed:"/solutions/",why:"/company/",contact:"/contact/",home:"/"};var h=location.hash.replace('#','');if(h&&m[h])location.replace(m[h]);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#FAFAFC;--navy2:#FFFFFF;--navy3:#F3F4F8;--navy4:#E9EBF2;
-  --blue:#4F6BFF;--purple:#8B5CF6;--green:#10B981;--amber:#F59E0B;--rose:#F43F5E;
-  --white:#0A0E17;--w70:rgba(10,14,23,.68);--w45:rgba(10,14,23,.5);
-  --w15:rgba(10,14,23,.12);--w08:rgba(10,14,23,.065);--w04:rgba(10,14,23,.032);
-  --line:rgba(10,14,23,.08);
-  --grad:linear-gradient(115deg,#4F6BFF 0%,#7B5CF7 55%,#A855F7 100%);
-  --grad-soft:linear-gradient(160deg,rgba(79,107,255,.13),rgba(168,85,247,.08));
-  --shadow-sm:0 1px 2px rgba(16,24,54,.05),0 3px 8px -3px rgba(16,24,54,.07);
-  --shadow-md:0 8px 24px -8px rgba(16,24,54,.14),0 3px 10px -4px rgba(16,24,54,.08);
-  --shadow-lg:0 32px 72px -22px rgba(24,33,86,.24),0 14px 34px -14px rgba(24,33,86,.14);
-  --ease:cubic-bezier(.16,.84,.44,1);
-  --fd:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;--fb:'DM Sans',ui-sans-serif,system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,monospace;
-  --px:clamp(20px,5vw,72px);
-}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--navy);color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-h1,h2,h3,.h2,.fh-t,.hero h1{text-wrap:balance}
-p{text-wrap:pretty}
-::selection{background:rgba(79,107,255,.16)}
-button{font-family:var(--fb)}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
-.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-.ico svg,.card-ico>svg,.int-ic>svg,.stage .si>svg{width:100%;height:100%;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;display:block}
-.card-ico>svg{width:22px;height:22px}
-.int-ic>svg{width:19px;height:19px}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 var(--px);height:74px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;backdrop-filter:blur(16px) saturate(1.5);background:rgba(250,250,252,.7);transition:height .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
-nav.scrolled{height:60px;background:rgba(255,255,255,.82);border-color:var(--w08);box-shadow:var(--shadow-sm)}
-#scroll-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:var(--grad);opacity:0;transition:opacity .3s}
-nav.scrolled #scroll-progress{opacity:1}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;transition:transform .3s var(--ease)}
-.logo:hover{transform:translateY(-1px)}
-.logo svg{width:38px;height:35px;filter:drop-shadow(0 2px 6px rgba(79,107,255,.25))}
-.logo-t{font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:-.5px}
-.logo-t span{color:var(--blue)}
-.nav-links{display:flex;gap:1px;list-style:none}
-.nav-links a{position:relative;color:var(--w70);text-decoration:none;font-size:14px;padding:8px 14px;border-radius:9px;transition:color .2s var(--ease),background .2s var(--ease);cursor:pointer}
-.nav-links a:hover{color:var(--white);background:var(--w04)}
-.nav-links a.active{color:var(--white)}
-.nav-links a.active::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:2px;border-radius:2px;background:var(--grad)}
-.nav-cta{display:flex;gap:10px;align-items:center}
-.btn-ghost{background:rgba(255,255,255,.5);border:1px solid var(--w15);color:var(--w70);padding:9px 18px;border-radius:10px;font-size:14px;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap;backdrop-filter:blur(6px)}
-.btn-ghost:hover{border-color:var(--blue);color:var(--white);background:#fff}
-.btn-grad{background:var(--grad);color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:transform .25s var(--ease),box-shadow .25s var(--ease);position:relative;overflow:hidden;box-shadow:0 4px 14px -4px rgba(79,107,255,.5)}
-.btn-grad::after{content:'';position:absolute;inset:0;background:radial-gradient(90px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.3),transparent 60%);opacity:0;transition:opacity .3s}
-.btn-grad:hover{transform:translateY(-1px);box-shadow:0 10px 26px -6px rgba(79,107,255,.55)}
-.btn-grad:hover::after{opacity:1}
-.hamb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.hamb span{display:block;width:24px;height:2px;background:var(--w70);border-radius:2px;transition:all .3s}
-.hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamb.open span:nth-child(2){opacity:0}
-.hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.drawer{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:rgba(245,248,253,.98);backdrop-filter:blur(24px);z-index:199;flex-direction:column;padding:20px var(--px);overflow-y:auto}
-.drawer.open{display:flex}
-.drawer ul{list-style:none}
-.drawer li{border-bottom:1px solid var(--w08)}
-.drawer a{display:block;padding:17px 4px;font-size:18px;color:var(--w70);text-decoration:none;cursor:pointer}
-.drawer a.active{color:var(--blue)}
-.drawer .nav-cta{display:flex;flex-direction:column;margin-top:24px;gap:12px}
-.drawer .btn-ghost,.drawer .btn-grad{width:100%;padding:14px;text-align:center}
-
-#page{padding-top:70px;min-height:100vh}
-.pg{animation:pgIn .35s ease both}
-@keyframes pgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
-/* ── SHARED ── */
-.wrap{padding:96px var(--px)}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:20px;padding:6px 13px 6px 11px;border:1px solid var(--w08);border-radius:100px;background:var(--navy2);box-shadow:var(--shadow-sm)}
-.eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(79,107,255,.16)}
-.h2{font-family:var(--fd);font-size:clamp(26px,3.4vw,44px);font-weight:600;line-height:1.08;letter-spacing:-.022em}
-.h2 .bl{color:var(--blue)}
-.h2 .gr,.hero h1 .gr{background:linear-gradient(100deg,#4F6BFF,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sub{font-size:16px;color:var(--w70);line-height:1.7;margin-top:16px;max-width:600px}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--rv-i,0)*.06s)}
-.reveal.visible{opacity:1;transform:none}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{display:flex;flex-direction:column;background:var(--navy2);border:1px solid var(--line);border-radius:20px;padding:30px;position:relative;overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);box-shadow:var(--shadow-sm)}
-.card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,-10%),rgba(79,107,255,.09),transparent 60%);opacity:0;transition:opacity .4s var(--ease);pointer-events:none;z-index:0}
-.card>*{position:relative;z-index:1}
-.card:hover{border-color:rgba(79,107,255,.22);transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-.card:hover::before{opacity:1}
-.card-ico{width:44px;height:44px;border-radius:13px;background:var(--grad-soft);border:1px solid rgba(79,107,255,.16);display:grid;place-items:center;margin-bottom:20px;color:var(--blue)}
-.card-ico .ico{width:22px;height:22px}
-.card-t{font-family:var(--fd);font-size:16.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
-.card-d{font-size:13.5px;color:var(--w70);line-height:1.65}
-.tagrow{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.tag{font-size:11px;font-family:var(--fm);color:var(--w45);background:var(--w04);border:1px solid var(--w08);border-radius:6px;padding:3px 9px}
-
-/* ── HERO ── */
-.hero{min-height:min(880px,92vh);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px var(--px) 56px;position:relative;overflow:hidden;text-align:center}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(79,107,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(79,107,255,.055) 1px,transparent 1px);background-size:58px 58px;mask-image:radial-gradient(ellipse 80% 64% at 50% 38%,black 12%,transparent 92%)}
-.glow{position:absolute;border-radius:50%;pointer-events:none;will-change:transform;animation:drift 24s var(--ease) infinite alternate}
-.g1{top:-360px;left:50%;margin-left:-540px;width:1080px;height:1080px;background:radial-gradient(circle,rgba(99,120,255,.28) 0%,rgba(99,120,255,0) 60%)}
-.g2{top:-80px;left:-160px;width:640px;height:640px;background:radial-gradient(circle,rgba(178,112,255,.3) 0%,rgba(178,112,255,0) 62%);animation-duration:30s}
-.g3{top:-20px;right:-180px;width:580px;height:580px;background:radial-gradient(circle,rgba(45,212,160,.22) 0%,rgba(45,212,160,0) 64%);animation-duration:36s;animation-delay:-6s}
-@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,-5%) scale(1.09)}100%{transform:translate(-4%,4%) scale(.95)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.7);border:1px solid var(--w08);border-radius:100px;padding:7px 16px 7px 13px;font-family:var(--fm);font-size:11px;color:var(--w70);font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .6s ease both;box-shadow:var(--shadow-sm);backdrop-filter:blur(8px)}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(16,185,129,0)}}
-.hero h1{font-family:var(--fd);font-size:clamp(33px,4.5vw,56px);font-weight:600;line-height:1.06;letter-spacing:-.032em;max-width:16ch;animation:fadeUp .7s .08s ease both}
-.hero h1 br{display:none}
-@media(min-width:760px){.hero h1{max-width:960px}.hero h1 br{display:inline}}
-.hero-sub{font-size:clamp(15px,1.55vw,18.5px);color:var(--w70);max-width:620px;line-height:1.68;margin-top:24px;animation:fadeUp .7s .16s ease both}
-.hero-sub b{color:var(--white);font-weight:600}
-.hero-ctas{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .24s ease both}
-.btn-xl{padding:15px 32px;border-radius:13px;font-size:15.5px;font-weight:600;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);border:none;position:relative;overflow:hidden}
-.btn-xl.primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px -8px rgba(79,107,255,.55),inset 0 1px 0 rgba(255,255,255,.2)}
-.btn-xl.primary::before{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-18deg);transition:left .65s var(--ease)}
-.btn-xl.primary::after{content:'';position:absolute;inset:0;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),transparent 55%);opacity:0;transition:opacity .3s}
-.btn-xl.primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px -10px rgba(79,107,255,.6)}
-.btn-xl.primary:hover::before{left:130%}
-.btn-xl.primary:hover::after{opacity:1}
-.btn-xl.primary:active{transform:translateY(0) scale(.99)}
-.btn-xl.outline{background:rgba(255,255,255,.6);border:1px solid var(--w15);color:var(--white);backdrop-filter:blur(8px)}
-.btn-xl.outline:hover{background:#fff;border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.btn-xl.outline:active{transform:translateY(0) scale(.99)}
-.hero-trust{margin-top:32px;font-size:12.5px;color:var(--w45);animation:fadeUp .7s .3s ease both}
-.hero-trust b{color:var(--w70);font-weight:500}
-.marquee{width:100%;max-width:940px;margin-top:26px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);animation:fadeUp .7s .36s ease both}
-.marquee-track{display:flex;width:max-content;animation:scrollx 38s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-item{display:inline-flex;align-items:center;font-family:var(--fm);font-size:12.5px;letter-spacing:.04em;color:var(--w45);white-space:nowrap;padding-right:44px}
-.marquee-item::after{content:'';width:4px;height:4px;border-radius:50%;background:var(--w15);margin-left:44px}
-@keyframes scrollx{to{transform:translateX(-50%)}}
-
-/* ── LIVE PIPELINE (signature) ── */
-.pipe-wrap{width:100%;max-width:1060px;margin-top:60px;animation:fadeUp .9s .44s ease both;perspective:1400px}
-.pipe-frame{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.62));border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:28px clamp(16px,3vw,40px) 32px;box-shadow:var(--shadow-lg),0 0 0 1px var(--w08),inset 0 1px 0 #fff;position:relative;overflow:hidden;backdrop-filter:blur(12px);transition:transform .5s var(--ease)}
-.pipe-frame::after{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(79,107,255,.4),transparent 40%,transparent 60%,rgba(168,85,247,.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.pipe-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
-.pipe-title{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:12px;color:var(--w45);letter-spacing:1px;text-transform:uppercase}
-.pipe-live{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--green);font-family:var(--fm)}
-.pipe-live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
-.pipe-lang{font-family:var(--fm);font-size:11px;color:var(--blue);background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);padding:4px 12px;border-radius:6px}
-.wave{display:flex;align-items:center;gap:3px;height:46px;margin-bottom:26px;justify-content:center}
-.wave i{width:3.5px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--purple));opacity:.85;animation:wv 1.1s ease-in-out infinite}
-@keyframes wv{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
-.stages{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;position:relative}
-.stage{background:var(--w04);border:1px solid var(--w08);border-radius:11px;padding:13px 8px 11px;text-align:center;transition:all .4s;position:relative}
-.stage .si{width:18px;height:18px;margin:0 auto 7px;display:block;color:var(--w45);opacity:.7;transition:color .4s,opacity .4s,transform .4s}
-.stage .si svg{width:100%;height:100%;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.stage .sn{font-size:10px;color:var(--w45);font-weight:500;line-height:1.3;display:block;transition:color .4s}
-.stage .sd{font-family:var(--fm);font-size:8.5px;color:var(--w45);opacity:0;margin-top:4px;display:block;transition:opacity .4s}
-.stage.on{background:rgba(79,107,255,.07);border-color:rgba(79,107,255,.42);box-shadow:0 0 24px rgba(79,107,255,.14)}
-.stage.on .si{color:var(--blue);opacity:1;transform:scale(1.12)}
-.stage.on .sn{color:var(--white)}
-.stage.on .sd{opacity:1;color:var(--blue)}
-.stage.done{border-color:rgba(16,185,129,.32)}
-.stage.done .si{color:var(--green);opacity:.9}
-.stage.done .sn{color:var(--w70)}
-.stage.done::after{content:'✓';position:absolute;top:5px;right:7px;font-size:9px;color:var(--green)}
-.pipe-out{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.pout{background:var(--w04);border:1px solid var(--w08);border-radius:10px;padding:12px 14px;text-align:left;opacity:.35;transition:all .5s;transform:translateY(6px)}
-.pout.show{opacity:1;transform:none;border-color:var(--w15)}
-.pout .pl{font-size:9.5px;font-family:var(--fm);text-transform:uppercase;letter-spacing:1px;color:var(--w45);display:flex;align-items:center;gap:6px}
-.pout .pl i{width:6px;height:6px;border-radius:2px;flex-shrink:0}
-.pout .pv{font-size:12px;color:var(--w70);margin-top:5px;line-height:1.45}
-.pout .pv b{color:var(--white);font-weight:600}
-.pipe-timer{position:absolute;bottom:14px;right:20px;font-family:var(--fm);font-size:10.5px;color:var(--w45)}
-.pipe-timer b{color:var(--green)}
-
-/* ── STAT BAND ── */
-.stats-band{border-top:1px solid var(--w08);border-bottom:1px solid var(--w08);background:linear-gradient(180deg,rgba(79,107,255,.03),transparent);padding:60px var(--px)}
-.stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1120px;margin:0 auto}
-.stat{text-align:center;padding:0 22px;position:relative}
-.stat+.stat::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--w08)}
-.stat .sv{font-family:var(--fd);font-size:clamp(30px,3.4vw,46px);font-weight:600;letter-spacing:-.03em;background:linear-gradient(120deg,#4F6BFF,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-variant-numeric:tabular-nums}
-.stat .sl{font-size:12.5px;color:var(--w45);margin-top:8px;line-height:1.5}
-.stat .sl b{color:var(--w70);font-weight:500}
-
-/* ── PROBLEM/COMPARE ── */
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-.cmp-col{border-radius:18px;padding:34px;border:1px solid var(--w08)}
-.cmp-col.bad{background:rgba(225,29,72,.04);border-color:rgba(225,29,72,.18)}
-.cmp-col.good{background:rgba(14,159,110,.04);border-color:rgba(14,159,110,.22)}
-.cmp-h{font-family:var(--fd);font-size:17px;font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.cmp-li{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--w08);font-size:14px;color:var(--w70);line-height:1.55}
-.cmp-li b{color:var(--white);font-weight:600}
-.cmp-li .x{color:var(--rose);flex-shrink:0;font-weight:700}
-.cmp-li .y{color:var(--green);flex-shrink:0;font-weight:700}
-
-/* ── FEATURE SHOWCASE ── */
-.feat-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:54px}
-.feat-hero.rev{grid-template-columns:1fr 1.05fr}
-.feat-hero.rev .fh-visual{order:-1}
-.fh-k{font-family:var(--fm);font-size:11px;color:var(--purple);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
-.fh-t{font-family:var(--fd);font-size:clamp(21px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
-.fh-d{font-size:14.5px;color:var(--w70);line-height:1.75;margin-top:14px}
-.fh-list{margin-top:22px;display:flex;flex-direction:column;gap:12px}
-.fh-li{display:flex;gap:11px;font-size:13.5px;color:var(--w70);line-height:1.5}
-.fh-li::before{content:'';flex-shrink:0;width:18px;height:18px;margin-top:1px;border-radius:6px;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F6BFF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
-.fh-li b{color:var(--white);font-weight:600}
-.fh-visual{background:var(--navy2);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;transition:transform .5s var(--ease);transform-style:preserve-3d}
-.fh-visual::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(79,107,255,.1),transparent 70%)}
-.mini-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 13px;background:var(--w04);border:1px solid var(--w08);border-radius:11px;margin-bottom:8px;font-size:12px}
-.mini-row .mn{color:var(--w70)}
-.score-pill{font-family:var(--fm);font-size:11px;padding:3px 10px;border-radius:100px;font-weight:500}
-.sp-g{background:rgba(14,159,110,.12);color:var(--green);border:1px solid rgba(14,159,110,.3)}
-.sp-b{background:rgba(37,99,235,.1);color:var(--blue);border:1px solid rgba(37,99,235,.3)}
-.sp-y{background:rgba(217,119,6,.1);color:var(--amber);border:1px solid rgba(217,119,6,.3)}
-.sp-r{background:rgba(225,29,72,.1);color:var(--rose);border:1px solid rgba(225,29,72,.3)}
-.tbar{height:9px;border-radius:5px;background:var(--w08);overflow:hidden;display:flex;margin:8px 0 4px}
-.tbar i{height:100%}
-.tleg{display:flex;flex-wrap:wrap;gap:10px;font-size:10px;color:var(--w45);margin-top:8px}
-.tleg span{display:flex;align-items:center;gap:5px}
-.tleg i{width:8px;height:8px;border-radius:2px}
-.transcript-line{display:flex;gap:10px;padding:8px 10px;border-radius:8px;font-size:12px;line-height:1.5;margin-bottom:6px}
-.transcript-line.agent{background:rgba(37,99,235,.05)}
-.transcript-line.cust{background:var(--w04)}
-.tl-who{font-family:var(--fm);font-size:10px;color:var(--w45);flex-shrink:0;padding-top:2px;width:34px}
-.tl-txt{color:var(--w70)}
-.tl-txt .hl{color:var(--blue);background:rgba(37,99,235,.1);padding:0 4px;border-radius:3px}
-.tl-txt .pii{color:var(--rose);background:rgba(225,29,72,.1);padding:0 4px;border-radius:3px;font-family:var(--fm);font-size:10.5px}
-
-/* ── ROI CALC ── */
-.roi{background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(109,84,235,.05));border:1px solid var(--w15);border-radius:22px;padding:clamp(26px,4vw,48px);margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px)}
-.roi-l h3{font-family:var(--fd);font-size:21px;font-weight:600;letter-spacing:-.2px;margin-bottom:8px}
-.roi-l p{font-size:13.5px;color:var(--w70);margin-bottom:28px}
-.slider-g{margin-bottom:24px}
-.slider-g label{display:flex;justify-content:space-between;font-size:13px;color:var(--w70);margin-bottom:10px}
-.slider-g label b{color:var(--white);font-family:var(--fm);font-weight:500}
-input[type=range]{width:100%;-webkit-appearance:none;height:5px;border-radius:4px;background:var(--w15);outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--grad);cursor:pointer;border:2px solid var(--navy);box-shadow:0 0 12px rgba(37,99,235,.5)}
-input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid var(--navy)}
-.roi-r{display:flex;flex-direction:column;justify-content:center;gap:14px}
-.roi-card{background:rgba(255,255,255,.85);border:1px solid var(--w08);border-radius:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
-.roi-card .rl{font-size:12.5px;color:var(--w45)}
-.roi-card .rv{font-family:var(--fd);font-size:clamp(19px,2.1vw,26px);font-weight:600;letter-spacing:-.2px}
-.roi-card.hl{background:rgba(14,159,110,.06);border-color:rgba(14,159,110,.3)}
-.roi-card.hl .rv{color:var(--green)}
-.roi-note{font-size:10.5px;color:var(--w45);line-height:1.5}
-
-/* ── INTEGRATIONS ── */
-.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
-.int-c{background:var(--navy2);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
-.int-c::before{content:'';position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),rgba(79,107,255,.08),transparent 60%);opacity:0;transition:opacity .35s}
-.int-c:hover{border-color:rgba(79,107,255,.22);transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.int-c:hover::before{opacity:1}
-.int-c>*{position:relative}
-.int-ic{width:40px;height:40px;border-radius:11px;background:var(--grad-soft);border:1px solid rgba(79,107,255,.16);display:grid;place-items:center;color:var(--blue);flex-shrink:0}
-.int-ic .ico{width:19px;height:19px}
-.int-n{font-size:14px;font-weight:600;letter-spacing:-.01em}
-.int-d{font-size:11.5px;color:var(--w45);margin-top:3px;line-height:1.5;font-family:var(--fm)}
-
-/* ── PRICING ── */
-.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;align-items:stretch}
-.price-c{background:var(--navy2);border:1px solid var(--line);border-radius:20px;padding:30px 26px;display:flex;flex-direction:column;position:relative;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);box-shadow:var(--shadow-sm)}
-.price-c:hover{transform:translateY(-6px);border-color:rgba(79,107,255,.2);box-shadow:var(--shadow-lg)}
-.price-c.pop{border-color:rgba(79,107,255,.4);background:linear-gradient(180deg,rgba(79,107,255,.07),var(--navy2) 40%);box-shadow:0 24px 64px -16px rgba(79,107,255,.28)}
-.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;border-radius:100px;box-shadow:0 8px 20px -6px rgba(79,107,255,.5)}
-.price-n{font-family:var(--fd);font-size:17px;font-weight:600}
-.price-v{font-family:var(--fd);font-size:32px;font-weight:600;letter-spacing:-.4px;margin-top:14px}
-.price-v span{font-size:13px;color:var(--w45);font-weight:400;font-family:var(--fb);letter-spacing:0}
-.price-d{font-size:12px;color:var(--w45);margin-top:4px;font-family:var(--fm)}
-.price-f{margin:22px 0;display:flex;flex-direction:column;gap:9px;flex:1}
-.price-f div{display:flex;gap:9px;font-size:13px;color:var(--w70);line-height:1.45}
-.price-f div::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
-.price-c .btn-grad,.price-c .btn-ghost{width:100%;padding:12px;text-align:center;font-size:14px}
-
-/* ── MANAGED ── */
-.mg-band{background:linear-gradient(140deg,rgba(139,92,246,.09),rgba(79,107,255,.07));border:1px solid var(--w08);border-radius:24px;padding:clamp(28px,4vw,54px);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(26px,4vw,60px);align-items:center;margin-top:50px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
-.mg-band::before{content:'';position:absolute;top:-40%;right:-10%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(79,107,255,.14),transparent 65%);pointer-events:none}
-.mg-band>*{position:relative}
-
-/* ── FAQ ── */
-.faq{max-width:800px;margin:48px auto 0}
-.faq-i{border:1px solid var(--line);border-radius:16px;margin-bottom:10px;background:var(--navy2);overflow:hidden;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
-.faq-i.open{border-color:rgba(79,107,255,.28);box-shadow:var(--shadow-md)}
-.faq-q{width:100%;background:none;border:none;color:var(--white);font-size:15px;font-weight:600;padding:20px 22px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--fb);transition:color .2s}
-.faq-q:hover{color:var(--blue)}
-.faq-q span{transition:transform .35s var(--ease);color:var(--blue);font-size:20px;flex-shrink:0;line-height:1}
-.faq-i.open .faq-q span{transform:rotate(135deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
-.faq-a div{padding:0 22px 20px;font-size:14px;color:var(--w70);line-height:1.75}
-
-/* ── CTA BAND / FORM ── */
-.cta-band{margin:96px var(--px) 0;background:linear-gradient(135deg,#111528,#1c1f3d 55%,#241d42);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:clamp(40px,6vw,80px);text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
-.cta-band::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(ellipse at center,black,transparent 78%)}
-.cta-band::after{content:'';position:absolute;top:-30%;left:50%;width:700px;height:400px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(124,92,247,.35),transparent 62%);pointer-events:none}
-.cta-band h2{font-family:var(--fd);font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:-.03em;position:relative;color:#fff}
-.cta-band p{color:rgba(255,255,255,.66);margin:14px auto 32px;max-width:540px;font-size:15.5px;position:relative}
-.cta-band .btn-xl.primary{position:relative}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;margin:40px auto 0;text-align:left}
-.fg{display:flex;flex-direction:column;gap:7px}
-.fg.full{grid-column:1/-1}
-.fg label{font-size:12px;color:var(--w70);font-weight:500;letter-spacing:.3px}
-.fg input,.fg select,.fg textarea{background:#FFFFFF;border:1px solid var(--w15);border-radius:9px;padding:13px 15px;color:var(--white);font-size:14px;font-family:var(--fb);outline:none;transition:border-color .2s}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
-.fg select option{background:var(--navy2)}
-.form-note{font-size:11px;color:var(--w45);margin-top:14px;text-align:center}
-.form-success{display:none;background:rgba(14,159,110,.08);border:1px solid rgba(14,159,110,.35);border-radius:13px;padding:22px;margin-top:24px;color:var(--green);font-size:14.5px;text-align:center}
-
-/* ── STICKY CTA ── */
-.sticky-cta{position:fixed;bottom:22px;right:22px;z-index:150;display:flex;align-items:center;gap:10px;background:var(--grad);border:none;color:#fff;padding:14px 24px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 14px 34px -8px rgba(79,107,255,.5),inset 0 1px 0 rgba(255,255,255,.2);transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s;opacity:0;transform:translateY(16px) scale(.96);pointer-events:none}
-.sticky-cta.show{opacity:1;transform:none;pointer-events:auto}
-.sticky-cta:hover{transform:translateY(-3px);box-shadow:0 20px 44px -8px rgba(79,107,255,.6)}
-
-/* ── FOOTER ── */
-footer{border-top:1px solid var(--w08);padding:64px var(--px) 40px;margin-top:100px;background:linear-gradient(180deg,transparent,rgba(79,107,255,.02))}
-.foot-g{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;max-width:1160px;margin:0 auto}
-.foot-d{font-size:13px;color:var(--w45);line-height:1.7;margin-top:16px;max-width:320px}
-.foot-h{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w45);margin-bottom:16px;font-family:var(--fm)}
-.foot-l{list-style:none}
-.foot-l li{margin-bottom:11px}
-.foot-l a{color:var(--w70);text-decoration:none;font-size:13.5px;cursor:pointer;transition:color .2s,padding-left .2s var(--ease)}
-.foot-l a:hover{color:var(--blue);padding-left:3px}
-.foot-b{max-width:1160px;margin:48px auto 0;padding-top:26px;border-top:1px solid var(--w08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--w45)}
-
-/* ── PAGE HERO (inner pages) ── */
-.phero{padding:88px var(--px) 64px;position:relative;overflow:hidden;border-bottom:1px solid var(--w08)}
-.phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(79,107,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(79,107,255,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 60% 100% at 10% 0%,black,transparent 75%);pointer-events:none}
-.phero::after{content:'';position:absolute;top:-160px;left:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(79,107,255,.14),transparent 62%);pointer-events:none;filter:blur(20px)}
-.phero-in{position:relative;max-width:840px;z-index:1}
-.phero h1{font-family:var(--fd);font-size:clamp(28px,3.8vw,48px);font-weight:600;line-height:1.08;letter-spacing:-.03em;margin-bottom:18px}
-.phero p{font-size:16.5px;color:var(--w70);line-height:1.7;max-width:640px}
-
-/* ── PHONE / LAUNCH ── */
-.pill-new{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--purple);background:rgba(139,92,246,.09);border:1px solid rgba(139,92,246,.28);border-radius:100px;padding:5px 12px}
-.pill-new::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 3px rgba(139,92,246,.16)}
-.nav-links a sup,.drawer a sup{font-family:var(--fm);font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);background:rgba(139,92,246,.13);border-radius:5px;padding:2px 5px;margin-left:6px;top:-2px}
-.hero-announce{margin-top:26px;display:inline-flex;align-items:center;gap:9px;font-size:12.5px;color:var(--w70);background:rgba(255,255,255,.7);border:1px solid var(--w08);border-radius:100px;padding:8px 17px;text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);animation:fadeUp .7s .3s ease both;box-shadow:var(--shadow-sm);backdrop-filter:blur(8px)}
-.hero-announce:hover{border-color:rgba(139,92,246,.4);color:var(--white);transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.hero-announce b{color:var(--purple);font-weight:600}
-.hero-announce span{color:var(--purple);font-weight:700;transition:transform .25s var(--ease)}
-.hero-announce:hover span{transform:translateX(3px)}
-.store-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.store-badge{display:inline-flex;align-items:center;gap:12px;background:var(--white);border-radius:13px;padding:10px 20px 10px 16px}
-.store-badge .sb-i{width:22px;height:22px;border-radius:6px;background:var(--grad);flex-shrink:0}
-.store-badge .sb-k{display:block;font-size:9.5px;color:rgba(255,255,255,.7);letter-spacing:.5px}
-.store-badge .sb-v{display:block;font-family:var(--fd);font-size:15px;font-weight:600;color:#fff;letter-spacing:-.2px}
-.phone-mock{width:212px;justify-self:center;border-radius:40px;padding:10px;background:linear-gradient(160deg,#2a3a58,#0b1220);box-shadow:0 44px 90px -20px rgba(11,18,32,.5),0 0 0 1px rgba(255,255,255,.06),inset 0 1px 0 rgba(255,255,255,.12);transition:transform .5s var(--ease);transform-style:preserve-3d}
-.phone-scr{position:relative;background:#0b1220;border:1px solid rgba(255,255,255,.06);border-radius:29px;padding:36px 14px 18px;min-height:404px;overflow:hidden}
-.phone-scr::before{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:76px;height:17px;background:#000;border-radius:0 0 13px 13px}
-.phone-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#7fe0b8;background:rgba(14,159,110,.14);border:1px solid rgba(14,159,110,.3);border-radius:100px;padding:3px 9px}
-.phone-name{color:#fff;font-family:var(--fd);font-weight:700;font-size:15px;margin-top:13px}
-.phone-meta{color:#8ca0c0;font-size:10.5px;margin-top:2px}
-.phone-card{background:#141d2e;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:9px 11px;margin-top:8px;font-size:10.5px;color:#c7d2e2;line-height:1.5}
-.phone-card b{color:#fff}
-.phone-actions{display:flex;gap:7px;margin-top:13px}
-.phone-actions i{flex:1;text-align:center;border-radius:9px;padding:8px 0;font-size:10.5px;font-weight:700;font-style:normal}
-.plat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-.plat-c{background:var(--navy2);border:1px solid var(--line);border-radius:15px;padding:18px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);box-shadow:var(--shadow-sm)}
-.plat-c:hover{transform:translateY(-3px);border-color:rgba(79,107,255,.2);box-shadow:var(--shadow-md)}
-.plat-c .pn{font-family:var(--fd);font-size:14.5px;font-weight:600;letter-spacing:-.01em}
-.plat-c .pd{font-size:11.5px;color:var(--w45);margin-top:4px;line-height:1.5;font-family:var(--fm)}
-.prod-status{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--w45);margin-bottom:12px}
-.ps-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.ps-live{background:var(--green);box-shadow:0 0 0 3px rgba(16,185,129,.16);animation:pulse 2s infinite}
-.ps-soon{background:var(--amber);box-shadow:0 0 0 3px rgba(245,158,11,.16)}
-.card-link{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:18px;font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;cursor:pointer;transition:gap .25s var(--ease)}
-.card-link:hover{gap:10px}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1320px){
-  .nav-links{gap:0}
-  .nav-links a{padding:7px 10px;font-size:13.5px}
-}
-@media(max-width:1180px){
-  .nav-links,.nav-cta{display:none}
-  .hamb{display:flex}
-}
-@media(max-width:1024px){
-  .grid3,.grid4,.price-grid,.int-grid,.plat-strip{grid-template-columns:repeat(2,1fr)}
-  .stages{grid-template-columns:repeat(4,1fr);gap:10px}
-  .pipe-out{grid-template-columns:repeat(2,1fr)}
-  .stats-in{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:1024px){
-  .stat:nth-child(2n+1)::before{display:none}
-  .stats-in{gap:32px 0}
-}
-@media(max-width:880px){
-  .wrap{padding:72px var(--px)}
-  .feat-hero,.feat-hero.rev{grid-template-columns:1fr}
-  .feat-hero.rev .fh-visual{order:0}
-  .cmp,.roi,.mg-band,.grid2,.form-grid{grid-template-columns:1fr}
-  .foot-g{grid-template-columns:1fr 1fr}
-  .fh-visual,.phone-mock,.pipe-frame{transform:none!important}
-}
-@media(max-width:560px){
-  .grid3,.grid4,.price-grid,.int-grid,.stats-in,.plat-strip{grid-template-columns:1fr}
-  .stat::before{display:none!important}
-  .stat{padding:0}
-  .stages{grid-template-columns:repeat(2,1fr)}
-  .pipe-out{grid-template-columns:1fr}
-  .foot-g{grid-template-columns:1fr}
-  .sticky-cta{right:14px;bottom:14px;padding:12px 18px;font-size:13px}
-  .cta-band{margin-left:0;margin-right:0;border-radius:0}
-  .hero-badge{font-size:10px;letter-spacing:.06em;white-space:normal;max-width:92vw}
-  .hero h1,.phero h1{max-width:100%;letter-spacing:-.02em}
-  .hero-sub,.phero p{max-width:100%}
-  .hero-ctas,.hero-ctas .btn-xl{width:100%}
-  .wrap{padding:60px var(--px)}
-  .card{padding:24px}
-}
-@media(max-width:400px){
-  :root{--px:18px}
-}
-</style>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://polyglotcx.com/#organization","name":"PolyglotCX","url":"https://polyglotcx.com/","logo":"https://polyglotcx.com/assets/icon-512.png","description":"AI-powered contact center & customer experience platform: intelligent softphones, unified agent desktops, AI quality management, analytics and automation.","email":"contactus@polyglotcx.com","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"contactus@polyglotcx.com","areaServed":"Worldwide","availableLanguage":["English"]},"address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressCountry":"IN"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polyglotcx.com/#website","url":"https://polyglotcx.com/","name":"PolyglotCX","publisher":{"@id":"https://polyglotcx.com/#organization"},"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is PolyglotCX?","acceptedAnswer":{"@type":"Answer","text":"PolyglotCX is an AI-powered contact center and customer experience platform. It brings an intelligent softphone, a unified agent desktop, AI quality management, analytics and automation together on one provider-agnostic backend. AI Quality Management is available today; the Softphone and Agent Desktop are in active development."}},{"@type":"Question","name":"Do we have to replace our telephony platform?","acceptedAnswer":{"@type":"Answer","text":"No. PolyglotCX sits beside your existing stack — Amazon Connect, Genesys Cloud, Twilio, or Avaya and Cisco via SIPREC. Recordings and events are ingested through nine paths with no rip-and-replace, typically connected in under a day."}},{"@type":"Question","name":"Which products are available now?","acceptedAnswer":{"@type":"Answer","text":"AI Quality Management is generally available, including speech analytics, evidence-backed scoring, screen-behaviour QA and agent coaching. The Contact Center Softphone and Agent Desktop are in development with design partners. Case Management and CRM / Customer 360 are on the platform roadmap."}},{"@type":"Question","name":"How does PolyglotCX handle non-English and multilingual calls?","acceptedAnswer":{"@type":"Answer","text":"Language is auto-detected per call and code-switched speech such as Hinglish is transcribed natively. Queue-scoped custom vocabulary teaches the ASR your product names and acronyms, applied at transcription time and as post-ASR correction."}},{"@type":"Question","name":"What about customer data and PII?","acceptedAnswer":{"@type":"Answer","text":"Card numbers, national IDs, phone numbers, emails and birthdates are detected and redacted before any AI model sees the transcript, with a full audit log. Tenant isolation is enforced at the API layer and BYOK keys are encrypted at rest."}}]}</script>
 </head>
 <body>
-
-<nav id="main-nav">
-  <div class="logo" data-page="home">
-    <svg viewBox="0 0 48 44" fill="none"><rect x="1" y="3" width="31" height="27" rx="8" fill="#3B82F6"/><path d="M8 28v10l11-9z" fill="#3B82F6"/><rect x="7" y="11" width="3.4" height="11" rx="1.7" fill="#DCE9FF"/><rect x="12.6" y="7.5" width="3.4" height="18" rx="1.7" fill="#FFFFFF"/><rect x="18.2" y="12.5" width="3.4" height="9" rx="1.7" fill="#DCE9FF"/><rect x="23.8" y="9" width="3.4" height="15" rx="1.7" fill="#FFFFFF"/><rect x="34" y="6" width="13" height="9" rx="4.5" fill="#14B8A6"/><circle cx="37.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="40.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="43.6" cy="10.5" r="1.15" fill="#fff"/><rect x="33.5" y="21.5" width="12.5" height="9.5" rx="4.75" fill="#F59E0B"/><rect x="36.6" y="24" width="1.9" height="4.5" rx=".95" fill="#fff"/><rect x="39.7" y="23.1" width="1.9" height="6.3" rx=".95" fill="#fff"/><rect x="42.8" y="24.6" width="1.9" height="3.6" rx=".95" fill="#fff"/></svg>
-    <div class="logo-t">Polyglot<span>CX</span></div>
-  </div>
-  <ul class="nav-links" id="nav-links">
-    <li><a data-page="products">Products</a></li>
-    <li><a data-page="platform">QA Platform</a></li>
-    <li><a data-page="integrations">Integrations</a></li>
-    <li><a data-page="pricing">Pricing</a></li>
-    <li><a data-page="managed">Managed Services</a></li>
-    <li><a data-page="why">Why Polyglot</a></li>
-  </ul>
+<header class="site-nav" id="site-nav">
+  <a class="logo" href="/" aria-label="PolyglotCX home"><svg viewBox="0 0 48 44" fill="none" aria-hidden="true"><rect x="1" y="3" width="31" height="27" rx="8" fill="#3B82F6"/><path d="M8 28v10l11-9z" fill="#3B82F6"/><rect x="7" y="11" width="3.4" height="11" rx="1.7" fill="#DCE9FF"/><rect x="12.6" y="7.5" width="3.4" height="18" rx="1.7" fill="#FFFFFF"/><rect x="18.2" y="12.5" width="3.4" height="9" rx="1.7" fill="#DCE9FF"/><rect x="23.8" y="9" width="3.4" height="15" rx="1.7" fill="#FFFFFF"/><rect x="34" y="6" width="13" height="9" rx="4.5" fill="#14B8A6"/><circle cx="37.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="40.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="43.6" cy="10.5" r="1.15" fill="#fff"/><rect x="33.5" y="21.5" width="12.5" height="9.5" rx="4.75" fill="#F59E0B"/><rect x="36.6" y="24" width="1.9" height="4.5" rx=".95" fill="#fff"/><rect x="39.7" y="23.1" width="1.9" height="6.3" rx=".95" fill="#fff"/><rect x="42.8" y="24.6" width="1.9" height="3.6" rx=".95" fill="#fff"/></svg><span class="logo-t">Polyglot<span>CX</span></span></a>
+  <nav class="nav-links" id="nav-links" aria-label="Primary">
+    <div class="nav-item"><button type="button" aria-haspopup="true" aria-expanded="false">Products <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="nav-panel wide" role="menu">
+        <div class="np-grid"><a class="np-link" href="/products/softphone/"><span class="npt"><span class="np-dot dev"></span>Contact Center Softphone</span><span class="npd">Browser-based agent telephony for cloud contact centers.</span></a><a class="np-link" href="/products/agent-desktop/"><span class="npt"><span class="np-dot dev"></span>Agent Desktop</span><span class="npd">Unified workspace: voice, digital, context and AI assistance.</span></a><a class="np-link" href="/products/ai-quality-management/"><span class="npt"><span class="np-dot live"></span>AI Quality Management</span><span class="npd">Automated QA, speech analytics and evidence-backed scoring.</span></a><a class="np-link" href="/products/case-management/"><span class="npt"><span class="np-dot road"></span>Case Management</span><span class="npd">Customer cases, workflows, SLA tracking and escalation.</span></a><a class="np-link" href="/products/crm/"><span class="npt"><span class="np-dot road"></span>CRM & Customer 360</span><span class="npd">Customer profiles, interaction history and contact-center context.</span></a></div>
+        <div class="np-foot"><span>One platform. Products at different stages.</span><a href="/products/">All products &rarr;</a></div>
+      </div>
+    </div>
+    <div class="nav-item"><button type="button" aria-haspopup="true" aria-expanded="false">Solutions <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="nav-panel" role="menu">
+        <div class="np-grid"><a class="np-link" href="/solutions/contact-center/"><span class="npt">Contact Centers</span><span class="npd">Modernize agent tooling and quality assurance.</span></a><a class="np-link" href="/solutions/bpo/"><span class="npt">BPO & Outsourcers</span><span class="npd">Multi-client QA, coverage and reporting at scale.</span></a><a class="np-link" href="/solutions/enterprise/"><span class="npt">Enterprise</span><span class="npd">Governance, security and multi-region rollout.</span></a><a class="np-link" href="/solutions/government/"><span class="npt">Government & Public Sector</span><span class="npd">Compliance, transparency and multilingual service.</span></a></div>
+        <div class="np-foot"><span>By team and sector.</span><a href="/solutions/">All solutions &rarr;</a></div>
+      </div>
+    </div>
+    <div class="nav-item"><button type="button" aria-haspopup="true" aria-expanded="false">Integrations <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="nav-panel" role="menu">
+        <div class="np-grid"><a class="np-link" href="/integrations/amazon-connect/"><span class="npt">Amazon Connect</span><span class="npd">CTR events and S3 recording ingestion.</span></a><a class="np-link" href="/integrations/genesys-cloud/"><span class="npt">Genesys Cloud CX</span><span class="npd">AudioHook streaming and org-scoped auth.</span></a><a class="np-link" href="/integrations/twilio/"><span class="npt">Twilio</span><span class="npd">Signed RecordingStatusCallback ingestion.</span></a></div>
+        <div class="np-foot"><span>Ingest from any telephony source.</span><a href="/integrations/">All integrations &rarr;</a></div>
+      </div>
+    </div>
+    <a href="/resources/">Resources</a>
+    <div class="nav-item"><button type="button" aria-haspopup="true" aria-expanded="false">Company <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="nav-panel" role="menu">
+        <div class="np-grid"><a class="np-link" href="/company/"><span class="npt">About PolyglotCX</span><span class="npd">Who we are and why we built the platform.</span></a><a class="np-link" href="/contact/"><span class="npt">Contact</span><span class="npd">Talk to us or book a platform demo.</span></a><a class="np-link" href="/pricing/"><span class="npt">Pricing</span><span class="npd">Plans for AI Quality Management.</span></a><a class="np-link" href="/resources/"><span class="npt">Resources</span><span class="npd">Guides on contact-center technology.</span></a></div>
+      </div>
+    </div>
+  </nav>
   <div class="nav-cta">
-    <button class="btn-ghost" data-page="contact">Talk to us</button>
-    <button class="btn-grad" data-page="contact">Book a demo →</button>
+    <a class="btn-ghost" href="/contact/">Talk to us</a>
+    <a class="btn-grad" href="/contact/">Book a Demo &rarr;</a>
   </div>
-  <button class="hamb" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="drawer" id="nav-drawer">
-  <ul>
-    <li><a data-page="home">Home</a></li>
-    <li><a data-page="products">Products</a></li>
-    <li><a data-page="platform">AI Quality Management</a></li>
-    <li><a data-page="phone">PolyglotCX Phone<sup>soon</sup></a></li>
-    <li><a data-page="desktop">Agent Desktop<sup>soon</sup></a></li>
-    <li><a data-page="integrations">Integrations</a></li>
-    <li><a data-page="pricing">Pricing</a></li>
-    <li><a data-page="managed">Managed Services</a></li>
-    <li><a data-page="why">Why Polyglot</a></li>
-  </ul>
-  <div class="nav-cta">
-    <button class="btn-ghost" data-page="contact">Talk to us</button>
-    <button class="btn-grad" data-page="contact">Book a demo →</button>
+  <button class="hamb" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer"><span></span><span></span><span></span></button>
+  <div id="scroll-progress"></div>
+</header>
+<div class="drawer" id="mobile-drawer" hidden>
+  <button class="drawer-close" id="drawer-close" aria-label="Close menu">&times;</button>
+  <div class="m-section"><button class="m-toggle" type="button" aria-expanded="false">Products <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="m-sub"><a href="/products/softphone/"><span class="np-dot dev"></span>Contact Center Softphone</a><a href="/products/agent-desktop/"><span class="np-dot dev"></span>Agent Desktop</a><a href="/products/ai-quality-management/"><span class="np-dot live"></span>AI Quality Management</a><a href="/products/case-management/"><span class="np-dot road"></span>Case Management</a><a href="/products/crm/"><span class="np-dot road"></span>CRM & Customer 360</a><a href="/products/">All products</a></div></div>
+  <div class="m-section"><button class="m-toggle" type="button" aria-expanded="false">Solutions <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="m-sub"><a href="/solutions/contact-center/">Contact Centers</a><a href="/solutions/bpo/">BPO & Outsourcers</a><a href="/solutions/enterprise/">Enterprise</a><a href="/solutions/government/">Government & Public Sector</a><a href="/solutions/">All solutions</a></div></div>
+  <div class="m-section"><button class="m-toggle" type="button" aria-expanded="false">Integrations <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="m-sub"><a href="/integrations/amazon-connect/">Amazon Connect</a><a href="/integrations/genesys-cloud/">Genesys Cloud CX</a><a href="/integrations/twilio/">Twilio</a><a href="/integrations/">All integrations</a></div></div>
+  <a class="m-flat" href="/resources/">Resources</a>
+  <a class="m-flat" href="/pricing/">Pricing</a>
+  <a class="m-flat" href="/company/">Company</a>
+  <div class="m-cta">
+    <a class="btn-ghost" href="/contact/">Talk to us</a>
+    <a class="btn-grad" href="/contact/">Book a Demo</a>
   </div>
 </div>
+<main id="main">
 
-<div id="page"></div>
 
-<button class="sticky-cta" id="sticky-cta" data-page="contact">📅 Book a demo</button>
-
-<footer>
-  <div class="foot-g">
-    <div>
-      <div class="logo"><svg viewBox="0 0 48 44" fill="none" style="width:30px;height:28px"><rect x="1" y="3" width="31" height="27" rx="8" fill="#3B82F6"/><path d="M8 28v10l11-9z" fill="#3B82F6"/><rect x="7" y="11" width="3.4" height="11" rx="1.7" fill="#DCE9FF"/><rect x="12.6" y="7.5" width="3.4" height="18" rx="1.7" fill="#FFFFFF"/><rect x="18.2" y="12.5" width="3.4" height="9" rx="1.7" fill="#DCE9FF"/><rect x="23.8" y="9" width="3.4" height="15" rx="1.7" fill="#FFFFFF"/><rect x="34" y="6" width="13" height="9" rx="4.5" fill="#14B8A6"/><circle cx="37.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="40.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="43.6" cy="10.5" r="1.15" fill="#fff"/><rect x="33.5" y="21.5" width="12.5" height="9.5" rx="4.75" fill="#F59E0B"/><rect x="36.6" y="24" width="1.9" height="4.5" rx=".95" fill="#fff"/><rect x="39.7" y="23.1" width="1.9" height="6.3" rx=".95" fill="#fff"/><rect x="42.8" y="24.6" width="1.9" height="3.6" rx=".95" fill="#fff"/></svg><div class="logo-t" style="font-size:18px">Polyglot<span>CX</span></div></div>
-      <p class="foot-d">AI-native, provider-agnostic contact-centre solutions. Our flagship is AI Quality Management — 100% QA coverage, evidence-backed coaching and screen-behaviour analytics from any telephony source. PolyglotCX Phone and Agent Desktop are coming soon, on the same platform.</p>
-    </div>
-    <div>
-      <div class="foot-h">Products</div>
-      <ul class="foot-l">
-        <li><a data-page="products">All products</a></li>
-        <li><a data-page="platform">AI Quality Management</a></li>
-        <li><a data-page="phone">PolyglotCX Phone <span style="color:var(--purple);font-size:11px">· soon</span></a></li>
-        <li><a data-page="desktop">Agent Desktop <span style="color:var(--purple);font-size:11px">· soon</span></a></li>
-        <li><a data-page="integrations">Integrations</a></li>
-        <li><a data-page="pricing">Pricing</a></li>
-        <li><a data-page="managed">Managed Services</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="foot-h">Company</div>
-      <ul class="foot-l">
-        <li><a data-page="why">Why Polyglot</a></li>
-        <li><a data-page="contact">Contact</a></li>
-        <li><a data-page="contact">Book a demo</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="foot-h">Get in touch</div>
-      <ul class="foot-l">
-        <li><a href="mailto:contactus@polyglotcx.com">contactus@polyglotcx.com</a></li>
-        <li><a>Bangalore, India HQ</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="foot-b">
-    <span>© 2026 PolyglotCX. All rights reserved.</span>
-    <span>Built for contact centres that speak every language.</span>
-  </div>
-</footer>
-
-<script>
-/* ════════ PAGE TEMPLATES ════════ */
-const PAGES = {};
-/* ════════ HOME ════════ */
-PAGES.home = `
 <section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
-  <div class="hero-badge">AI-native contact-centre platform · Live</div>
-  <h1>Your customers speak 40 languages.<br><span class="gr">Now your QA does too.</span></h1>
-  <p class="hero-sub">Our flagship, <b>AI Quality Management</b>, turns <b>100% of your calls</b> — in any language, even code-switched Hinglish — into transcripts, QA scores, coaching plans, screen behaviour reports, and CRM tickets. <b>Automatically. In under 90 seconds per call.</b></p>
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="glow g1" aria-hidden="true"></div><div class="glow g2" aria-hidden="true"></div><div class="glow g3" aria-hidden="true"></div>
+  <div class="hero-badge">AI-powered contact center platform</div>
+  <h1>AI-Powered Contact Center<br>&amp; Customer Experience Platform</h1>
+  <p class="hero-sub">Modernize your contact center with an intelligent <b>softphone</b>, a unified <b>agent desktop</b>, <b>AI quality management</b>, analytics and automation &mdash; on one provider-agnostic platform, in any language.</p>
   <div class="hero-ctas">
-    <button class="btn-xl primary" data-page="contact">Book a live demo →</button>
-    <button class="btn-xl outline" data-page="products">See all products</button>
+    <a class="btn-xl primary" href="/contact/">Book a Demo &rarr;</a>
+    <a class="btn-xl outline" href="/products/">Explore Platform</a>
   </div>
-  <a class="hero-announce" data-page="products"><span class="ico" data-ico="sparkles" style="width:14px;height:14px;color:var(--purple)"></span> New — <b>PolyglotCX Phone</b> &amp; <b>Agent Desktop</b> · coming soon <span>→</span></a>
-  <p class="hero-trust">Connects to any telephony source in under a day</p>
-  <div class="marquee"><div class="marquee-track" data-loop><span class="marquee-item">Amazon Connect</span><span class="marquee-item">Genesys Cloud CX</span><span class="marquee-item">Twilio</span><span class="marquee-item">SIPREC · RFC 7866</span><span class="marquee-item">NICE CXone</span><span class="marquee-item">Talkdesk</span><span class="marquee-item">Five9</span><span class="marquee-item">Dynamics 365</span><span class="marquee-item">Avaya</span><span class="marquee-item">Cisco</span><span class="marquee-item">Kafka · Kinesis</span></div></div>
-
-  <div class="pipe-wrap">
-    <div class="pipe-frame">
-      <div class="pipe-head">
-        <div class="pipe-title">⚙ Processing pipeline</div>
-        <div class="pipe-lang" id="pipe-lang">Detected: English + Hindi (code-switched)</div>
-        <div class="pipe-live">Live</div>
-      </div>
-      <div class="wave" id="wave"></div>
-      <div class="stages" id="stages">
-        <div class="stage"><span class="si">🎙</span><span class="sn">Transcribe</span><span class="sd">whisper-asr</span></div>
-        <div class="stage"><span class="si">👥</span><span class="sn">Diarize</span><span class="sd">speakers:2</span></div>
-        <div class="stage"><span class="si">🛡</span><span class="sn">Redact PII</span><span class="sd">4 events</span></div>
-        <div class="stage"><span class="si">📝</span><span class="sn">Summarise</span><span class="sd">4 chains</span></div>
-        <div class="stage"><span class="si">🔍</span><span class="sn">Ground</span><span class="sd">claims✓</span></div>
-        <div class="stage"><span class="si">🎫</span><span class="sn">Ticket</span><span class="sd">P2·billing</span></div>
-        <div class="stage"><span class="si">📊</span><span class="sn">QA Score</span><span class="sd">87/100</span></div>
-        <div class="stage"><span class="si">⚡</span><span class="sn">Rules</span><span class="sd">auto-approve</span></div>
-      </div>
-      <div class="pipe-out" id="pipe-out">
-        <div class="pout"><div class="pl"><i style="background:var(--blue)"></i>Transcript</div><div class="pv">Word-level, speaker-labelled, <b>PII redacted</b></div></div>
-        <div class="pout"><div class="pl"><i style="background:var(--purple)"></i>CRM Ticket</div><div class="pv"><b>P2 · Billing</b> — refund request, 3 action items</div></div>
-        <div class="pout"><div class="pl"><i style="background:var(--green)"></i>QA Evaluation</div><div class="pv"><b>87/100</b> — evidence quoted per criterion</div></div>
-        <div class="pout"><div class="pl"><i style="background:var(--amber)"></i>Coaching Plan</div><div class="pv">2 strengths · <b>1 priority action</b></div></div>
-      </div>
-      <div class="pipe-timer">end-to-end <b id="pipe-t">0.0s</b></div>
+  <a class="hero-announce" href="/products/"><span class="ico" data-ico="sparkles" style="width:14px;height:14px;color:var(--purple)"></span> <b>AI Quality Management</b> is live &middot; Softphone &amp; Agent Desktop in development <span>&rarr;</span></a>
+  <p class="hero-trust">Connects to Amazon Connect, Genesys Cloud, Twilio and any telephony source in under a day</p>
+  <div class="marquee"><div class="marquee-track" data-loop><span class="marquee-item">Amazon Connect</span><span class="marquee-item">Genesys Cloud CX</span><span class="marquee-item">Twilio</span><span class="marquee-item">SIPREC &middot; RFC 7866</span><span class="marquee-item">NICE CXone</span><span class="marquee-item">Talkdesk</span><span class="marquee-item">Five9</span><span class="marquee-item">Dynamics 365</span><span class="marquee-item">Avaya</span><span class="marquee-item">Cisco</span><span class="marquee-item">Kafka &middot; Kinesis</span></div></div>
+  
+<div class="pipe-wrap">
+  <div class="pipe-frame">
+    <div class="pipe-head">
+      <div class="pipe-title"><span class="ico" data-ico="settings" style="width:14px;height:14px"></span> AI Quality Management pipeline</div>
+      <div class="pipe-lang" id="pipe-lang">Detected: English + Hindi (code-switched)</div>
+      <div class="pipe-live">Live</div>
     </div>
+    <div class="wave" id="wave" aria-hidden="true"></div>
+    <div class="stages" id="stages">
+      <div class="stage"><span class="si" data-ico="mic"></span><span class="sn">Transcribe</span><span class="sd">whisper-asr</span></div>
+      <div class="stage"><span class="si" data-ico="users"></span><span class="sn">Diarize</span><span class="sd">speakers:2</span></div>
+      <div class="stage"><span class="si" data-ico="shield"></span><span class="sn">Redact PII</span><span class="sd">4 events</span></div>
+      <div class="stage"><span class="si" data-ico="edit"></span><span class="sn">Summarise</span><span class="sd">4 chains</span></div>
+      <div class="stage"><span class="si" data-ico="search"></span><span class="sn">Ground</span><span class="sd">claims &check;</span></div>
+      <div class="stage"><span class="si" data-ico="ticket"></span><span class="sn">Ticket</span><span class="sd">P2&middot;billing</span></div>
+      <div class="stage"><span class="si" data-ico="chart"></span><span class="sn">QA Score</span><span class="sd">87/100</span></div>
+      <div class="stage"><span class="si" data-ico="bolt"></span><span class="sn">Rules</span><span class="sd">auto-approve</span></div>
+    </div>
+    <div class="pipe-out" id="pipe-out">
+      <div class="pout"><div class="pl"><i style="background:var(--blue)"></i>Transcript</div><div class="pv">Word-level, speaker-labelled, <b>PII redacted</b></div></div>
+      <div class="pout"><div class="pl"><i style="background:var(--purple)"></i>CRM Ticket</div><div class="pv"><b>P2 &middot; Billing</b> &mdash; refund request, 3 action items</div></div>
+      <div class="pout"><div class="pl"><i style="background:var(--green)"></i>QA Evaluation</div><div class="pv"><b>87/100</b> &mdash; evidence quoted per criterion</div></div>
+      <div class="pout"><div class="pl"><i style="background:var(--amber)"></i>Coaching Plan</div><div class="pv">2 strengths &middot; <b>1 priority action</b></div></div>
+    </div>
+    <div class="pipe-timer">end-to-end <b id="pipe-t">0.0s</b></div>
   </div>
+</div>
 </section>
+
 
 <section class="stats-band">
   <div class="stats-in">
-    <div class="stat reveal"><div class="sv">100%</div><div class="sl">of calls QA-evaluated<br><b>vs the 1–3% industry norm</b></div></div>
-    <div class="stat reveal"><div class="sv">&lt;90s</div><div class="sl">to process a 5-minute call<br><b>end-to-end, on CPU</b></div></div>
-    <div class="stat reveal"><div class="sv">20→2</div><div class="sl">minutes per QA review<br><b>a 90% reduction</b></div></div>
+    <div class="stat reveal"><div class="sv">100%</div><div class="sl">of calls QA-evaluated<br><b>vs the 1&ndash;3% industry norm</b></div></div>
+    <div class="stat reveal"><div class="sv">&lt;90s</div><div class="sl">to process a 5-minute call<br><b>end-to-end</b></div></div>
+    <div class="stat reveal"><div class="sv">20&rarr;2</div><div class="sl">minutes per QA review<br><b>a 90% reduction</b></div></div>
     <div class="stat reveal"><div class="sv">40+</div><div class="sl">languages auto-detected<br><b>including code-switching</b></div></div>
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:20px">
-  <div class="mg-band reveal">
-    <div>
-      <div class="pill-new">The PolyglotCX product line</div>
-      <h2 class="h2" style="font-size:clamp(20px,2.5vw,31px);margin-top:15px">A contact-centre platform, <span class="gr">not just a QA tool</span></h2>
-      <p class="sub" style="margin-top:14px">Automated quality management is our flagship — and where we started. The same provider-agnostic backend now powers a growing line of products for the whole contact centre, from the QA desk to the agent's phone. <b>PolyglotCX Phone</b> and <b>Agent Desktop</b> are next.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px">
-        <button class="btn-xl primary" data-page="products">See all products →</button>
-        <button class="btn-xl outline" data-page="platform">Explore the QA platform</button>
-      </div>
-    </div>
-    <div class="phone-mock reveal">
-      <div class="phone-scr">
-        <span class="phone-chip">● On a call · 02:14</span>
-        <div class="phone-name">Meera Krishnan</div>
-        <div class="phone-meta">Acme Insurance · renewal dispute</div>
-        <div class="phone-card"><b>Copilot:</b> pro-rata refund allowed — day 9 of 14. Offer it now.</div>
-        <div class="phone-card">💬 "I can refund the unused period today — shall I proceed?"</div>
-        <div class="phone-card" style="color:#f0c47a"><b>⚠︎</b> Read the recording disclosure</div>
-        <div class="phone-actions"><i style="background:rgba(255,255,255,.09);color:#fff">Hold</i><i style="background:rgba(255,255,255,.09);color:#fff">Mute</i><i style="background:#c0392b;color:#fff">End</i></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid3" style="margin-top:30px">
-    <div class="card reveal">
-      <div class="card-ico">📊</div>
-      <div class="prod-status"><span class="ps-dot ps-live"></span>Available now · Flagship</div>
-      <div class="card-t">AI Quality Management</div>
-      <div class="card-d">Automated QA for 100% of calls, in any language — evidence-backed scores, coaching plans, screen-behaviour analytics and CRM tickets, from any telephony source.</div>
-      <a class="card-link" data-page="platform">Explore the QA platform →</a>
-    </div>
-    <div class="card reveal">
-      <div class="card-ico">📱</div>
-      <div class="prod-status"><span class="ps-dot ps-soon"></span>Coming soon</div>
-      <div class="card-t">PolyglotCX Phone</div>
-      <div class="card-d">A native iOS &amp; Android softphone — CallKit-grade ringing, a live in-call AI copilot, customer context, supervisor tools and AI-briefed field jobs. GA on both stores.</div>
-      <a class="card-link" data-page="phone">See PolyglotCX Phone →</a>
-    </div>
-    <div class="card reveal">
-      <div class="card-ico">🖥</div>
-      <div class="prod-status"><span class="ps-dot ps-soon"></span>Coming soon</div>
-      <div class="card-t">Agent Desktop</div>
-      <div class="card-d">One browser workspace for every channel — an embedded softphone, unified customer context, an inline AI copilot and one-click wrap-up, across any CCaaS.</div>
-      <a class="card-link" data-page="desktop">See Agent Desktop →</a>
-    </div>
-  </div>
-  <p style="text-align:center;font-size:12.5px;color:var(--w45);margin-top:24px" class="reveal">Plus <a data-page="managed" style="color:var(--blue);cursor:pointer">Managed Services</a> — we run the QA function for you.</p>
+<section class="wrap">
+  <div class="eyebrow reveal">The platform</div>
+  <h2 class="h2 reveal">One platform for the <span class="gr">whole contact center</span></h2>
+  <p class="sub reveal">PolyglotCX started with automated quality management and is expanding into a full contact-center and customer-experience suite. Every product runs on the same provider-agnostic backend, security model and AI services &mdash; and each is labelled by stage, so you always know what is available.</p>
+  <div class="prod-grid"><a class="prod-card reveal" href="/products/softphone/">
+  <div class="card-ico" data-ico="phone"></div>
+  <div><span class="status-pill dev">In Development</span></div>
+  <h3>Contact Center Softphone</h3>
+  <p>Intelligent browser-based agent telephony for modern cloud contact centers &mdash; call control, customer context and AI assistance in one place.</p>
+  <span class="card-link">Learn more</span>
+</a><a class="prod-card reveal" href="/products/agent-desktop/">
+  <div class="card-ico" data-ico="monitor"></div>
+  <div><span class="status-pill dev">In Development</span></div>
+  <h3>Agent Desktop</h3>
+  <p>A unified workspace bringing voice, chat, customer context, knowledge and AI assistance together in a single browser tab.</p>
+  <span class="card-link">Learn more</span>
+</a><a class="prod-card reveal" href="/products/ai-quality-management/">
+  <div class="card-ico" data-ico="chart"></div>
+  <div><span class="status-pill live">Available Now</span></div>
+  <h3>AI Quality Management</h3>
+  <p>Automated quality assurance, speech analytics, evidence-backed scoring and agent coaching &mdash; for 100% of calls, in any language.</p>
+  <span class="card-link">Learn more</span>
+</a><a class="prod-card reveal" href="/products/case-management/">
+  <div class="card-ico" data-ico="clipboard"></div>
+  <div><span class="status-pill road">Roadmap</span></div>
+  <h3>Case Management</h3>
+  <p>Customer cases, workflows, SLA tracking and escalation, connected to the conversations that created them.</p>
+  <span class="card-link">Learn more</span>
+</a><a class="prod-card reveal" href="/products/crm/">
+  <div class="card-ico" data-ico="users"></div>
+  <div><span class="status-pill road">Roadmap</span></div>
+  <h3>CRM & Customer 360</h3>
+  <p>Customer profiles, interaction history and full contact-center context &mdash; a Customer 360 built for service teams.</p>
+  <span class="card-link">Learn more</span>
+</a></div>
+  <p class="center reveal" style="font-size:12.5px;color:var(--w45);margin-top:24px">Plus <a href="/solutions/" style="color:var(--blue)">managed services</a> &mdash; our specialists run the QA function for you.</p>
 </section>
 
-<section class="wrap">
-  <div class="eyebrow reveal">The problem</div>
-  <h2 class="h2 reveal">97% of your calls are never reviewed.<br><span class="bl">That's where the risk lives.</span></h2>
+<section class="wrap" style="padding-top:0">
+  <div class="eyebrow reveal">Why it matters</div>
+  <h2 class="h2 reveal">97% of contact-center calls are never reviewed.<br><span class="bl">That&rsquo;s where risk and opportunity hide.</span></h2>
   <div class="cmp">
     <div class="cmp-col bad reveal">
-      <div class="cmp-h"><span class="ico" data-ico="x-circle" style="width:20px;height:20px;color:var(--rose)"></span> Manual QA today</div>
-      <div class="cmp-li"><span class="x">✕</span><span>Quality managers audit <b>1–3% of calls</b> — the rest go unseen</span></div>
-      <div class="cmp-li"><span class="x">✕</span><span><b>~20 minutes</b> per manual evaluation, scores based on gut feel</span></div>
-      <div class="cmp-li"><span class="x">✕</span><span>Non-English and code-switched calls transcribe poorly — <b>or not at all</b></span></div>
-      <div class="cmp-li"><span class="x">✕</span><span>What agents do <b>on screen</b> during calls is completely invisible</span></div>
-      <div class="cmp-li"><span class="x">✕</span><span>Compliance breaches surface <b>weeks later</b> — in complaints or audits</span></div>
+      <div class="cmp-h"><span class="ico" data-ico="x-circle" style="width:20px;height:20px;color:var(--rose)"></span> Contact centers today</div>
+      <div class="cmp-li"><span class="x">&times;</span><span>Quality teams audit <b>1&ndash;3% of calls</b> &mdash; the rest go unseen</span></div>
+      <div class="cmp-li"><span class="x">&times;</span><span>Agents juggle a softphone, a CRM and a knowledge base in <b>separate windows</b></span></div>
+      <div class="cmp-li"><span class="x">&times;</span><span>Non-English and code-switched calls transcribe poorly &mdash; <b>or not at all</b></span></div>
+      <div class="cmp-li"><span class="x">&times;</span><span>Compliance breaches surface <b>weeks later</b> in complaints and audits</span></div>
     </div>
     <div class="cmp-col good reveal">
-      <div class="cmp-h"><span class="ico" data-ico="bolt" style="width:20px;height:20px;color:var(--green)"></span> With Polyglot</div>
-      <div class="cmp-li"><span class="y">✓</span><span><b>Every call</b> scored against your scorecard, automatically</span></div>
-      <div class="cmp-li"><span class="y">✓</span><span><b>&lt;2 minutes</b> to review — every score backed by a transcript quote</span></div>
-      <div class="cmp-li"><span class="y">✓</span><span>Auto language detection with custom vocabulary — <b>Hinglish included</b></span></div>
-      <div class="cmp-li"><span class="y">✓</span><span><b>Screen Behaviour QA</b> — see CRM usage, idle time, distractions</span></div>
-      <div class="cmp-li"><span class="y">✓</span><span>Compliance risks flagged <b>within seconds</b> of the call ending</span></div>
+      <div class="cmp-h"><span class="ico" data-ico="bolt" style="width:20px;height:20px;color:var(--green)"></span> With PolyglotCX</div>
+      <div class="cmp-li"><span class="y">&check;</span><span><b>Every call</b> scored automatically &mdash; <a href="/products/ai-quality-management/" style="color:var(--blue)">AI Quality Management</a></span></div>
+      <div class="cmp-li"><span class="y">&check;</span><span>Voice, context and AI assistance in <b>one workspace</b> &mdash; <a href="/products/agent-desktop/" style="color:var(--blue)">Agent Desktop</a></span></div>
+      <div class="cmp-li"><span class="y">&check;</span><span>Auto language detection with custom vocabulary &mdash; <b>multilingual by design</b></span></div>
+      <div class="cmp-li"><span class="y">&check;</span><span>Compliance risks flagged <b>within seconds</b> of the call ending</span></div>
     </div>
   </div>
 </section>
 
-<section class="wrap" style="padding-top:20px">
-  <div class="eyebrow reveal">Platform highlights</div>
-  <h2 class="h2 reveal">One platform. <span class="gr">Five superpowers.</span></h2>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">01 · AI Quality Management</div>
-      <div class="fh-t">Every score comes with receipts</div>
-      <p class="fh-d">Polyglot evaluates every call against your weighted scorecard and quotes the exact transcript line behind every score. Supervisors calibrate when they disagree — and the rule engine auto-approves, flags, or escalates evaluations the moment they land.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Evidence-backed scoring</b> — justification + direct quote per criterion</span></div>
-        <div class="fh-li"><span><b>Channel-aware scorecards</b> for human agents, AI bots, and IVR flows</span></div>
-        <div class="fh-li"><span><b>Rule engine</b> — auto-approve · flag for review · escalate · notify</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">Opening &amp; Greeting</span><span class="score-pill sp-g">9/10</span></div>
-      <div class="mini-row"><span class="mn">Communication Skills</span><span class="score-pill sp-g">8/10</span></div>
-      <div class="mini-row"><span class="mn">Knowledge Accuracy</span><span class="score-pill sp-b">7/10</span></div>
-      <div class="mini-row"><span class="mn">Resolution Effectiveness</span><span class="score-pill sp-y">6/10</span></div>
-      <div class="mini-row"><span class="mn">Compliance Adherence</span><span class="score-pill sp-g">10/10</span></div>
-      <div class="mini-row" style="background:rgba(14,159,110,.06);border-color:rgba(14,159,110,.3)"><span class="mn" style="font-weight:600;color:#fff">Total · weighted</span><span class="score-pill sp-g">87/100 → auto-approved</span></div>
-      <div style="font-size:11px;color:var(--w45);margin-top:10px;font-family:var(--fm)">💬 "I can certainly waive that fee today" — 02:41, cited as evidence for Resolution</div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-size:13px;font-weight:600">Screen Behaviour Score</span><span class="score-pill sp-b">78 · Proficient</span></div>
-      <div class="tbar"><i style="width:46%;background:var(--blue)"></i><i style="width:18%;background:var(--purple)"></i><i style="width:14%;background:var(--green)"></i><i style="width:12%;background:var(--w15)"></i><i style="width:10%;background:var(--rose)"></i></div>
-      <div class="tleg"><span><i style="background:var(--blue)"></i>CRM 46%</span><span><i style="background:var(--purple)"></i>Knowledge Base 18%</span><span><i style="background:var(--green)"></i>Call Mgmt 14%</span><span><i style="background:var(--w15)"></i>Idle 12%</span><span><i style="background:var(--rose)"></i>Distraction 10%</span></div>
-      <div class="mini-row" style="margin-top:14px"><span class="mn">After-call work</span><span class="score-pill sp-y">04:10 · acw_too_long</span></div>
-      <div class="mini-row"><span class="mn">CRM updated during call</span><span class="score-pill sp-g">✓ Yes</span></div>
-      <div class="mini-row"><span class="mn">Behaviour flags</span><span class="score-pill sp-r">distraction_detected</span></div>
-    </div>
-    <div>
-      <div class="fh-k">02 · Screen Behaviour QA</div>
-      <div class="fh-t">The first QA tool that can see the screen</div>
-      <p class="fh-d">Voice tells half the story. Upload the agent's screen recording and Polyglot's vision AI reconstructs how they actually worked the call — CRM time, knowledge-base lookups, idle gaps, hold overuse, even sensitive data left on screen.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>0–100 behaviour score</b> with time distribution across activities</span></div>
-        <div class="fh-li"><span><b>8 behaviour flags</b> — from crm_never_opened to sensitive_data_exposed</span></div>
-        <div class="fh-li"><span><b>Frame-by-frame timeline</b> with coaching observations per moment</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">03 · Multilingual ASR + Custom Vocabulary</div>
-      <div class="fh-t">Built for the way Asia actually talks</div>
-      <p class="fh-d">Most ASR engines fall apart when a customer switches from English to Hindi mid-sentence. Polyglot detects languages automatically, handles code-switching natively, and learns your product names, acronyms and competitor terms through queue-scoped custom vocabulary.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Auto language detection</b> — word-level timestamps and confidence</span></div>
-        <div class="fh-li"><span><b>PII redacted before any AI call</b> — cards, IDs, phones, emails, DOBs</span></div>
-        <div class="fh-li"><span><b>Custom vocabulary</b> scoped global → customer → queue</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="transcript-line agent"><span class="tl-who">AGT</span><span class="tl-txt">Thank you for calling! How may I help you today?</span></div>
-      <div class="transcript-line cust"><span class="tl-who">CUS</span><span class="tl-txt">Haan, mera <span class="hl">broadband plan</span> upgrade karna hai — the <span class="hl">FibreMax 500</span> one.</span></div>
-      <div class="transcript-line agent"><span class="tl-who">AGT</span><span class="tl-txt">Sure! Can I confirm the card ending <span class="pii">[CARD ****]</span> and your number <span class="pii">[PHONE ****]</span>?</span></div>
-      <div class="transcript-line cust"><span class="tl-who">CUS</span><span class="tl-txt">Yes correct. Aur billing date bhi change kar dijiye please.</span></div>
-      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">lang: en+hi · custom vocab matched: "FibreMax 500" · 2 PII events redacted</div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">🎯 Program · Empathy Excellence Q3</span><span class="score-pill sp-b">active</span></div>
-      <div class="mini-row"><span class="mn">Priya R. — avg score 64</span><span class="score-pill sp-r">needs coaching</span></div>
-      <div class="mini-row" style="flex-direction:column;align-items:flex-start;gap:6px"><span class="mn" style="font-weight:600;color:#fff">AI-seeded session · from eval #4821</span>
-      <span style="font-size:11.5px;color:var(--w70);line-height:1.6">✦ Strength: warm greeting, clear ownership<br>✦ Development: interrupting during objections<br>→ Priority action: complete "active listening" module by Fri</span></div>
-      <div class="mini-row"><span class="mn">Agent acknowledgment</span><span class="score-pill sp-g">✓ acknowledged</span></div>
-    </div>
-    <div>
-      <div class="fh-k">04 · Coaching Hub</div>
-      <div class="fh-t">From AI insight to closed coaching loop</div>
-      <p class="fh-d">Every evaluation generates a coaching plan. The Coaching Hub turns those plans into structured programs, scheduled sessions, and trackable action items — and automatically flags agents who need attention before performance becomes a problem.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>One-click sessions</b> seeded from any evaluation's coaching plan</span></div>
-        <div class="fh-li"><span><b>Action items with due dates</b> — open, in progress, done</span></div>
-        <div class="fh-li"><span><b>Needs-coaching radar</b> — low scores and open items surface automatically</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">05 · Multi-tenant SaaS, enterprise-grade</div>
-      <div class="fh-t">Run one platform. Serve every business unit.</div>
-      <p class="fh-d">Polyglot is multi-tenant from the ground up — strict data isolation per organisation, per-customer token quotas and billing, BYOK API keys encrypted at rest, and role-based access from agent to platform sysadmin.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Hard tenant isolation</b> — cross-customer access blocked at the API layer</span></div>
-        <div class="fh-li"><span><b>Token quotas &amp; cost tracking</b> per customer, per month, per call</span></div>
-        <div class="fh-li"><span><b>BYOK</b> — customers bring their own AI keys, encrypted with Fernet</span></div>
-        <div class="fh-li"><span><b>Onboard a new organisation in under 5 minutes</b></span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">🏢 Acme Insurance</span><span class="score-pill sp-b">Professional · 38% used</span></div>
-      <div class="mini-row"><span class="mn">🏢 TeleSouth BPO</span><span class="score-pill sp-y">Standard · 84% used</span></div>
-      <div class="mini-row"><span class="mn">🏢 GovServe SG</span><span class="score-pill sp-g">Enterprise · BYOK ✓</span></div>
-      <div class="mini-row"><span class="mn">Cross-tenant data leaks</span><span class="score-pill sp-g">0 · enforced at API</span></div>
-      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">sysadmin console · quotas · licenses · model overrides per tenant</div>
-    </div>
-  </div>
+<section class="wrap" style="padding-top:0">
+  <div class="eyebrow reveal">By team &amp; sector</div>
+  <h2 class="h2 reveal">Built for the way your business runs</h2>
+  <div class="grid4" style="margin-top:40px"><div class="card reveal">
+  <div class="card-ico" data-ico="headset"></div>
+  <div class="card-t">Contact Centers</div>
+  <div class="card-d">Modernize agent tooling and quality assurance.</div>
+  
+  <a class="card-link" href="/solutions/contact-center/">See the solution &rarr;</a>
+</div><div class="card reveal">
+  <div class="card-ico" data-ico="building"></div>
+  <div class="card-t">BPO & Outsourcers</div>
+  <div class="card-d">Multi-client QA, coverage and reporting at scale.</div>
+  
+  <a class="card-link" href="/solutions/bpo/">See the solution &rarr;</a>
+</div><div class="card reveal">
+  <div class="card-ico" data-ico="shield"></div>
+  <div class="card-t">Enterprise</div>
+  <div class="card-d">Governance, security and multi-region rollout.</div>
+  
+  <a class="card-link" href="/solutions/enterprise/">See the solution &rarr;</a>
+</div><div class="card reveal">
+  <div class="card-ico" data-ico="scale"></div>
+  <div class="card-t">Government & Public Sector</div>
+  <div class="card-d">Compliance, transparency and multilingual service.</div>
+  
+  <a class="card-link" href="/solutions/government/">See the solution &rarr;</a>
+</div></div>
 </section>
 
-<section class="wrap" style="padding-top:10px">
-  <div class="eyebrow reveal">ROI calculator</div>
-  <h2 class="h2 reveal">See what manual QA <span class="bl">is really costing you</span></h2>
-  <div class="roi reveal">
-    <div class="roi-l">
-      <h3>Your contact centre</h3>
-      <p>Drag the sliders — savings update live.</p>
-      <div class="slider-g"><label>Calls per month <b id="rv-calls">10,000</b></label><input type="range" id="r-calls" min="1000" max="100000" step="1000" value="10000"></div>
-      <div class="slider-g"><label>QA analysts on staff <b id="rv-analysts">4</b></label><input type="range" id="r-analysts" min="1" max="30" step="1" value="4"></div>
-      <div class="slider-g"><label>Avg analyst cost / month (USD) <b id="rv-cost">$3,500</b></label><input type="range" id="r-cost" min="1500" max="9000" step="250" value="3500"></div>
-    </div>
-    <div class="roi-r">
-      <div class="roi-card"><span class="rl">Calls reviewed today (3%)</span><span class="rv" id="ro-now">300</span></div>
-      <div class="roi-card"><span class="rl">Calls reviewed with Polyglot</span><span class="rv" style="color:var(--blue)" id="ro-after">10,000</span></div>
-      <div class="roi-card hl"><span class="rl">Est. annual QA cost saved</span><span class="rv" id="ro-save">$134,000</span></div>
-      <div class="roi-card"><span class="rl">Coverage increase</span><span class="rv" style="color:var(--purple)" id="ro-x">33×</span></div>
-      <p class="roi-note">Assumes analysts shift from scoring calls (~20 min each) to calibrating AI evaluations (~2 min), freeing ~80% of QA capacity. Indicative only — get a tailored model in your demo.</p>
-      <button class="btn-grad" style="padding:13px" data-page="contact">Get my tailored ROI report →</button>
-    </div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:10px">
+<section class="wrap" style="padding-top:0">
   <div class="eyebrow reveal">Plug into your stack</div>
-  <h2 class="h2 reveal">Nine ways in. <span class="gr">Zero rip-and-replace.</span></h2>
-  <p class="sub reveal">Polyglot sits beside your telephony, not instead of it. Every source lands in the same pipeline.</p>
+  <h2 class="h2 reveal">Works with the telephony <span class="gr">you already run</span></h2>
+  <p class="sub reveal">PolyglotCX ingests recordings and events from cloud CCaaS, session border controllers and event streams &mdash; every source lands in the same pipeline.</p>
   <div class="int-grid">
-    <div class="int-c reveal"><div class="int-ic">☁️</div><div><div class="int-n">Amazon Connect</div><div class="int-d">CTR events + S3 recordings</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">🌐</div><div><div class="int-n">Genesys AudioHook</div><div class="int-d">real-time WebSocket v2</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">📞</div><div><div class="int-n">Twilio</div><div class="int-d">RecordingStatusCallback</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">🔌</div><div><div class="int-n">SIPREC (RFC 7866)</div><div class="int-d">Avaya · Cisco · Oracle SBC</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">🪣</div><div><div class="int-n">S3 Bucket Watcher</div><div class="int-d">auto-ingest on drop</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">🔄</div><div><div class="int-n">Kafka / Kinesis</div><div class="int-d">HMAC-verified streams</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">⬆️</div><div><div class="int-n">REST + Drag &amp; Drop</div><div class="int-d">POST /api/calls</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">📡</div><div><div class="int-n">WebSocket Stream</div><div class="int-d">live audio in</div></div></div>
-    <div class="int-c reveal"><div class="int-ic">📁</div><div><div class="int-n">Directory Watcher</div><div class="int-d">on-prem folders</div></div></div>
+    <div class="int-c reveal"><div class="int-ic" data-ico="cloud"></div><div><div class="int-n">Amazon Connect</div><div class="int-d">CTR events + S3 recordings</div></div></div>
+    <div class="int-c reveal"><div class="int-ic" data-ico="globe"></div><div><div class="int-n">Genesys Cloud CX</div><div class="int-d">AudioHook WebSocket v2</div></div></div>
+    <div class="int-c reveal"><div class="int-ic" data-ico="phone"></div><div><div class="int-n">Twilio</div><div class="int-d">RecordingStatusCallback</div></div></div>
+    <div class="int-c reveal"><div class="int-ic" data-ico="plug"></div><div><div class="int-n">SIPREC (RFC 7866)</div><div class="int-d">Avaya &middot; Cisco &middot; Oracle SBC</div></div></div>
+    <div class="int-c reveal"><div class="int-ic" data-ico="refresh"></div><div><div class="int-n">Kafka / Kinesis</div><div class="int-d">HMAC-verified streams</div></div></div>
+    <div class="int-c reveal"><div class="int-ic" data-ico="database"></div><div><div class="int-n">S3 / Directory watchers</div><div class="int-d">auto-ingest on drop</div></div></div>
   </div>
-  <div style="text-align:center;margin-top:34px" class="reveal"><button class="btn-ghost" data-page="integrations" style="padding:12px 28px">See all integration details →</button></div>
+  <p class="center reveal" style="margin-top:34px"><a class="btn-ghost" href="/integrations/" style="padding:12px 28px">See all integrations &rarr;</a></p>
 </section>
 
-<section class="wrap" style="padding-top:10px">
+<section class="wrap" style="padding-top:0">
   <div class="eyebrow reveal">Common questions</div>
-  <h2 class="h2 reveal">Before you ask…</h2>
-  <div class="faq" id="faq-home"></div>
+  <h2 class="h2 reveal">Before you ask&hellip;</h2>
+  <div class="faq"><div class="faq-i"><button class="faq-q" type="button" aria-expanded="false">What is PolyglotCX?<span aria-hidden="true">+</span></button><div class="faq-a"><div><p>PolyglotCX is an AI-powered contact center and customer experience platform. It brings an intelligent softphone, a unified agent desktop, AI quality management, analytics and automation together on one provider-agnostic backend. AI Quality Management is available today; the Softphone and Agent Desktop are in active development.</p></div></div></div><div class="faq-i"><button class="faq-q" type="button" aria-expanded="false">Do we have to replace our telephony platform?<span aria-hidden="true">+</span></button><div class="faq-a"><div><p>No. PolyglotCX sits beside your existing stack — Amazon Connect, Genesys Cloud, Twilio, or Avaya and Cisco via SIPREC. Recordings and events are ingested through nine paths with no rip-and-replace, typically connected in under a day.</p></div></div></div><div class="faq-i"><button class="faq-q" type="button" aria-expanded="false">Which products are available now?<span aria-hidden="true">+</span></button><div class="faq-a"><div><p>AI Quality Management is generally available, including speech analytics, evidence-backed scoring, screen-behaviour QA and agent coaching. The Contact Center Softphone and Agent Desktop are in development with design partners. Case Management and CRM / Customer 360 are on the platform roadmap.</p></div></div></div><div class="faq-i"><button class="faq-q" type="button" aria-expanded="false">How does PolyglotCX handle non-English and multilingual calls?<span aria-hidden="true">+</span></button><div class="faq-a"><div><p>Language is auto-detected per call and code-switched speech such as Hinglish is transcribed natively. Queue-scoped custom vocabulary teaches the ASR your product names and acronyms, applied at transcription time and as post-ASR correction.</p></div></div></div><div class="faq-i"><button class="faq-q" type="button" aria-expanded="false">What about customer data and PII?<span aria-hidden="true">+</span></button><div class="faq-a"><div><p>Card numbers, national IDs, phone numbers, emails and birthdates are detected and redacted before any AI model sees the transcript, with a full audit log. Tenant isolation is enforced at the API layer and BYOK keys are encrypted at rest.</p></div></div></div></div>
 </section>
 
 <div class="cta-band reveal">
-  <h2>See your own calls scored.<br>Live. In the demo.</h2>
-  <p>Bring a recording. We'll run it through the full pipeline in front of you — transcript, QA score, coaching plan and ticket, in under two minutes.</p>
-  <button class="btn-xl primary" data-page="contact">Book your demo →</button>
+  <h2>See the platform on your own calls</h2>
+  <p>Bring a recording. We run it through the live AI Quality Management pipeline in front of you &mdash; transcript, QA score, coaching plan and ticket &mdash; and walk the softphone and agent-desktop roadmap.</p>
+  <a class="btn-xl primary" href="/contact/">Book a Demo &rarr;</a>
 </div>
-`;
 
-/* ════════ PLATFORM ════════ */
-PAGES.platform = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">AI Quality Management · Flagship product</div>
-    <h1>An eight-stage pipeline that turns <span class="gr">audio into action</span></h1>
-    <p>Our flagship product. Every call — from any source, in any language — flows through the same intelligence pipeline and lands as structured, evidence-backed output your team can act on immediately. The rest of the PolyglotCX product line — <a data-page="phone" style="color:var(--blue);cursor:pointer">Phone</a> and <a data-page="desktop" style="color:var(--blue);cursor:pointer">Agent Desktop</a> — runs on the same backend.</p>
-  </div>
-</section>
-<section class="wrap">
-  <div class="grid3">
-    <div class="card reveal"><div class="card-ico">🎙</div><div class="card-t">Stage 1 · Transcription</div><div class="card-d">Whisper-class ASR with word-level timestamps, confidence scores and voice-activity detection. Auto-detects 40+ languages and handles code-switching natively.</div><div class="tagrow"><span class="tag">faster-whisper</span><span class="tag">VAD</span><span class="tag">hotwords</span></div></div>
-    <div class="card reveal"><div class="card-ico">👥</div><div class="card-t">Stage 2 · Diarization</div><div class="card-d">Optional speaker separation assigns every segment to the right voice — agent, customer, or third party — for clean attribution downstream.</div><div class="tagrow"><span class="tag">pyannote 3.1</span><span class="tag">flag-gated</span></div></div>
-    <div class="card reveal"><div class="card-ico">🛡</div><div class="card-t">Stage 3 · PII Redaction</div><div class="card-d">Cards (Luhn-validated), national IDs, phones, emails and birthdates are blanked before any AI model sees the transcript. Full audit trail of every redaction.</div><div class="tagrow"><span class="tag">pre-LLM</span><span class="tag">audit log</span></div></div>
-    <div class="card reveal"><div class="card-ico">📝</div><div class="card-t">Stage 4 · Summarisation ×4</div><div class="card-d">Four parallel summaries, each written for its reader: structured CRM fields, a polite customer recap, supervisor coaching cues, and a severity-ranked compliance audit.</div><div class="tagrow"><span class="tag">4 parallel chains</span><span class="tag">prompt caching</span></div></div>
-    <div class="card reveal"><div class="card-ico">🔍</div><div class="card-t">Stage 5 · Grounding</div><div class="card-d">Every factual claim in every summary is mapped back to the exact transcript segment and timestamp that supports it. No hallucinated summaries — verifiable ones.</div><div class="tagrow"><span class="tag">claim→quote</span><span class="tag">timestamps</span></div></div>
-    <div class="card reveal"><div class="card-ico">🎫</div><div class="card-t">Stage 6 · Voice-to-Ticket</div><div class="card-d">A complete CRM ticket from the conversation itself: priority, category, subject, narrative, action items and customer sentiment — ready to publish to your CRM.</div><div class="tagrow"><span class="tag">P1–P4</span><span class="tag">sentiment</span><span class="tag">action items</span></div></div>
-    <div class="card reveal"><div class="card-ico">📊</div><div class="card-t">Stage 7 · QM Evaluation</div><div class="card-d">Weighted scorecard evaluation with guaranteed structured output. Per-criterion score, justification and direct evidence quote. Supervisors calibrate; both scores are kept.</div><div class="tagrow"><span class="tag">0–100 weighted</span><span class="tag">calibration</span></div></div>
-    <div class="card reveal"><div class="card-ico">⚡</div><div class="card-t">Stage 7b · Rule Engine</div><div class="card-d">Your policy, automated: auto-approve strong calls, flag borderline ones, escalate compliance failures, notify the right people — all logged for audit.</div><div class="tagrow"><span class="tag">AND/OR logic</span><span class="tag">priority order</span></div></div>
-    <div class="card reveal"><div class="card-ico">📡</div><div class="card-t">Stage 8 · Publisher</div><div class="card-d">Structured results stream to Kafka for your CRM, BI warehouse and alerting systems — making Polyglot a data source, not a data silo.</div><div class="tagrow"><span class="tag">Kafka/Redpanda</span><span class="tag">JSON events</span></div></div>
-  </div>
-</section>
-<section class="wrap" style="padding-top:0">
-  <div class="eyebrow reveal">Beyond the pipeline</div>
-  <h2 class="h2 reveal">The workspaces your team lives in</h2>
-  <div class="grid2" style="margin-top:40px">
-    <div class="card reveal"><div class="card-ico">🖥</div><div class="card-t">Screen Behaviour QA</div><div class="card-d">Upload a desktop recording and vision AI scores how the agent actually worked: CRM vs idle vs distraction time, hold overuse, after-call work duration, and 8 behaviour flags — with a frame-by-frame coaching timeline. Independent of the audio pipeline; run or re-run any time.</div></div>
-    <div class="card reveal"><div class="card-ico">🎯</div><div class="card-t">Coaching Hub</div><div class="card-d">Turn AI coaching plans into structured programs, enrollments, sessions and due-dated action items. Agents acknowledge sessions; supervisors track completion; the needs-coaching radar flags low scorers automatically.</div></div>
-    <div class="card reveal"><div class="card-ico">🗂</div><div class="card-t">Agent &amp; Queue Management</div><div class="card-d">Queue-scoped supervision, agent profiles with per-criterion radar charts and evaluation history, and support for human, AI-bot and IVR "agents" — so you can QA your virtual agents with the same rigour as your people.</div></div>
-    <div class="card reveal"><div class="card-ico">📈</div><div class="card-t">Admin Analytics</div><div class="card-d">Pipeline health, compliance pass rates, language and sentiment distribution, agent leaderboards and score distributions — filterable by queue, live via WebSocket push.</div></div>
-    <div class="card reveal"><div class="card-ico">🔤</div><div class="card-t">Custom Vocabulary</div><div class="card-d">Teach the ASR your product names, acronyms and competitor terms. Phrases resolve global → customer → queue and apply at transcription time plus post-ASR correction.</div></div>
-    <div class="card reveal"><div class="card-ico">🏢</div><div class="card-t">Multi-Tenant Console</div><div class="card-d">Onboard customers in minutes. Licenses, seat counts, token quotas with per-customer overrides, BYOK key management (encrypted at rest), and per-tenant AI model configuration.</div></div>
-  </div>
-</section>
-<div class="cta-band reveal">
-  <h2>Two minutes. One call. <br>Full intelligence.</h2>
-  <p>Watch the pipeline run on your own recording in a live demo.</p>
-  <button class="btn-xl primary" data-page="contact">Book a demo →</button>
-</div>
-`;
-
-/* ════════ INTEGRATIONS ════════ */
-PAGES.integrations = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">Integrations</div>
-    <h1>Works with the stack <span class="gr">you already run</span></h1>
-    <p>Nine ingestion paths, one unified pipeline. Every source is validated, deduplicated by content hash, and processed identically — safe for retries, safe for scale.</p>
-  </div>
-</section>
-<section class="wrap">
-  <div class="eyebrow reveal">CCaaS &amp; telephony</div>
-  <div class="grid3" style="margin-top:30px">
-    <div class="card reveal"><div class="card-ico">☁️</div><div class="card-t">Amazon Connect</div><div class="card-d">CTR event integration plus S3 recording pickup. Calls land in Polyglot the moment Connect writes them — agent ID, queue and metadata included.</div><div class="tagrow"><span class="tag">CTR + S3 events</span><span class="tag">API key auth</span></div></div>
-    <div class="card reveal"><div class="card-ico">🌐</div><div class="card-t">Genesys Cloud CX</div><div class="card-d">AudioHook v2 WebSocket streaming for real-time audio capture, authenticated by organisation ID.</div><div class="tagrow"><span class="tag">AudioHook v2</span><span class="tag">WebSocket</span></div></div>
-    <div class="card reveal"><div class="card-ico">📞</div><div class="card-t">Twilio</div><div class="card-d">RecordingStatusCallback with full signature validation — recordings flow in as they complete.</div><div class="tagrow"><span class="tag">signature verified</span></div></div>
-    <div class="card reveal"><div class="card-ico">🔌</div><div class="card-t">SIPREC (RFC 7866)</div><div class="card-d">Standards-based session recording from Avaya, Cisco and Oracle SBCs — for the estates that aren't in the cloud yet. HMAC-SHA256 secured.</div><div class="tagrow"><span class="tag">Avaya · Cisco · SBC</span><span class="tag">HMAC</span></div></div>
-    <div class="card reveal"><div class="card-ico">🔄</div><div class="card-t">Kafka Connect / Kinesis Firehose</div><div class="card-d">Stream recordings at scale through your existing event backbone. SHA-256 dedup makes retries idempotent by design.</div><div class="tagrow"><span class="tag">idempotent</span><span class="tag">HMAC</span></div></div>
-    <div class="card reveal"><div class="card-ico">🪣</div><div class="card-t">S3 / Directory Watchers</div><div class="card-d">Point Polyglot at a bucket or a folder. New recordings are picked up automatically — ideal for batch backfills and on-prem recorders.</div><div class="tagrow"><span class="tag">auto-poll</span><span class="tag">backfill</span></div></div>
-  </div>
-  <div class="eyebrow reveal" style="margin-top:60px">Developer-first</div>
-  <div class="grid3" style="margin-top:30px">
-    <div class="card reveal"><div class="card-ico">⬆️</div><div class="card-t">REST API + Drag &amp; Drop</div><div class="card-d">POST a multipart file or drop it in the browser. WAV, MP3, M4A, OGG, FLAC, WebM, MP4, MOV — all validated by magic bytes, not just extension.</div></div>
-    <div class="card reveal"><div class="card-ico">📡</div><div class="card-t">WebSocket Streaming</div><div class="card-d">Push live audio over an API-key-authenticated socket for near-real-time processing scenarios.</div></div>
-    <div class="card reveal"><div class="card-ico">📤</div><div class="card-t">Results out via Kafka</div><div class="card-d">Every processed call publishes a structured JSON event — call ID, language, ticket, summaries, evaluation — for your CRM, BI and alerting consumers.</div></div>
-  </div>
-</section>
-<div class="cta-band reveal">
-  <h2>Don't see your platform?</h2>
-  <p>If it can produce an audio file or a webhook, we can ingest it. Tell us what you run.</p>
-  <button class="btn-xl primary" data-page="contact">Talk to an architect →</button>
-</div>
-`;
-
-/* ════════ PRICING ════════ */
-PAGES.pricing = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">Pricing</div>
-    <h1>Start free. <span class="gr">Scale when it proves itself.</span></h1>
-    <p>Simple monthly plans sized by call volume. Every plan includes the full pipeline — transcription, QA, coaching and analytics. Bring your own AI key on any tier.</p>
-  </div>
-</section>
-<section class="wrap">
-  <div class="price-grid">
-    <div class="price-c reveal">
-      <div class="price-n">Trial</div>
-      <div class="price-v">Free<span> · 14 days</span></div>
-      <div class="price-d">~90 calls / month</div>
-      <div class="price-f">
-        <div>Full 8-stage pipeline</div>
-        <div>All 4 AI summaries</div>
-        <div>Automated QA scoring</div>
-        <div>1 organisation</div>
-        <div>Community support</div>
-      </div>
-      <button class="btn-ghost" data-page="contact">Start free trial</button>
-    </div>
-    <div class="price-c reveal">
-      <div class="price-n">Starter</div>
-      <div class="price-v">Talk to us<span></span></div>
-      <div class="price-d">~500 calls / month</div>
-      <div class="price-f">
-        <div>Everything in Trial</div>
-        <div>Custom scorecards + rule engine</div>
-        <div>Custom vocabulary</div>
-        <div>Coaching Hub</div>
-        <div>Email support</div>
-      </div>
-      <button class="btn-ghost" data-page="contact">Get a quote</button>
-    </div>
-    <div class="price-c pop reveal">
-      <div class="pop-badge">Most popular</div>
-      <div class="price-n">Professional</div>
-      <div class="price-v">Talk to us<span></span></div>
-      <div class="price-d">~2,000 calls / month</div>
-      <div class="price-f">
-        <div>Everything in Starter</div>
-        <div>Screen Behaviour QA</div>
-        <div>All 9 ingestion sources</div>
-        <div>Kafka results publishing</div>
-        <div>BYOK (bring your own AI key)</div>
-        <div>Priority support</div>
-      </div>
-      <button class="btn-grad" data-page="contact">Book a demo →</button>
-    </div>
-    <div class="price-c reveal">
-      <div class="price-n">Enterprise</div>
-      <div class="price-v">Custom<span></span></div>
-      <div class="price-d">Unlimited calls</div>
-      <div class="price-f">
-        <div>Everything in Professional</div>
-        <div>Unlimited token quota</div>
-        <div>Multi-tenant / BPO mode</div>
-        <div>Per-tenant model configuration</div>
-        <div>Managed Services option</div>
-        <div>SLA + dedicated architect</div>
-      </div>
-      <button class="btn-ghost" data-page="contact">Contact sales</button>
-    </div>
-  </div>
-  <p style="text-align:center;font-size:12.5px;color:var(--w45);margin-top:28px" class="reveal">Volumes are indicative, based on typical 5-minute calls. Quotas are token-based with transparent per-customer usage tracking — and you can bring your own key to pay AI costs at source.</p>
-</section>
-<section class="wrap" style="padding-top:10px">
-  <div class="eyebrow reveal">Pricing questions</div>
-  <h2 class="h2 reveal">Fair questions, straight answers</h2>
-  <div class="faq" id="faq-pricing"></div>
-</section>
-<div class="cta-band reveal">
-  <h2>Not sure which plan fits?</h2>
-  <p>Tell us your monthly call volume and languages — we'll size it in one call.</p>
-  <button class="btn-xl primary" data-page="contact">Get a tailored quote →</button>
-</div>
-`;
-
-/* ════════ MANAGED ════════ */
-PAGES.managed = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">Managed Services</div>
-    <h1>Your QA function, <span class="gr">run for you</span></h1>
-    <p>Don't have a QA team — or want yours focused on coaching, not scoring? Our managed service operates Polyglot on your behalf: calibration, scorecard tuning, weekly insight reports and compliance escalation, run by contact-centre QA specialists.</p>
-  </div>
-</section>
-<section class="wrap">
-  <div class="grid3">
-    <div class="card reveal"><div class="card-ico">🛠</div><div class="card-t">Platform Operations</div><div class="card-d">We run ingestion, monitor pipeline health, manage custom vocabulary and keep your scorecards aligned to evolving business rules.</div></div>
-    <div class="card reveal"><div class="card-ico">⚖️</div><div class="card-t">Human Calibration</div><div class="card-d">Our QA specialists review AI evaluations weekly, calibrate scores, and tune rule-engine thresholds so auto-approval stays trustworthy.</div></div>
-    <div class="card reveal"><div class="card-ico">📋</div><div class="card-t">Insight Reporting</div><div class="card-d">Weekly executive summaries: agent leaderboards, compliance trends, coaching priorities and root-cause themes across your queues.</div></div>
-    <div class="card reveal"><div class="card-ico">🚨</div><div class="card-t">Compliance Watch</div><div class="card-d">High-severity risks are triaged and escalated to your named contacts within agreed SLAs — with the evidence quote attached.</div></div>
-    <div class="card reveal"><div class="card-ico">🎓</div><div class="card-t">Coaching Program Design</div><div class="card-d">We design and run coaching programs in the Hub — enrollment, session cadence, action-item follow-through — informed by your evaluation data.</div></div>
-    <div class="card reveal"><div class="card-ico">🚀</div><div class="card-t">Onboarding &amp; Migration</div><div class="card-d">From telephony connection to first scored call in days. We handle source integration, scorecard build and team training.</div></div>
-  </div>
-  <div class="mg-band reveal">
+</main>
+<footer>
+  <div class="foot-g">
     <div>
-      <h2 class="h2" style="font-size:clamp(20px,2.4vw,30px)">Built by people who've run contact centres — <span class="bl">not just built software</span></h2>
-      <p class="sub" style="margin-top:14px">Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We know what a QA week actually looks like — and what supervisors will and won't adopt.</p>
+      <a class="logo" href="/" aria-label="PolyglotCX home"><svg viewBox="0 0 48 44" style="width:30px;height:28px" fill="none" aria-hidden="true"><rect x="1" y="3" width="31" height="27" rx="8" fill="#3B82F6"/><path d="M8 28v10l11-9z" fill="#3B82F6"/><rect x="7" y="11" width="3.4" height="11" rx="1.7" fill="#DCE9FF"/><rect x="12.6" y="7.5" width="3.4" height="18" rx="1.7" fill="#FFFFFF"/><rect x="18.2" y="12.5" width="3.4" height="9" rx="1.7" fill="#DCE9FF"/><rect x="23.8" y="9" width="3.4" height="15" rx="1.7" fill="#FFFFFF"/><rect x="34" y="6" width="13" height="9" rx="4.5" fill="#14B8A6"/><circle cx="37.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="40.6" cy="10.5" r="1.15" fill="#fff"/><circle cx="43.6" cy="10.5" r="1.15" fill="#fff"/><rect x="33.5" y="21.5" width="12.5" height="9.5" rx="4.75" fill="#F59E0B"/><rect x="36.6" y="24" width="1.9" height="4.5" rx=".95" fill="#fff"/><rect x="39.7" y="23.1" width="1.9" height="6.3" rx=".95" fill="#fff"/><rect x="42.8" y="24.6" width="1.9" height="3.6" rx=".95" fill="#fff"/></svg><span class="logo-t" style="font-size:18px">Polyglot<span>CX</span></span></a>
+      <p class="foot-d">PolyglotCX is an AI-powered contact center &amp; customer experience platform &mdash; intelligent softphones, unified agent desktops, AI quality management, analytics and automation. AI Quality Management is available today; Softphone and Agent Desktop are in active development, with Case Management and CRM on the roadmap.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <div class="roi-card"><span class="rl">Time to first scored call</span><span class="rv" style="font-size:20px;color:var(--blue)">&lt; 1 week</span></div>
-      <div class="roi-card"><span class="rl">Calibration cadence</span><span class="rv" style="font-size:20px">Weekly</span></div>
-      <div class="roi-card"><span class="rl">Compliance escalation SLA</span><span class="rv" style="font-size:20px;color:var(--green)">Same day</span></div>
-    </div>
+    <div><div class="foot-h">Products</div><ul class="foot-l"><li><a href="/products/softphone/">Contact Center Softphone</a></li><li><a href="/products/agent-desktop/">Agent Desktop</a></li><li><a href="/products/ai-quality-management/">AI Quality Management</a></li><li><a href="/products/case-management/">Case Management</a></li><li><a href="/products/crm/">CRM &amp; Customer 360</a></li><li><a href="/products/">All products</a></li></ul></div>
+    <div><div class="foot-h">Solutions</div><ul class="foot-l"><li><a href="/solutions/contact-center/">Contact Centers</a></li><li><a href="/solutions/bpo/">BPO &amp; Outsourcers</a></li><li><a href="/solutions/enterprise/">Enterprise</a></li><li><a href="/solutions/government/">Government</a></li><li><a href="/integrations/">Integrations</a></li><li><a href="/pricing/">Pricing</a></li></ul></div>
+    <div><div class="foot-h">Company</div><ul class="foot-l"><li><a href="/company/">About</a></li><li><a href="/resources/">Resources</a></li><li><a href="/contact/">Contact</a></li><li><a href="/contact/">Book a demo</a></li><li><a href="mailto:contactus@polyglotcx.com">contactus@polyglotcx.com</a></li></ul></div>
   </div>
-</section>
-<div class="cta-band reveal">
-  <h2>QA coverage without the headcount</h2>
-  <p>Tell us your volumes and languages — we'll scope a managed engagement in one call.</p>
-  <button class="btn-xl primary" data-page="contact">Scope my engagement →</button>
-</div>
-`;
-
-/* ════════ WHY ════════ */
-PAGES.why = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">Why Polyglot</div>
-    <h1>Four gaps every other tool leaves open. <span class="gr">We built for them.</span></h1>
-    <p>Plenty of products transcribe calls. Polyglot was designed around the four failures that keep multilingual contact centres stuck with 3% QA coverage.</p>
+  <div class="foot-b">
+    <span>&copy; 2026 PolyglotCX. All rights reserved.</span>
+    <span>Bengaluru, India &middot; serving APAC and beyond</span>
   </div>
-</section>
-<section class="wrap">
-  <div class="grid2">
-    <div class="card reveal"><div class="card-ico">🗣</div><div class="card-t">Gap 1 — Multilingual reality</div><div class="card-d">Western-built ASR collapses on code-switched speech. Polyglot detects languages automatically, transcribes Hinglish and mixed-language calls natively, and lets you teach it your product vocabulary per queue. Accurate data in, accurate intelligence out.</div></div>
-    <div class="card reveal"><div class="card-ico">🧾</div><div class="card-t">Gap 2 — Scores without evidence</div><div class="card-d">An AI score nobody trusts is a score nobody uses. Every Polyglot evaluation quotes the transcript line behind every criterion, grounds every summary claim to a timestamp, and keeps supervisor calibrations side-by-side with AI scores.</div></div>
-    <div class="card reveal"><div class="card-ico">🖥</div><div class="card-t">Gap 3 — The invisible screen</div><div class="card-d">QA has always been deaf to what agents do on screen. Polyglot's vision-based Screen Behaviour QA scores CRM usage, idle time, hold overuse and distraction — the half of agent performance no voice tool can see.</div></div>
-    <div class="card reveal"><div class="card-ico">🏢</div><div class="card-t">Gap 4 — Bolted-on multi-tenancy</div><div class="card-d">Most platforms added tenancy later; the seams show in quota leaks and shared keys. Polyglot is multi-tenant at the core: API-enforced isolation, per-customer quotas and billing, encrypted BYOK keys, per-tenant model config.</div></div>
-  </div>
-  <div class="eyebrow reveal" style="margin-top:64px">Trust &amp; security</div>
-  <h2 class="h2 reveal">Engineered for regulated environments</h2>
-  <div class="grid3" style="margin-top:36px">
-    <div class="card reveal"><div class="card-ico">🛡</div><div class="card-t">PII never reaches the LLM</div><div class="card-d">Cards, IDs, phones, emails and birthdates are detected and blanked before any AI call — with a full redaction audit trail.</div></div>
-    <div class="card reveal"><div class="card-ico">🔐</div><div class="card-t">Keys encrypted at rest</div><div class="card-d">BYOK API keys are stored with Fernet symmetric encryption and never returned by the API — only a configured flag and prefix.</div></div>
-    <div class="card reveal"><div class="card-ico">🔏</div><div class="card-t">Verified ingestion</div><div class="card-d">HMAC-SHA256 signature verification on streaming sources; content-hash dedup makes every retry safe.</div></div>
-    <div class="card reveal"><div class="card-ico">👤</div><div class="card-t">Role-based access</div><div class="card-d">Sysadmin, admin and supervisor roles with queue-level scoping. Cross-tenant requests return 403 — enforced at the API, not the UI.</div></div>
-    <div class="card reveal"><div class="card-ico">⏱</div><div class="card-t">Short-lived sessions</div><div class="card-d">8-hour token TTL with server-side invalidation on logout, and case-insensitive login that never locks users out over a capital letter.</div></div>
-    <div class="card reveal"><div class="card-ico">📜</div><div class="card-t">Everything is logged</div><div class="card-d">Rule triggers, redactions, calibrations and token usage are all auditable — per call, per customer, per month.</div></div>
-  </div>
-</section>
-<div class="cta-band reveal">
-  <h2>The proof is your own audio</h2>
-  <p>Bring your hardest call — heavy accent, mixed language, compliance-sensitive. We'll score it live.</p>
-  <button class="btn-xl primary" data-page="contact">Put us to the test →</button>
-</div>
-`;
-
-/* ════════ PRODUCTS ════════ */
-PAGES.products = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">Products</div>
-    <h1>One platform. <span class="gr">A product line for the whole contact centre.</span></h1>
-    <p>PolyglotCX is a provider-agnostic contact-centre platform. It started with automated quality management — still our flagship — and the same backend now carries a growing set of products for agents, supervisors and the QA desk.</p>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="feat-hero reveal">
-    <div>
-      <div class="prod-status"><span class="ps-dot ps-live"></span>Available now · Flagship</div>
-      <div class="fh-t">AI Quality Management</div>
-      <p class="fh-d">Automated QA for 100% of calls, in any language. An eight-stage pipeline turns every call into a transcript, a weighted QA score with a transcript quote behind every criterion, four role-specific summaries, a CRM ticket and a coaching plan — plus vision-based screen-behaviour scoring and a rule engine that auto-approves, flags or escalates.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>100% coverage</b> vs the 1–3% manual norm — ~2 minutes to review, not 20</span></div>
-        <div class="fh-li"><span><b>40+ languages</b> auto-detected, code-switching included</span></div>
-        <div class="fh-li"><span><b>Screen Behaviour QA</b>, Coaching Hub and a multi-tenant console</span></div>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-        <button class="btn-xl primary" data-page="platform" style="padding:13px 26px;font-size:15px">Explore the QA platform →</button>
-        <button class="btn-xl outline" data-page="contact" style="padding:13px 26px;font-size:15px">Book a demo</button>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">Opening &amp; Greeting</span><span class="score-pill sp-g">9/10</span></div>
-      <div class="mini-row"><span class="mn">Knowledge Accuracy</span><span class="score-pill sp-b">7/10</span></div>
-      <div class="mini-row"><span class="mn">Compliance Adherence</span><span class="score-pill sp-g">10/10</span></div>
-      <div class="mini-row" style="background:rgba(14,159,110,.06);border-color:rgba(14,159,110,.3)"><span class="mn" style="font-weight:600;color:var(--white)">Total · weighted</span><span class="score-pill sp-g">87/100 → auto-approved</span></div>
-      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">every score cites a transcript line · supervisor calibration kept side by side</div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">📱 Incoming · Meera Krishnan</span><span class="score-pill sp-y">risk 0.62</span></div>
-      <div class="mini-row"><span class="mn">Copilot · next best action</span><span class="score-pill sp-g">Offer pro-rata refund</span></div>
-      <div class="mini-row"><span class="mn">Lock-screen answer</span><span class="score-pill sp-b">CallKit · PushKit VoIP</span></div>
-      <div class="mini-row"><span class="mn">Field job · storm outage</span><span class="score-pill sp-r">URGENT · AI brief</span></div>
-    </div>
-    <div>
-      <div class="prod-status"><span class="ps-dot ps-soon"></span>Coming soon</div>
-      <div class="fh-t">PolyglotCX Phone</div>
-      <p class="fh-d">A native iOS and Android softphone. Calls ring on a locked device and answer from the lock screen; a live AI copilot keeps up with the conversation; full customer context, supervisor monitor / whisper / barge, and AI-briefed field jobs — all provider-agnostic and enterprise-secured.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Native call experience</b> — CallKit / ConnectionService, WebRTC audio</span></div>
-        <div class="fh-li"><span><b>Agent, supervisor and field</b> tools, gated by role</span></div>
-        <div class="fh-li"><span><b>GA on the App Store and Google Play together</b></span></div>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-        <button class="btn-xl primary" data-page="phone" style="padding:13px 26px;font-size:15px">See PolyglotCX Phone →</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="prod-status"><span class="ps-dot ps-soon"></span>Coming soon</div>
-      <div class="fh-t">Agent Desktop</div>
-      <p class="fh-d">One browser workspace for the whole interaction. An embedded softphone plus chat, email and tasks in a single queue; a screen-pop with full customer context; an inline AI copilot; and one-click wrap-up that drafts the summary, disposition and CRM ticket — on top of any CCaaS.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Voice + digital</b> in one place, with an embedded CTI</span></div>
-        <div class="fh-li"><span><b>Copilot and knowledge</b> beside every conversation</span></div>
-        <div class="fh-li"><span><b>Supervisor and admin</b> without a second console</span></div>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-        <button class="btn-xl primary" data-page="desktop" style="padding:13px 26px;font-size:15px">See Agent Desktop →</button>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">▸ Voice · Meera Krishnan</span><span class="score-pill sp-b">02:14 · live</span></div>
-      <div class="mini-row"><span class="mn">▸ Chat · Ravi P.</span><span class="score-pill sp-y">waiting 0:40</span></div>
-      <div class="mini-row"><span class="mn">▸ Email · refund query</span><span class="score-pill sp-g">queued</span></div>
-      <div class="mini-row" style="background:rgba(37,99,235,.06);border-color:rgba(37,99,235,.3)"><span class="mn" style="font-weight:600;color:var(--white)">Wrap-up · auto-drafted</span><span class="score-pill sp-b">summary · disposition</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="eyebrow reveal">One platform underneath</div>
-  <h2 class="h2 reveal">Every product, <span class="bl">the same backbone</span></h2>
-  <div class="grid4" style="margin-top:36px">
-    <div class="card reveal"><div class="card-ico">🔌</div><div class="card-t">Provider-agnostic</div><div class="card-d">A Contact Center Abstraction Layer over built-in SIP, Amazon Connect, Genesys, NICE CXone, Talkdesk, Five9 and Dynamics 365 — products never branch on the vendor.</div></div>
-    <div class="card reveal"><div class="card-ico">🏢</div><div class="card-t">Multi-tenant core</div><div class="card-d">Strict per-organisation isolation, token quotas and billing, BYOK keys encrypted at rest, per-tenant model configuration.</div></div>
-    <div class="card reveal"><div class="card-ico">🔐</div><div class="card-t">One security model</div><div class="card-d">MFA, per-tenant OIDC SSO, RBAC, tamper-evident audit, data-residency routing and pre-LLM PII redaction — shared by every product.</div></div>
-    <div class="card reveal"><div class="card-ico">🤖</div><div class="card-t">Shared AI services</div><div class="card-d">The same grounding, copilot and RAG services feed QA scoring, the in-call copilot and Agent Desktop wrap-up.</div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="grid3">
-    <div class="card reveal"><div class="card-ico">🛠</div><div class="prod-status"><span class="ps-dot ps-live"></span>Available now</div><div class="card-t">Managed Services</div><div class="card-d">Don't have a QA team? We operate the platform for you — calibration, scorecard tuning, weekly insight reports and compliance escalation.</div><a class="card-link" data-page="managed">Managed Services →</a></div>
-    <div class="card reveal"><div class="card-ico">🔗</div><div class="prod-status"><span class="ps-dot ps-live"></span>Available now</div><div class="card-t">Integrations</div><div class="card-d">Nine ways in — CCaaS events, SIPREC, Kafka/Kinesis, S3 and directory watchers, REST and WebSocket — and structured results out over Kafka.</div><a class="card-link" data-page="integrations">See integrations →</a></div>
-    <div class="card reveal"><div class="card-ico">💬</div><div class="prod-status"><span class="ps-dot ps-soon"></span>On the roadmap</div><div class="card-t">Digital-channel QA</div><div class="card-d">The same evidence-backed scoring and coaching, extended to chat, email and messaging transcripts.</div><span style="display:inline-block;margin-top:16px;font-size:13px;color:var(--w45)">In design</span></div>
-  </div>
-</section>
-
-<div class="cta-band reveal">
-  <h2>See the platform — and where it's going.</h2>
-  <p>A 30-minute session: your calls scored live on the flagship, plus an early look at Phone and Agent Desktop.</p>
-  <button class="btn-xl primary" data-page="contact">Book a demo →</button>
-</div>
-`;
-
-/* ════════ PHONE ════════ */
-PAGES.phone = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="glow g2" style="top:-90px;right:-70px;left:auto"></div>
-  <div class="phero-in">
-    <div class="eyebrow">New · PolyglotCX Phone</div>
-    <h1>Your contact centre, <span class="gr">now on a phone</span></h1>
-    <p>A native iOS and Android app that puts the whole Polyglot workspace — calls, a live AI copilot, customer context, supervisor tools and field jobs — in one hand. Provider-agnostic, enterprise-secured, and <b>launching GA on both platforms at once</b>.</p>
-    <div class="store-row">
-      <span class="store-badge"><span class="sb-i"></span><span><span class="sb-k">Coming soon on the</span><span class="sb-v">App Store</span></span></span>
-      <span class="store-badge"><span class="sb-i"></span><span><span class="sb-k">Coming soon on</span><span class="sb-v">Google Play</span></span></span>
-    </div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px">
-      <button class="btn-xl primary" data-page="contact">Join the launch list →</button>
-      <button class="btn-xl outline" data-page="platform">See the platform</button>
-    </div>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="eyebrow reveal">One app, every platform</div>
-  <h2 class="h2 reveal">It doesn't matter <span class="gr">whose CCaaS you run</span></h2>
-  <p class="sub reveal">PolyglotCX Phone talks to the same provider-agnostic layer as the web platform. The app reads each tenant's capabilities at sign-in and adapts its controls to whatever their stack actually supports — no separate build per telephony vendor.</p>
-  <div class="plat-strip">
-    <div class="plat-c reveal"><div class="pn">Built-in SIP · WebRTC</div><div class="pd">HD voice, no extra infra</div></div>
-    <div class="plat-c reveal"><div class="pn">Amazon Connect</div><div class="pd">CCP-backed voice</div></div>
-    <div class="plat-c reveal"><div class="pn">Genesys Cloud CX</div><div class="pd">WebRTC station</div></div>
-    <div class="plat-c reveal"><div class="pn">NICE CXone</div><div class="pd">agent + presence</div></div>
-    <div class="plat-c reveal"><div class="pn">Talkdesk</div><div class="pd">agent + presence</div></div>
-    <div class="plat-c reveal"><div class="pn">Five9</div><div class="pd">agent + presence</div></div>
-    <div class="plat-c reveal"><div class="pn">Dynamics 365</div><div class="pd">Contact Center</div></div>
-    <div class="plat-c reveal"><div class="pn">+ your stack</div><div class="pd">one abstraction layer</div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:10px">
-  <div class="eyebrow reveal">What it does</div>
-  <h2 class="h2 reveal">The floor, the copilot and the field — <span class="gr">on one screen</span></h2>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">01 · Native call experience</div>
-      <div class="fh-t">Rings like a phone call. Because it is one.</div>
-      <p class="fh-d">PolyglotCX Phone registers with CallKit on iOS and ConnectionService on Android, so inbound calls ring on a locked device and can be answered from the lock screen — even with the app closed. Audio runs over WebRTC; the call controls are all there.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Lock-screen answer</b> via PushKit VoIP push — no need to open the app first</span></div>
-        <div class="fh-li"><span><b>Full control</b> — hold, mute, speaker, DTMF keypad, blind &amp; consult transfer, conference</span></div>
-        <div class="fh-li"><span><b>Capability-aware UI</b> — a control only shows when the tenant's provider supports it</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div style="text-align:center;padding:4px 0 14px"><div style="font-size:11px;color:var(--w45);font-family:var(--fm);letter-spacing:1px">INCOMING CALL</div><div style="font-size:19px;font-weight:700;margin-top:6px;font-family:var(--fd)">Meera Krishnan</div><div style="font-size:12px;color:var(--w45)">+91 80 4··· ···· · Acme Insurance</div></div>
-      <div class="mini-row"><span class="mn">AI risk score</span><span class="score-pill sp-y">0.62 · watch</span></div>
-      <div class="mini-row"><span class="mn">Open case</span><span class="score-pill sp-b">Renewal dispute</span></div>
-      <div class="mini-row"><span class="mn">Last contact</span><span class="score-pill sp-g">"Promised a callback"</span></div>
-      <div style="display:flex;gap:10px;margin-top:12px"><div style="flex:1;text-align:center;background:rgba(225,29,72,.1);color:var(--rose);border-radius:10px;padding:10px;font-weight:600;font-size:13px">Decline</div><div style="flex:1;text-align:center;background:rgba(14,159,110,.12);color:var(--green);border-radius:10px;padding:10px;font-weight:600;font-size:13px">Answer</div></div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div class="mini-row" style="background:rgba(37,99,235,.06);border-color:rgba(37,99,235,.3)"><span class="mn" style="font-weight:600;color:var(--white)">Copilot · updates as they talk</span><span class="score-pill sp-b">live</span></div>
-      <div style="background:var(--w04);border:1px solid var(--w08);border-radius:10px;padding:12px;margin-top:8px;font-size:12.5px;color:var(--w70)"><b style="color:var(--white)">Customer wants a pro-rata refund</b> — policy allows it within 14 days of renewal. She's on day 9.</div>
-      <div class="mini-row" style="margin-top:8px"><span class="mn">Next best action</span><span class="score-pill sp-g">Offer pro-rata refund</span></div>
-      <div style="background:#eef4ff;border-radius:10px;padding:12px;margin-top:8px;font-size:12.5px">💬 "I can process a pro-rata refund for the unused period today — shall I go ahead?"</div>
-      <div class="mini-row" style="margin-top:8px"><span class="mn">⚠︎ Compliance</span><span class="score-pill sp-y">Read the recording disclosure</span></div>
-      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">sources: Refunds Policy v4 · Renewal T&amp;Cs</div>
-    </div>
-    <div>
-      <div class="fh-k">02 · Live AI Copilot</div>
-      <div class="fh-t">Guidance that keeps up with the conversation</div>
-      <p class="fh-d">As the live transcript grows, the copilot re-runs itself: a plain-language read of the situation, ranked next-best actions with rationale, a suggested reply, compliance alerts, and citations back to the knowledge base it drew from.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Streamed in-call</b> over SSE — the panel fills in as the call unfolds</span></div>
-        <div class="fh-li"><span><b>Grounded</b> — every suggestion names the source document behind it</span></div>
-        <div class="fh-li"><span><b>Compliance watch</b> — missed disclosures and risky commitments flagged live</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">03 · Unified customer context</div>
-      <div class="fh-t">The screen-pop, on a screen that fits in one hand</div>
-      <p class="fh-d">Every interaction opens with who is calling and why: identity resolved from the number, company, tags, AI risk score, open cases, and the history of past contacts. Transfer the call and the context travels with it.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Instant identity</b> — no "can I take your account number" to start</span></div>
-        <div class="fh-li"><span><b>Open cases &amp; past summaries</b> one tap away mid-call</span></div>
-        <div class="fh-li"><span><b>Context-preserving transfer</b> — the next agent starts where you left off</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">Name</span><span class="score-pill sp-b">Meera Krishnan</span></div>
-      <div class="mini-row"><span class="mn">Company</span><span class="score-pill sp-b">Acme Insurance</span></div>
-      <div class="mini-row"><span class="mn">Tags</span><span class="score-pill sp-y">VIP · at-risk</span></div>
-      <div class="mini-row"><span class="mn">Open cases</span><span class="score-pill sp-r">2 · renewal dispute</span></div>
-      <div class="mini-row"><span class="mn">Past interactions</span><span class="score-pill sp-g">7 · last 30 days</span></div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">Team</span><span class="score-pill sp-b">12/15 online · 6 on a call</span></div>
-      <div class="mini-row" style="background:rgba(225,29,72,.05);border-color:rgba(225,29,72,.25)"><span class="mn" style="font-weight:600;color:var(--white)">Needs attention · VOICE</span><span class="score-pill sp-r">0.78</span></div>
-      <div style="font-size:11.5px;color:var(--w70);padding:2px 2px 10px">escalating tone · 2 compliance misses · silence &gt; 40s</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="score-pill sp-b">Monitor</span><span class="score-pill sp-b">Whisper</span><span class="score-pill sp-b">Barge</span><span class="score-pill sp-g">Score</span></div>
-    </div>
-    <div>
-      <div class="fh-k">04 · Mobile Supervisor</div>
-      <div class="fh-t">Run the floor from anywhere</div>
-      <p class="fh-d">A live team pulse, an AI-ranked "needs attention" list, and one-tap Monitor, Whisper or Barge on any live call. Drop a coaching score the moment the call ends.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>AI attention list</b> — calls scored on tone, silence and compliance risk</span></div>
-        <div class="fh-li"><span><b>Monitor · Whisper · Barge</b> from the phone, where the provider allows it</span></div>
-        <div class="fh-li"><span><b>Coach on the spot</b> — seed a session straight from the interaction</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">05 · AI Field Agent</div>
-      <div class="fh-t">For the people who take the call to the doorstep</div>
-      <p class="fh-d">Field techs get AI-briefed jobs: a problem statement, likely causes, recommended steps, parts to bring and safety notes — plus one-tap navigation, status updates on a fixed workflow, photo notes and back-office escalation.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>AI pre-visit brief</b> with estimated duration and customer impact</span></div>
-        <div class="fh-li"><span><b>Navigate &amp; call site</b> in one tap — maps and dialer wired in</span></div>
-        <div class="fh-li"><span><b>Escalate with context</b> — the job timeline follows it back to the office</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">🔧 No dial tone after storm</span><span class="score-pill sp-r">URGENT</span></div>
-      <div style="background:var(--w04);border:1px solid var(--w08);border-radius:10px;padding:12px;margin-top:8px;font-size:12px;color:var(--w70);line-height:1.6"><b style="color:var(--white)">Likely:</b> drop cable / NTU power<br><b style="color:var(--white)">Bring:</b> spare NTU, RJ11, line tester<br><b style="color:var(--white)">Safety:</b> standing water near the junction box</div>
-      <div class="mini-row" style="margin-top:8px"><span class="mn">Est. duration</span><span class="score-pill sp-b">45 min</span></div>
-      <div class="mini-row"><span class="mn">Customer impact</span><span class="score-pill sp-y">High · line down</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="eyebrow reveal">Mobile, minus the risk</div>
-  <h2 class="h2 reveal">Enterprise security, <span class="bl">carried in a pocket</span></h2>
-  <div class="grid3" style="margin-top:36px">
-    <div class="card reveal"><div class="card-ico">🔐</div><div class="card-t">MFA &amp; per-tenant SSO</div><div class="card-d">TOTP multi-factor at sign-in and OIDC single sign-on per organisation. Short-lived tokens with silent refresh in the background.</div></div>
-    <div class="card reveal"><div class="card-ico">🛡</div><div class="card-t">SIP passwords never leave the server</div><div class="card-d">Trunk credentials are encrypted at rest and vended after auth — the app never keeps a reusable secret in the clear.</div></div>
-    <div class="card reveal"><div class="card-ico">📵</div><div class="card-t">On-device secure storage</div><div class="card-d">Session tokens live in the iOS Keychain / Android Keystore via secure-store, not in plain app storage.</div></div>
-    <div class="card reveal"><div class="card-ico">🌍</div><div class="card-t">Data-residency aware</div><div class="card-d">Inference and media route to the tenant's region; an out-of-region write is refused, not silently allowed.</div></div>
-    <div class="card reveal"><div class="card-ico">👤</div><div class="card-t">Role-based access</div><div class="card-d">Agent, supervisor and admin scopes — the supervisor and field tools only appear for the roles that own them.</div></div>
-    <div class="card reveal"><div class="card-ico">🔔</div><div class="card-t">Push that respects the lock screen</div><div class="card-d">High-priority call pushes wake a locked device and bypass Do-Not-Disturb on Android; everything else is a normal notification.</div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="grid4">
-    <div class="stat reveal"><div class="sv" style="font-size:21px">iOS + Android</div><div class="sl">one codebase, both stores<br><b>GA at launch</b></div></div>
-    <div class="stat reveal"><div class="sv" style="font-size:21px">7 CCaaS</div><div class="sl">providers behind one<br><b>abstraction layer</b></div></div>
-    <div class="stat reveal"><div class="sv" style="font-size:21px">0 new infra</div><div class="sl">runs on your existing<br><b>Polyglot backend</b></div></div>
-    <div class="stat reveal"><div class="sv" style="font-size:21px">Agent → Field</div><div class="sl">one app for agents,<br><b>supervisors and techs</b></div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:10px">
-  <div class="eyebrow reveal">Before you ask</div>
-  <h2 class="h2 reveal">PolyglotCX Phone, in short</h2>
-  <div class="faq" id="faq-phone"></div>
-</section>
-
-<div class="cta-band reveal">
-  <h2>Be first on the phone.</h2>
-  <p>We're onboarding design partners now and shipping GA to the App Store and Google Play together. Tell us your platform and team size.</p>
-  <button class="btn-xl primary" data-page="contact">Join the launch list →</button>
-</div>
-`;
-
-/* ════════ AGENT DESKTOP ════════ */
-PAGES.desktop = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="glow g3" style="top:-90px;right:-70px;left:auto"></div>
-  <div class="phero-in">
-    <div class="eyebrow">New · Agent Desktop</div>
-    <h1>Every channel, every tool — <span class="gr">one browser tab</span></h1>
-    <p>A unified web workspace for agents and supervisors: an embedded softphone, omnichannel queues, full customer context, an inline AI copilot and one-click wrap-up — on the same provider-agnostic backend as the rest of PolyglotCX. <b>Coming soon.</b></p>
-    <div style="margin-top:24px"><span class="pill-new">Coming soon · browser-based</span></div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
-      <button class="btn-xl primary" data-page="contact">Join the launch list →</button>
-      <button class="btn-xl outline" data-page="products">See all products</button>
-    </div>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="eyebrow reveal">One desktop, any CCaaS</div>
-  <h2 class="h2 reveal">Sits on top of the stack <span class="gr">you already run</span></h2>
-  <p class="sub reveal">Agent Desktop reads each tenant's capabilities and renders only what their provider supports — the same Contact Center Abstraction Layer behind PolyglotCX Phone.</p>
-  <div class="plat-strip">
-    <div class="plat-c reveal"><div class="pn">Built-in SIP · WebRTC</div><div class="pd">embedded softphone</div></div>
-    <div class="plat-c reveal"><div class="pn">Amazon Connect</div><div class="pd">CCP / Streams</div></div>
-    <div class="plat-c reveal"><div class="pn">Genesys Cloud CX</div><div class="pd">embeddable / WebRTC</div></div>
-    <div class="plat-c reveal"><div class="pn">NICE CXone</div><div class="pd">agent + presence</div></div>
-    <div class="plat-c reveal"><div class="pn">Talkdesk</div><div class="pd">agent + presence</div></div>
-    <div class="plat-c reveal"><div class="pn">Five9</div><div class="pd">agent + presence</div></div>
-    <div class="plat-c reveal"><div class="pn">Dynamics 365</div><div class="pd">Contact Center</div></div>
-    <div class="plat-c reveal"><div class="pn">+ your stack</div><div class="pd">one abstraction layer</div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:10px">
-  <div class="eyebrow reveal">What it does</div>
-  <h2 class="h2 reveal">The whole interaction, <span class="gr">in one place</span></h2>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">01 · One workspace for voice and digital</div>
-      <div class="fh-t">Voice, chat, email and tasks in a single queue</div>
-      <p class="fh-d">An embedded WebRTC softphone with hold, mute, transfer and conference sits next to a unified interaction list. Presence and routing states sync back to the provider, so one status covers every channel.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Embedded CTI</b> — no separate phone window</span></div>
-        <div class="fh-li"><span><b>Unified queue</b> across voice, chat, email and tasks</span></div>
-        <div class="fh-li"><span><b>Capability-aware</b> — controls match the tenant's provider</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">▸ Voice · Meera Krishnan</span><span class="score-pill sp-b">02:14 · live</span></div>
-      <div class="mini-row"><span class="mn">▸ Chat · Ravi P.</span><span class="score-pill sp-y">waiting 0:40</span></div>
-      <div class="mini-row"><span class="mn">▸ Email · refund query</span><span class="score-pill sp-g">queued</span></div>
-      <div class="mini-row"><span class="mn">Status</span><span class="score-pill sp-b">Available · all channels</span></div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">Name</span><span class="score-pill sp-b">Meera Krishnan</span></div>
-      <div class="mini-row"><span class="mn">Tags</span><span class="score-pill sp-y">VIP · at-risk</span></div>
-      <div class="mini-row"><span class="mn">Open cases</span><span class="score-pill sp-r">2 · renewal dispute</span></div>
-      <div class="mini-row"><span class="mn">Past interactions</span><span class="score-pill sp-g">7 · last 30 days</span></div>
-      <div style="font-size:10.5px;color:var(--w45);margin-top:10px;font-family:var(--fm)">screen-pop on connect · no "let me pull up your account"</div>
-    </div>
-    <div>
-      <div class="fh-k">02 · Context on arrival</div>
-      <div class="fh-t">The screen-pop, before you say hello</div>
-      <p class="fh-d">Identity resolved from the number or channel, company, tags, AI risk score, open cases and the full interaction history — loaded the moment the interaction connects, and carried along on a transfer.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Instant identity</b> and account status</span></div>
-        <div class="fh-li"><span><b>Open cases &amp; past summaries</b> inline</span></div>
-        <div class="fh-li"><span><b>Context-preserving transfer</b> between agents</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feat-hero reveal">
-    <div>
-      <div class="fh-k">03 · AI copilot, inline</div>
-      <div class="fh-t">Guidance beside the conversation — and the wrap-up done for you</div>
-      <p class="fh-d">A live transcript, ranked next-best actions, suggested replies and knowledge-base retrieval sit beside every interaction. At the end, the copilot drafts the summary, the disposition and the CRM ticket for a one-click close.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Live transcript</b> with next-best-action and citations</span></div>
-        <div class="fh-li"><span><b>One-click wrap-up</b> — summary, disposition, ticket</span></div>
-        <div class="fh-li"><span><b>Feeds QA</b> — every interaction lands in the same pipeline</span></div>
-      </div>
-    </div>
-    <div class="fh-visual">
-      <div style="background:var(--w04);border:1px solid var(--w08);border-radius:10px;padding:12px;font-size:12.5px;color:var(--w70)"><b style="color:var(--white)">Situation:</b> pro-rata refund, day 9 of 14 — within policy.</div>
-      <div class="mini-row" style="margin-top:8px"><span class="mn">Next best action</span><span class="score-pill sp-g">Offer pro-rata refund</span></div>
-      <div style="background:#eef4ff;border-radius:10px;padding:12px;margin-top:8px;font-size:12.5px">💬 "I can refund the unused period today — shall I go ahead?"</div>
-      <div class="mini-row" style="margin-top:8px;background:rgba(37,99,235,.06);border-color:rgba(37,99,235,.3)"><span class="mn" style="font-weight:600;color:var(--white)">Wrap-up</span><span class="score-pill sp-b">draft ready</span></div>
-    </div>
-  </div>
-
-  <div class="feat-hero rev reveal">
-    <div class="fh-visual">
-      <div class="mini-row"><span class="mn">Queue · Billing</span><span class="score-pill sp-y">6 waiting · SLA 82%</span></div>
-      <div class="mini-row"><span class="mn">Agents</span><span class="score-pill sp-b">12 online · 6 on a call</span></div>
-      <div class="mini-row" style="background:rgba(225,29,72,.05);border-color:rgba(225,29,72,.25)"><span class="mn" style="font-weight:600;color:var(--white)">Live compliance flag</span><span class="score-pill sp-r">disclosure missed</span></div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:2px"><span class="score-pill sp-b">Monitor</span><span class="score-pill sp-b">Whisper</span><span class="score-pill sp-b">Barge</span></div>
-    </div>
-    <div>
-      <div class="fh-k">04 · Supervisor &amp; real-time ops</div>
-      <div class="fh-t">Run the floor from the same screen</div>
-      <p class="fh-d">Live queue health, agent states and SLA, monitor / whisper / barge on any interaction, and compliance flags the moment they happen — no separate supervisor app.</p>
-      <div class="fh-list">
-        <div class="fh-li"><span><b>Live dashboards</b> pushed over WebSocket</span></div>
-        <div class="fh-li"><span><b>Monitor · Whisper · Barge</b> where the provider allows it</span></div>
-        <div class="fh-li"><span><b>Admin built in</b> — dial plans, scorecards, vocabulary, users</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="eyebrow reveal">Enterprise from day one</div>
-  <h2 class="h2 reveal">The same security model <span class="bl">as the rest of the platform</span></h2>
-  <div class="grid3" style="margin-top:36px">
-    <div class="card reveal"><div class="card-ico">🔐</div><div class="card-t">MFA &amp; per-tenant SSO</div><div class="card-d">TOTP at sign-in, OIDC SSO per organisation, short-lived tokens with silent refresh.</div></div>
-    <div class="card reveal"><div class="card-ico">👤</div><div class="card-t">Role-based access</div><div class="card-d">Agent, supervisor and admin scopes with queue-level scoping; cross-tenant requests refused at the API.</div></div>
-    <div class="card reveal"><div class="card-ico">🛡</div><div class="card-t">PII redacted pre-LLM</div><div class="card-d">Cards, IDs, phones, emails and birthdates blanked before any AI call, with a full redaction audit.</div></div>
-    <div class="card reveal"><div class="card-ico">🌍</div><div class="card-t">Data-residency aware</div><div class="card-d">Inference and media route to the tenant's region; out-of-region writes are refused.</div></div>
-    <div class="card reveal"><div class="card-ico">🏢</div><div class="card-t">Multi-tenant</div><div class="card-d">Isolated data, token quotas and billing per organisation; BYOK keys encrypted at rest.</div></div>
-    <div class="card reveal"><div class="card-ico">📜</div><div class="card-t">Tamper-evident audit</div><div class="card-d">Rule triggers, calibrations, redactions and token usage — all auditable per call and per tenant.</div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="grid4">
-    <div class="stat reveal"><div class="sv" style="font-size:21px">Browser-based</div><div class="sl">nothing to install<br><b>agents &amp; supervisors</b></div></div>
-    <div class="stat reveal"><div class="sv" style="font-size:21px">Voice + digital</div><div class="sl">one queue for<br><b>call, chat, email, task</b></div></div>
-    <div class="stat reveal"><div class="sv" style="font-size:21px">7 CCaaS</div><div class="sl">on one<br><b>abstraction layer</b></div></div>
-    <div class="stat reveal"><div class="sv" style="font-size:21px">Agent → Admin</div><div class="sl">one screen for<br><b>the whole role</b></div></div>
-  </div>
-</section>
-
-<section class="wrap" style="padding-top:10px">
-  <div class="eyebrow reveal">Before you ask</div>
-  <h2 class="h2 reveal">Agent Desktop, in short</h2>
-  <div class="faq" id="faq-desktop"></div>
-</section>
-
-<div class="cta-band reveal">
-  <h2>Want it on the early list?</h2>
-  <p>Agent Desktop is in build. Tell us your CCaaS and team size and we'll bring you in as a design partner.</p>
-  <button class="btn-xl primary" data-page="contact">Join the launch list →</button>
-</div>
-`;
-
-/* ════════ CONTACT ════════ */
-PAGES.contact = `
-<section class="phero">
-  <div class="hero-grid-bg"></div>
-  <div class="phero-in">
-    <div class="eyebrow">Contact</div>
-    <h1>See Polyglot on <span class="gr">your own calls</span></h1>
-    <p>30 minutes. We run your recording through the live pipeline, size your ROI, and map the integration to your telephony. No slideware.</p>
-  </div>
-</section>
-<section class="wrap" style="max-width:900px;margin:0 auto">
-  <div class="form-grid" id="lead-form">
-    <div class="fg"><label for="f-name">Full name *</label><input id="f-name" type="text" placeholder="Jane Tan" required></div>
-    <div class="fg"><label for="f-email">Work email *</label><input id="f-email" type="email" placeholder="jane@company.com" required></div>
-    <div class="fg"><label for="f-company">Company *</label><input id="f-company" type="text" placeholder="Acme Insurance" required></div>
-    <div class="fg"><label for="f-role">Your role</label><input id="f-role" type="text" placeholder="Head of CX / QA Manager / IT"></div>
-    <div class="fg"><label for="f-vol">Monthly call volume</label><select id="f-vol"><option>Under 1,000</option><option selected>1,000 – 10,000</option><option>10,000 – 50,000</option><option>50,000+</option></select></div>
-    <div class="fg"><label for="f-tel">Telephony platform</label><select id="f-tel"><option>Amazon Connect</option><option>Genesys Cloud CX</option><option>Twilio</option><option>Avaya / Cisco (SIPREC)</option><option>Other / multiple</option></select></div>
-    <div class="fg full"><label for="f-msg">What problem are you trying to solve?</label><textarea id="f-msg" rows="4" placeholder="e.g. We review under 2% of calls and our Tamil + English mix breaks our current transcription tool…"></textarea></div>
-    <div class="fg full"><button class="btn-xl primary" style="width:100%" id="lead-submit">Request my demo →</button></div>
-  </div>
-  <p class="form-note">We reply within one business day. Your details are used only to arrange the demo — no mailing lists, no spam.</p>
-  <div class="form-success" id="form-success">✓ Thanks — your demo request is in. We'll be in touch within one business day. (Tip: have a sample recording ready for the session.)</div>
-  <div class="grid3" style="margin-top:56px">
-    <div class="card reveal" style="text-align:center;align-items:center"><div class="card-ico" data-ico="mail" style="margin:0 auto 14px"></div><div class="card-t">Email</div><div class="card-d">contactus@polyglotcx.com</div></div>
-    <div class="card reveal" style="text-align:center;align-items:center"><div class="card-ico" data-ico="map-pin" style="margin:0 auto 14px"></div><div class="card-t">Based in</div><div class="card-d">India — serving APAC and beyond</div></div>
-    <div class="card reveal" style="text-align:center;align-items:center"><div class="card-ico" data-ico="bolt" style="margin:0 auto 14px"></div><div class="card-t">Response time</div><div class="card-d">Within one business day</div></div>
-  </div>
-</section>
-`;
-
-/* ════════ FAQ DATA ════════ */
-const FAQ_HOME = [
-  ["Do we have to replace our telephony platform?","No. Polyglot sits beside your existing stack — Amazon Connect, Genesys, Twilio, Avaya/Cisco via SIPREC, or even a folder of recordings. Nine ingestion paths, no rip-and-replace, typically connected in under a day."],
-  ["How accurate is it on non-English and mixed-language calls?","Language is auto-detected per call, and code-switched speech (like Hinglish) is transcribed natively rather than forced into one language. You can also add custom vocabulary — product names, acronyms, competitor terms — scoped per queue or per organisation, which is applied both at transcription time and as post-ASR correction."],
-  ["What about customer privacy and PII?","Card numbers (Luhn-validated), national IDs, phone numbers, emails and birthdates are detected and blanked before any AI model sees the transcript — with an audit log of every redaction. BYOK keys are encrypted at rest, and tenant isolation is enforced at the API layer."],
-  ["Will supervisors trust AI scores?","That's exactly why every score carries evidence: a justification plus a direct transcript quote per criterion. Supervisors can calibrate any score, and both the AI score and the calibrated score are kept side by side — trust is built in, not assumed."],
-  ["How fast can we go live?","A typical 5-minute call processes end-to-end in under 90 seconds, a new organisation can be onboarded in under 5 minutes, and most telephony integrations connect within a day. First scored calls usually happen in the first week."],
-];
-const FAQ_PRICING = [
-  ["How does token-based quota work?","Each plan includes a monthly AI token allowance (roughly proportional to call volume). Usage is tracked per customer per month with a transparent usage table — you always see consumption and estimated cost before you hit a limit."],
-  ["What is BYOK and why would I use it?","Bring Your Own Key: store your own Anthropic API key (encrypted at rest) and AI costs are billed directly to your account at provider rates. Ideal for enterprises with existing AI agreements or data-governance requirements."],
-  ["Can we run multiple business units or clients on one deployment?","Yes — Polyglot is multi-tenant by design. Each organisation gets isolated data, its own quota and license, optional model overrides, and its own scorecards. BPOs can serve many clients from a single deployment."],
-  ["Is there a commitment?","The trial is free for 14 days with no card. Paid plans are monthly; enterprise terms are annual with SLAs. You keep your data either way."],
-];
-const FAQ_PHONE = [
-  ["When does it launch, and on which platforms?","PolyglotCX Phone goes to general availability on iOS and Android at the same time — one release, both app stores. Design partners get builds ahead of GA; join the launch list to be included."],
-  ["Does it work with our telephony, or only built-in SIP?","Both. The app sits on the same provider-agnostic layer as the web platform — built-in SIP/WebRTC, Amazon Connect, Genesys Cloud CX, NICE CXone, Talkdesk, Five9 and Dynamics 365 — and only shows the controls each provider actually supports."],
-  ["Will calls ring when the app is closed or the phone is locked?","Yes. It registers with CallKit on iOS and ConnectionService on Android and uses PushKit VoIP pushes, so inbound calls ring on a locked device and can be answered from the lock screen."],
-  ["Is it a separate product or part of Polyglot?","Part of the same platform. It runs on your existing Polyglot backend, uses the same auth, roles and tenant isolation, and needs no new infrastructure — it's the mobile way into the workspace your team already uses."],
-  ["Who is it for — just agents?","Agents, supervisors and field technicians. Role-based access shows each person only their tools: the dialer and copilot for agents, the team view with monitor / whisper / barge for supervisors, and AI-briefed jobs for field techs."],
-];
-const FAQ_DESKTOP = [
-  ["When is it available?","Agent Desktop is in active build. Design partners get access ahead of general availability — join the launch list to be included."],
-  ["Does it replace our CCaaS agent interface?","It runs on top of it. Agent Desktop uses the same provider-agnostic abstraction as PolyglotCX Phone — built-in SIP/WebRTC, Amazon Connect, Genesys, NICE CXone, Talkdesk, Five9 and Dynamics 365 — and only renders the controls each provider supports."],
-  ["Voice only, or digital channels too?","Voice plus chat, email and tasks in one interaction queue, with an embedded WebRTC softphone for the voice path."],
-  ["How is it different from PolyglotCX Phone?","Same backend, same context and copilot — different form factor. Phone is the native iOS/Android app for agents and field staff; Agent Desktop is the full browser workspace for agents, supervisors and admins."],
-  ["Does it work with AI Quality Management?","Yes. Every interaction handled in Agent Desktop flows into the same QA pipeline — transcript, scoring, coaching and tickets — automatically."],
-];
-
-/* ════════ ICON SYSTEM ════════ */
-const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const _s = 'viewBox="0 0 24 24"';
-const ICONS = {
-  shield:`<svg ${_s}><path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6z"/></svg>`,
-  lock:`<svg ${_s}><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><path d="M12 15v2"/></svg>`,
-  building:`<svg ${_s}><path d="M4 21h16M6 21V4l7-2v19M13 21V8l5 2v11M9 7h1M9 11h1M9 15h1"/></svg>`,
-  monitor:`<svg ${_s}><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>`,
-  user:`<svg ${_s}><circle cx="12" cy="8" r="4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>`,
-  users:`<svg ${_s}><circle cx="9" cy="8" r="3.4"/><path d="M2.6 20c0-3 2.9-5 6.4-5s6.4 2 6.4 5"/><path d="M16 5.2a3 3 0 013 5.6M21.4 20c0-2.4-1.6-4.2-4-4.8"/></svg>`,
-  settings:`<svg ${_s}><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-2.9 1.2V21a2 2 0 01-4 0v-.2A1.7 1.7 0 007 19.6a1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1A1.7 1.7 0 003.6 15a1.7 1.7 0 00-1.6-1H2a2 2 0 010-4h.2A1.7 1.7 0 003.8 9a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1A1.7 1.7 0 009 4.6h.1A1.7 1.7 0 0010 3V3a2 2 0 014 0v.2a1.7 1.7 0 002.9 1.2 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1A1.7 1.7 0 0020.4 9v.1a1.7 1.7 0 001.6 1.6H22a2 2 0 010 4h-.2a1.7 1.7 0 00-1.4 1.3z"/></svg>`,
-  plug:`<svg ${_s}><path d="M9 7V3M15 7V3M7 7h10v3a5 5 0 01-10 0z M12 15v6"/></svg>`,
-  signal:`<svg ${_s}><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="6" cy="18" r="1.6"/></svg>`,
-  'file-text':`<svg ${_s}><path d="M7 3h7l5 5v13H7z M14 3v5h5 M10 12h6M10 16h6"/></svg>`,
-  chart:`<svg ${_s}><path d="M6 20V10M12 20V4M18 20v-7M3 20h18"/></svg>`,
-  globe:`<svg ${_s}><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.4 2.6 3.7 5.8 3.7 9S14.4 18.4 12 21 8.3 15.2 8.3 12 9.6 5.6 12 3z"/></svg>`,
-  database:`<svg ${_s}><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"/></svg>`,
-  refresh:`<svg ${_s}><path d="M20 9a8 8 0 00-14-3.2L4 7M4 4v3h3M4 15a8 8 0 0014 3.2L20 17M20 20v-3h-3"/></svg>`,
-  phone:`<svg ${_s}><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.5 1 1 0 01-.25 1z"/></svg>`,
-  'phone-device':`<svg ${_s}><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>`,
-  'phone-off':`<svg ${_s}><path d="M4 4l16 16M10.7 5.3A11 11 0 019 5a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.5 1 1 0 01-.25 1l-1 1M8.2 8.2 6.75 9.65a1 1 0 00-.25 1 15 15 0 006.6 6.6 1 1 0 001-.25l1.2-1.2M18 15.7V20a1 1 0 01-1 1A17 17 0 014.6 5"/></svg>`,
-  upload:`<svg ${_s}><path d="M12 15V4M8 8l4-4 4 4M4 15v4a2 2 0 002 2h12a2 2 0 002-2v-4"/></svg>`,
-  cloud:`<svg ${_s}><path d="M7 18a4 4 0 010-8 5.5 5.5 0 0110.6-1.6A3.8 3.8 0 0118 18z"/></svg>`,
-  folder:`<svg ${_s}><path d="M4 7a2 2 0 012-2h3.5l2 2H18a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/></svg>`,
-  receipt:`<svg ${_s}><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z M9 7h6M9 11h6M9 15h4"/></svg>`,
-  bot:`<svg ${_s}><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M9 4v3M15 4v3M9 21l1.2-3M15 21l-1.2-3"/><circle cx="9.5" cy="12.5" r="1"/><circle cx="14.5" cy="12.5" r="1"/></svg>`,
-  alert:`<svg ${_s}><path d="M12 3l10 17H2z M12 9v5M12 17h.01"/></svg>`,
-  rocket:`<svg ${_s}><path d="M12 3c3.2 1.2 6 4.3 6 9.2L15 14l-6 0-3-1.8C6 7.3 8.8 4.2 12 3z M9 14l-3 3 3 1 1 3 3-3"/><circle cx="12" cy="9" r="1"/></svg>`,
-  'message-circle':`<svg ${_s}><path d="M21 11.5a8 8 0 01-11.7 7L4 20l1.5-5.3A8 8 0 1121 11.5z"/></svg>`,
-  message:`<svg ${_s}><path d="M4 5h16v11H8l-4 4z"/></svg>`,
-  type:`<svg ${_s}><path d="M4 17V9a3 3 0 016 0v8M4 13h6M14 17V7h3.5a3 3 0 010 6H14M14 13h4a3 3 0 010 6h-4"/></svg>`,
-  link:`<svg ${_s}><path d="M9 15l6-6M10.5 6.5l1-1a4 4 0 016 6l-1 1M13.5 17.5l-1 1a4 4 0 01-6-6l1-1"/></svg>`,
-  bell:`<svg ${_s}><path d="M6 16V11a6 6 0 1112 0v5l2 2H4z M10 21a2 2 0 004 0"/></svg>`,
-  search:`<svg ${_s}><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>`,
-  edit:`<svg ${_s}><path d="M12 20h9M16.5 3.5l4 4L8 20l-4.5 1L5 16.5z"/></svg>`,
-  clipboard:`<svg ${_s}><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2 M9 12h6M9 16h4"/></svg>`,
-  'trending-up':`<svg ${_s}><path d="M3 17l6-6 4 4 8-9M22 6v5M22 6h-5"/></svg>`,
-  target:`<svg ${_s}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>`,
-  ticket:`<svg ${_s}><path d="M4 8a2 2 0 012-2h12a2 2 0 012 2 2 2 0 000 4 2 2 0 000 4 2 2 0 01-2 2H6a2 2 0 01-2-2 2 2 0 000-4 2 2 0 000-4z M14 6v12"/></svg>`,
-  mic:`<svg ${_s}><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6"/></svg>`,
-  academic:`<svg ${_s}><path d="M12 4l10 5-10 5L2 9z M6 11v5c0 1.6 2.7 3 6 3s6-1.4 6-3v-5M22 9v5"/></svg>`,
-  bolt:`<svg ${_s}><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>`,
-  scale:`<svg ${_s}><path d="M12 3v18M7 21h10M6 6l12-2 M6 6l-3 6a3 3 0 006 0z M18 4l3 6a3 3 0 01-6 0z"/></svg>`,
-  timer:`<svg ${_s}><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6M12 5V2"/></svg>`,
-  'x-circle':`<svg ${_s}><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>`,
-  sparkles:`<svg ${_s}><path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4z M18.5 3.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>`,
-  mail:`<svg ${_s}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>`,
-  'map-pin':`<svg ${_s}><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>`
-};
-const EMOJI_ICO = {'🛡':'shield','🔐':'lock','🔏':'lock','🏢':'building','🖥':'monitor','👤':'user','👥':'users','🛠':'settings','🔌':'plug','📡':'signal','📜':'file-text','📊':'chart','🌍':'globe','🌐':'globe','🪣':'database','🔄':'refresh','📞':'phone','📱':'phone-device','📵':'phone-off','📤':'upload','⬆️':'upload','☁️':'cloud','📁':'folder','🗂':'folder','🧾':'receipt','🤖':'bot','🚨':'alert','🚀':'rocket','🗣':'message-circle','🔤':'type','🔗':'link','🔔':'bell','🔍':'search','📝':'edit','📋':'clipboard','📈':'trending-up','💬':'message','🎯':'target','🎫':'ticket','🎙':'mic','🎓':'academic','⚡':'bolt','⚖️':'scale','⏱':'timer'};
-
-function hydrateIcons(root){
-  root.querySelectorAll('.card-ico,.int-ic,.stage .si').forEach(n=>{
-    if(n.dataset.ico) return;
-    const key = EMOJI_ICO[(n.textContent||'').trim()];
-    if(key){ n.dataset.ico = key; n.textContent=''; }
-  });
-  root.querySelectorAll('[data-ico]').forEach(n=>{
-    if(n.dataset.rendered) return;
-    const svg = ICONS[n.dataset.ico];
-    if(!svg) return;
-    const container = n.classList.contains('card-ico')||n.classList.contains('int-ic')||n.classList.contains('si');
-    if(!container && !n.classList.contains('ico')) n.classList.add('ico');
-    n.innerHTML = svg;
-    n.dataset.rendered = '1';
-  });
-}
-
-/* ════════ MICRO-INTERACTIONS ════════ */
-function bindSpotlight(root){
-  root.querySelectorAll('.card,.int-c,.btn-grad,.btn-xl.primary').forEach(c=>{
-    c.addEventListener('pointermove',e=>{
-      const r=c.getBoundingClientRect();
-      c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-      c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-    });
-  });
-}
-function bindMagnetic(root){
-  if(RM) return;
-  root.querySelectorAll('.hero-ctas .btn-xl,[data-magnetic]').forEach(b=>{
-    b.addEventListener('pointermove',e=>{
-      const r=b.getBoundingClientRect();
-      b.style.setProperty('--tx',((e.clientX-r.left-r.width/2)/r.width*7).toFixed(1)+'px');
-      b.style.setProperty('--ty',((e.clientY-r.top-r.height/2)/r.height*7).toFixed(1)+'px');
-      b.style.transform='translate(var(--tx),var(--ty))';
-    });
-    b.addEventListener('pointerleave',()=>{ b.style.transform=''; });
-  });
-}
-function bindTilt(root){
-  if(RM) return;
-  root.querySelectorAll('.fh-visual,.phone-mock').forEach(el=>{
-    const p=el.parentElement; if(p) p.style.perspective='1000px';
-    el.addEventListener('pointermove',e=>{
-      const r=el.getBoundingClientRect();
-      const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
-      el.style.transform=`rotateX(${(-py*5).toFixed(2)}deg) rotateY(${(px*5).toFixed(2)}deg)`;
-    });
-    el.addEventListener('pointerleave',()=>{ el.style.transform=''; });
-  });
-  const pf=root.querySelector('.pipe-frame');
-  if(pf){
-    pf.addEventListener('pointermove',e=>{
-      const r=pf.getBoundingClientRect();
-      const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
-      pf.style.transform=`rotateX(${(-py*2).toFixed(2)}deg) rotateY(${(px*2.5).toFixed(2)}deg)`;
-    });
-    pf.addEventListener('pointerleave',()=>{ pf.style.transform=''; });
-  }
-}
-function countUpAll(root){
-  root.querySelectorAll('.stat .sv').forEach(el=>{
-    const raw=(el.textContent||'').trim();
-    const m=raw.match(/^([^0-9]*)([0-9][0-9,]*)(.*)$/);
-    if(!m || /[0-9]/.test(m[3])) return;
-    const pre=m[1], target=parseInt(m[2].replace(/,/g,''),10), post=m[3];
-    if(RM){ return; }
-    el.textContent=pre+'0'+post;
-    const io=new IntersectionObserver(es=>es.forEach(e=>{
-      if(!e.isIntersecting) return; io.disconnect();
-      const dur=1200, t0=performance.now();
-      const tick=t=>{ const k=Math.min(1,(t-t0)/dur);
-        const v=Math.round((1-Math.pow(1-k,3))*target);
-        el.textContent=pre+v.toLocaleString('en-US')+post;
-        if(k<1) requestAnimationFrame(tick); };
-      requestAnimationFrame(tick);
-    }),{threshold:.7});
-    io.observe(el);
-  });
-}
-function loopMarquees(root){
-  root.querySelectorAll('.marquee-track[data-loop]').forEach(t=>{
-    if(t.dataset.looped) return; t.dataset.looped='1';
-    t.innerHTML += t.innerHTML;
-  });
-}
-let heroFX=null;
-function bindHeroFX(root){
-  if(heroFX){ removeEventListener('scroll',heroFX); heroFX=null; }
-  if(RM) return;
-  const hero=root.querySelector('.hero'); if(!hero) return;
-  const grid=hero.querySelector('.hero-grid-bg');
-  const glows=[...hero.querySelectorAll('.glow')];
-  heroFX=()=>{
-    const y=Math.min(scrollY,1000);
-    glows.forEach((g,i)=>{ g.style.marginTop=(y*(.05+i*.03)).toFixed(1)+'px'; });
-    if(grid) grid.style.transform='translateY('+(y*.12).toFixed(1)+'px)';
-  };
-  addEventListener('scroll',heroFX,{passive:true});
-}
-
-/* ════════ ROUTER ════════ */
-function navigate(page){
-  if(!PAGES[page]) page='home';
-  const el=document.getElementById('page');
-  el.innerHTML='<div class="pg">'+PAGES[page]+'</div>';
-  window.scrollTo({top:0,behavior:'instant'});
-  document.querySelectorAll('.nav-links a, .drawer a').forEach(a=>{
-    a.classList.toggle('active',a.dataset.page===page);
-  });
-  const titles={home:'PolyglotCX — AI-Native Contact Centre Solutions',products:'Products — PolyglotCX',platform:'AI Quality Management — PolyglotCX',phone:'PolyglotCX Phone — Mobile Contact Centre App',desktop:'Agent Desktop — PolyglotCX',integrations:'Integrations — PolyglotCX',pricing:'Pricing — PolyglotCX',managed:'Managed Services — PolyglotCX',why:'Why PolyglotCX',contact:'Book a Demo — PolyglotCX'};
-  document.title=titles[page]||'Polyglot';
-  // close drawer
-  document.getElementById('hamburger').classList.remove('open');
-  document.getElementById('nav-drawer').classList.remove('open');
-  document.body.style.overflow='';
-  history.pushState({page},'', '#'+(page==='home'?'':page));
-  initPageWidgets(page);
-}
-
-/* ════════ WIDGET INIT ════════ */
-let pipeTimer=null, pipeRAF=null;
-function initPageWidgets(page){
-  const pageEl=document.getElementById('page');
-  // icons + interactions
-  hydrateIcons(pageEl);
-  bindSpotlight(pageEl);
-  bindMagnetic(pageEl);
-  bindTilt(pageEl);
-  countUpAll(pageEl);
-  loopMarquees(pageEl);
-  bindHeroFX(pageEl);
-
-  // reveal on scroll (staggered per group)
-  document.querySelectorAll('#page .reveal').forEach(el=>{
-    const sibs=[...el.parentElement.children].filter(c=>c.classList.contains('reveal'));
-    el.style.setProperty('--rv-i', sibs.indexOf(el)%7);
-  });
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // FAQ
-  const buildFaq=(id,data)=>{
-    const host=document.getElementById(id); if(!host)return;
-    host.innerHTML=data.map((q,i)=>`<div class="faq-i"><button class="faq-q" data-i="${i}">${q[0]}<span>+</span></button><div class="faq-a"><div>${q[1]}</div></div></div>`).join('');
-    host.querySelectorAll('.faq-q').forEach(btn=>btn.addEventListener('click',()=>{
-      const item=btn.parentElement, a=item.querySelector('.faq-a'), open=item.classList.contains('open');
-      host.querySelectorAll('.faq-i').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').style.maxHeight=null});
-      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
-    }));
-  };
-  buildFaq('faq-home',FAQ_HOME);
-  buildFaq('faq-pricing',FAQ_PRICING);
-  buildFaq('faq-phone',FAQ_PHONE);
-  buildFaq('faq-desktop',FAQ_DESKTOP);
-
-  // hero waveform + pipeline animation
-  clearInterval(pipeTimer);
-  const wave=document.getElementById('wave');
-  if(wave){
-    wave.innerHTML='';
-    for(let i=0;i<72;i++){
-      const b=document.createElement('i');
-      b.style.height=(8+Math.random()*34)+'px';
-      b.style.animationDelay=(Math.random()*1.1)+'s';
-      b.style.animationDuration=(0.7+Math.random()*0.9)+'s';
-      wave.appendChild(b);
-    }
-    const stages=[...document.querySelectorAll('#stages .stage')];
-    const outs=[...document.querySelectorAll('#pipe-out .pout')];
-    const tEl=document.getElementById('pipe-t');
-    const langs=['English + Hindi (code-switched)','Bahasa Melayu','Mandarin + English','Tamil','Tagalog + English','Thai','Vietnamese','Cantonese + English'];
-    const langEl=document.getElementById('pipe-lang');
-    let step=0, t=0, cycle=0;
-    pipeTimer=setInterval(()=>{
-      if(step<stages.length){
-        stages.forEach((s,i)=>{s.classList.toggle('on',i===step);if(i<step)s.classList.add('done')});
-        if(step>=4) outs[Math.min(step-4,3)].classList.add('show');
-        t+=8+Math.random()*6;
-        if(tEl)tEl.textContent=t.toFixed(1)+'s';
-        step++;
-      } else {
-        outs.forEach(o=>o.classList.add('show'));
-        setTimeout(()=>{ // reset cycle
-          stages.forEach(s=>s.classList.remove('on','done'));
-          outs.forEach(o=>o.classList.remove('show'));
-          step=0;t=0;cycle++;
-          if(langEl)langEl.textContent='Detected: '+langs[cycle%langs.length];
-        },1800);
-        step++; // park until reset
-        if(step>stages.length+2){step=stages.length+2}
-      }
-    },820);
-  }
-
-  // ROI calc
-  const rc=document.getElementById('r-calls');
-  if(rc){
-    const ra=document.getElementById('r-analysts'),rco=document.getElementById('r-cost');
-    const fmt=n=>n.toLocaleString('en-US');
-    const upd=()=>{
-      const calls=+rc.value, an=+ra.value, cost=+rco.value;
-      document.getElementById('rv-calls').textContent=fmt(calls);
-      document.getElementById('rv-analysts').textContent=an;
-      document.getElementById('rv-cost').textContent='$'+fmt(cost);
-      const now=Math.round(calls*0.03);
-      document.getElementById('ro-now').textContent=fmt(now);
-      document.getElementById('ro-after').textContent=fmt(calls);
-      const saved=Math.round(an*cost*0.8*12);
-      document.getElementById('ro-save').textContent='$'+fmt(saved);
-      document.getElementById('ro-x').textContent=(now>0?Math.round(calls/now):'∞')+'×';
-    };
-    [rc,ra,rco].forEach(s=>s.addEventListener('input',upd));
-    upd();
-  }
-
-  // lead form
-  const sub=document.getElementById('lead-submit');
-  if(sub){
-    sub.addEventListener('click',()=>{
-      const name=document.getElementById('f-name'),email=document.getElementById('f-email'),co=document.getElementById('f-company');
-      let ok=true;
-      [name,email,co].forEach(f=>{
-        if(!f.value.trim()){f.style.borderColor='var(--rose)';ok=false}
-        else f.style.borderColor='var(--w15)';
-      });
-      if(email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.style.borderColor='var(--rose)';ok=false}
-      if(!ok)return;
-      document.getElementById('lead-form').style.display='none';
-      document.querySelector('.form-note').style.display='none';
-      document.getElementById('form-success').style.display='block';
-      window.scrollTo({top:document.getElementById('form-success').offsetTop-140,behavior:'smooth'});
-    });
-  }
-}
-
-/* ════════ GLOBAL ════════ */
-document.addEventListener('click',e=>{
-  const a=e.target.closest('[data-page]');
-  if(a){e.preventDefault();navigate(a.dataset.page)}
-});
-(function(){
-  const nav=document.getElementById('main-nav');
-  const prog=document.createElement('div'); prog.id='scroll-progress'; nav.appendChild(prog);
-  const sticky=document.getElementById('sticky-cta');
-  let ticking=false;
-  const onScroll=()=>{
-    const y=window.scrollY;
-    nav.classList.toggle('scrolled', y>16);
-    const max=document.documentElement.scrollHeight-window.innerHeight;
-    prog.style.transform='scaleX('+(max>0?Math.min(1,y/max):0)+')';
-    sticky.classList.toggle('show', y>700 && !location.hash.includes('contact'));
-    ticking=false;
-  };
-  window.addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } },{passive:true});
-  onScroll();
-})();
-document.getElementById('hamburger').addEventListener('click',()=>{
-  const h=document.getElementById('hamburger'),d=document.getElementById('nav-drawer');
-  h.classList.toggle('open');d.classList.toggle('open');
-  document.body.style.overflow=d.classList.contains('open')?'hidden':'';
-});
-window.addEventListener('popstate',e=>{
-  navigate((e.state&&e.state.page)||location.hash.replace('#','')||'home');
-});
-navigate(location.hash.replace('#','')||'home');
-
-</script>
+</footer>
+<a class="sticky-cta" id="sticky-cta" href="/contact/">Book a Demo</a>
+<script src="/assets/app.js" defer></script>
 </body>
 </html>
