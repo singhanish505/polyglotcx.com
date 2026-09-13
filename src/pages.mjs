@@ -18,8 +18,8 @@ const INTEGRATION_ICON = {
   'amazon-connect': 'cloud', 'genesys-cloud': 'globe', 'twilio': 'phone',
 };
 const PRODUCT_LONG = {
-  'softphone': 'Intelligent browser-based agent telephony for modern cloud contact centers &mdash; call control, customer context and AI assistance in one place.',
-  'agent-desktop': 'A unified workspace bringing voice, chat, customer context, knowledge and AI assistance together in a single browser tab.',
+  'softphone': 'A browser-based softphone for agent calling &mdash; call control, customer context and an AI copilot, connected to the telephony or CCaaS you already run.',
+  'agent-desktop': 'A unified workspace bringing voice, chat, customer context, knowledge and AI assistance together in a single browser tab, on top of your existing telephony.',
   'ai-quality-management': 'Automated quality assurance, speech analytics, evidence-backed scoring and agent coaching &mdash; for 100% of calls, in any language.',
   'case-management': 'Customer cases, workflows, SLA tracking and escalation, connected to the conversations that created them.',
   'crm': 'Customer profiles, interaction history and full contact-center context &mdash; a Customer 360 built for service teams.',
@@ -103,9 +103,10 @@ const featHero = ({ rev, kicker, title, body, points, visual }) => `<div class="
 /* ═════════════════ HOME ═════════════════ */
 
 const homeFaq = faq([
-  ['What is PolyglotCX?', 'PolyglotCX is an AI-powered contact center and customer experience platform. It brings an intelligent softphone, a unified agent desktop, AI quality management, analytics and automation together on one provider-agnostic backend. AI Quality Management is available today; the Softphone and Agent Desktop are in active development.'],
+  ['What is PolyglotCX?', 'PolyglotCX is a contact center transformation platform. It layers AI quality management, a softphone and a unified agent workspace on top of the telephony and CCaaS you already run. AI Quality Management is available today; the Softphone and Agent Workspace are in active development.'],
   ['Do we have to replace our telephony platform?', 'No. PolyglotCX sits beside your existing stack — Amazon Connect, Genesys Cloud, Twilio, or Avaya and Cisco via SIPREC. Recordings and events are ingested through nine paths with no rip-and-replace, typically connected in under a day.'],
-  ['Which products are available now?', 'AI Quality Management is generally available, including speech analytics, evidence-backed scoring, screen-behaviour QA and agent coaching. The Contact Center Softphone and Agent Desktop are in development with design partners. Case Management and CRM / Customer 360 are on the platform roadmap.'],
+  ['Do you provide our telephony, PSTN lines or a SIP trunk?', 'No. PolyglotCX is a software provider, not a telecommunications carrier — we don&rsquo;t sell PSTN lines, SIP trunks or carrier minutes. AI Quality Management ingests recordings and events from the telephony you already run (Amazon Connect, Genesys Cloud, Twilio, SIPREC and more), and the Softphone and Agent Workspace are call-control clients that connect to your existing SIP trunk or CCaaS voice connection. You keep your existing telephony relationship.'],
+  ['Which products are available now?', 'AI Quality Management is generally available, including speech analytics, evidence-backed scoring, screen-behaviour QA and agent coaching. The Contact Center Softphone and Agent Workspace are in development with design partners. Case Management and CRM / Customer 360 are on the platform roadmap.'],
   ['How does PolyglotCX handle non-English and multilingual calls?', 'Language is auto-detected per call and code-switched speech such as Hinglish is transcribed natively. Queue-scoped custom vocabulary teaches the ASR your product names and acronyms, applied at transcription time and as post-ASR correction.'],
   ['What about customer data and PII?', 'Card numbers, national IDs, phone numbers, emails and birthdates are detected and redacted before any AI model sees the transcript, with a full audit log. Tenant isolation is enforced at the API layer and BYOK keys are encrypted at rest.'],
 ]);
@@ -120,21 +121,21 @@ const productHubCard = (p) => `<a class="prod-card reveal" href="/products/${p.s
 
 const home = {
   path: '/',
-  title: 'AI Contact Center Platform | Softphone, Agent Desktop & AI QA | PolyglotCX',
-  description: 'PolyglotCX is an AI-powered contact center platform combining intelligent softphones, unified agent desktops, AI quality management, analytics and customer experience solutions.',
+  title: 'Contact Center Transformation Platform | AI QA, Softphone & Agent Workspace | PolyglotCX',
+  description: 'PolyglotCX is a contact center transformation platform: AI quality management, a softphone and an agent workspace that connect to your existing telephony and CCaaS (Amazon Connect, Genesys, Twilio and more).',
   jsonLd: [orgJsonLd(), websiteJsonLd(), homeFaq.jsonLd],
   body: `
 <section class="hero">
   <div class="hero-grid-bg" aria-hidden="true"></div>
   <div class="glow g1" aria-hidden="true"></div><div class="glow g2" aria-hidden="true"></div><div class="glow g3" aria-hidden="true"></div>
-  <div class="hero-badge">AI-powered contact center platform</div>
-  <h1>AI-Powered Contact Center<br>&amp; Customer Experience Platform</h1>
-  <p class="hero-sub">Modernize your contact center with an intelligent <b>softphone</b>, a unified <b>agent desktop</b>, <b>AI quality management</b>, analytics and automation &mdash; on one provider-agnostic platform, in any language.</p>
+  <div class="hero-badge">AI-powered contact center transformation</div>
+  <h1>AI-Powered Contact Center<br>Transformation Platform</h1>
+  <p class="hero-sub">Modernize your contact center with <b>AI quality management</b>, a <b>softphone</b> and a unified <b>agent workspace</b> that connect to the telephony and CCaaS you already run &mdash; Amazon Connect, Genesys, Twilio or your own SIP trunk. PolyglotCX is a software provider, not a telephony or carrier service.</p>
   <div class="hero-ctas">
     <a class="btn-xl primary" href="/contact/">Book a Demo &rarr;</a>
     <a class="btn-xl outline" href="/products/">Explore Platform</a>
   </div>
-  <a class="hero-announce" href="/products/"><span class="ico" data-ico="sparkles" style="width:14px;height:14px;color:var(--purple)"></span> <b>AI Quality Management</b> is live &middot; Softphone &amp; Agent Desktop in development <span>&rarr;</span></a>
+  <a class="hero-announce" href="/products/"><span class="ico" data-ico="sparkles" style="width:14px;height:14px;color:var(--purple)"></span> <b>AI Quality Management</b> is live &middot; Softphone &amp; Agent Workspace in development <span>&rarr;</span></a>
   <p class="hero-trust">Connects to Amazon Connect, Genesys Cloud, Twilio and any telephony source in under a day</p>
   <div class="marquee"><div class="marquee-track" data-loop><span class="marquee-item">Amazon Connect</span><span class="marquee-item">Genesys Cloud CX</span><span class="marquee-item">Twilio</span><span class="marquee-item">SIPREC &middot; RFC 7866</span><span class="marquee-item">NICE CXone</span><span class="marquee-item">Talkdesk</span><span class="marquee-item">Five9</span><span class="marquee-item">Dynamics 365</span><span class="marquee-item">Avaya</span><span class="marquee-item">Cisco</span><span class="marquee-item">Kafka &middot; Kinesis</span></div></div>
   ${PIPELINE}
@@ -144,8 +145,8 @@ ${STATS_BAND}
 
 <section class="wrap">
   <div class="eyebrow reveal">The platform</div>
-  <h2 class="h2 reveal">One platform for the <span class="gr">whole contact center</span></h2>
-  <p class="sub reveal">PolyglotCX started with automated quality management and is expanding into a full contact-center and customer-experience suite. Every product runs on the same provider-agnostic backend, security model and AI services &mdash; and each is labelled by stage, so you always know what is available.</p>
+  <h2 class="h2 reveal">One platform for <span class="gr">contact center transformation</span></h2>
+  <p class="sub reveal">PolyglotCX started with automated quality management and is expanding into a broader transformation suite that layers onto the telephony and CCaaS you already run &mdash; we don&rsquo;t provide telephony or carrier services ourselves. Every product shares the same provider-agnostic backend, security model and AI services, and each is labelled by stage so you always know what is available.</p>
   <div class="prod-grid">${PRODUCTS.map(productHubCard).join('')}</div>
   <p class="center reveal" style="font-size:12.5px;color:var(--w45);margin-top:24px">Plus <a href="/services/" style="color:var(--blue)">Professional &amp; Managed Services</a> &mdash; transformation delivery, or we run your quality operations for you.</p>
 </section>
@@ -164,7 +165,7 @@ ${STATS_BAND}
     <div class="cmp-col good reveal">
       <div class="cmp-h"><span class="ico" data-ico="bolt" style="width:20px;height:20px;color:var(--green)"></span> With PolyglotCX</div>
       <div class="cmp-li"><span class="y">&check;</span><span><b>Every call</b> scored automatically &mdash; <a href="/products/ai-quality-management/" style="color:var(--blue)">AI Quality Management</a></span></div>
-      <div class="cmp-li"><span class="y">&check;</span><span>Voice, context and AI assistance in <b>one workspace</b> &mdash; <a href="/products/agent-desktop/" style="color:var(--blue)">Agent Desktop</a></span></div>
+      <div class="cmp-li"><span class="y">&check;</span><span>Voice, context and AI assistance in <b>one workspace</b> &mdash; <a href="/products/agent-desktop/" style="color:var(--blue)">Agent Workspace</a></span></div>
       <div class="cmp-li"><span class="y">&check;</span><span>Auto language detection with custom vocabulary &mdash; <b>multilingual by design</b></span></div>
       <div class="cmp-li"><span class="y">&check;</span><span>Compliance risks flagged <b>within seconds</b> of the call ending</span></div>
     </div>
@@ -212,8 +213,8 @@ ${ctaBand({
 
 const PRODUCT_HUB_COPY = {
   'ai-quality-management': 'Automated QA for 100% of calls, in any language. An eight-stage pipeline turns every call into a transcript, a weighted QA score with a transcript quote behind every criterion, four role-specific summaries, a CRM ticket and a coaching plan &mdash; plus vision-based screen-behaviour scoring and a rule engine that auto-approves, flags or escalates.',
-  'softphone': 'Intelligent, browser-based agent telephony for modern cloud contact centers. Registered over WebRTC with full call control, customer context on screen-pop and an inline AI copilot. Provider-agnostic and enterprise-secured. In active development with design partners.',
-  'agent-desktop': 'One browser workspace for the whole interaction. An embedded softphone plus chat, email and tasks in a single queue; a screen-pop with full customer context; an inline AI copilot; and one-click wrap-up that drafts the summary, disposition and CRM ticket &mdash; on top of any CCaaS. In active development.',
+  'softphone': 'A browser-based softphone for agent calling, connected to the telephony or CCaaS you already run &mdash; not a telephony or carrier service itself. Registered over WebRTC with full call control, customer context on screen-pop and an inline AI copilot. Provider-agnostic and enterprise-secured. In active development with design partners.',
+  'agent-desktop': 'One browser workspace for the whole interaction. An embedded softphone (connected to your existing telephony) plus chat, email and tasks in a single queue; a screen-pop with full customer context; an inline AI copilot; and one-click wrap-up that drafts the summary, disposition and CRM ticket &mdash; on top of any CCaaS. In active development.',
   'case-management': 'Customer cases, workflows, SLA tracking and escalation, connected to the conversations that created them. Voice-to-ticket already drafts cases from calls today; structured case management is on the platform roadmap.',
   'crm': 'A Customer 360 for service teams: customer profiles, interaction history and full contact-center context in one record. On the platform roadmap &mdash; today PolyglotCX integrates with your existing CRM.',
 };
@@ -260,15 +261,15 @@ const PRODUCT_VISUAL = {
 
 const productsHub = {
   path: '/products/',
-  title: 'Contact Center Products | Softphone, Agent Desktop & AI QA | PolyglotCX',
-  description: 'The PolyglotCX product line for the whole contact center: Contact Center Softphone, Agent Desktop and AI Quality Management, with Case Management and CRM on the roadmap.',
+  title: 'Contact Center Transformation Products | AI QA, Softphone & Agent Workspace | PolyglotCX',
+  description: 'The PolyglotCX product line for contact center transformation: AI Quality Management, a Contact Center Softphone and an Agent Workspace, with Case Management and CRM on the roadmap.',
   breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Products' }),
-  jsonLd: [webPageJsonLd({ name: 'PolyglotCX Products', description: 'The PolyglotCX contact-center product line.', url: '/products/' })],
+  jsonLd: [webPageJsonLd({ name: 'PolyglotCX Products', description: 'The PolyglotCX contact-center transformation product line.', url: '/products/' })],
   body: `
 ${phero({
   eyebrow: 'Products',
-  h1: 'One platform. <span class="gr">A product line for the whole contact center.</span>',
-  lead: 'PolyglotCX is a provider-agnostic contact center &amp; customer experience platform. It started with automated quality management &mdash; still the flagship &mdash; and the same backend now carries a growing set of products for agents, supervisors and the QA desk. Each is labelled by stage so you always know what is available today.',
+  h1: 'One transformation platform. <span class="gr">A product line for your contact center.</span>',
+  lead: 'PolyglotCX layers onto the telephony and CCaaS you already run &mdash; we don&rsquo;t provide telephony or carrier services ourselves. It started with automated quality management &mdash; still the flagship &mdash; and the same backend now carries a growing set of products for agents, supervisors and the QA desk. Each is labelled by stage so you always know what is available today.',
 })}
 <section class="wrap">
   ${PRODUCTS.map((p, i) => featHero({
@@ -284,13 +285,13 @@ ${phero({
   <div class="eyebrow reveal">One platform underneath</div>
   <h2 class="h2 reveal">Every product, <span class="bl">the same backbone</span></h2>
   ${cardGrid([
-    { icon: 'plug', title: 'Provider-agnostic', body: 'A Contact Center Abstraction Layer over built-in SIP, Amazon Connect, Genesys, NICE CXone, Talkdesk, Five9 and Dynamics 365 &mdash; products never branch on the vendor.' },
+    { icon: 'plug', title: 'Provider-agnostic', body: 'A Contact Center Abstraction Layer over Amazon Connect, Genesys, NICE CXone, Talkdesk, Five9, Dynamics 365 and your own SIP trunk &mdash; products never branch on the vendor. PolyglotCX does not provide telephony itself.' },
     { icon: 'building', title: 'Multi-tenant core', body: 'Strict per-organisation isolation, token quotas and billing, BYOK keys encrypted at rest, per-tenant model configuration.' },
     { icon: 'lock', title: 'One security model', body: 'MFA, per-tenant OIDC SSO, RBAC, tamper-evident audit, data-residency routing and pre-LLM PII redaction &mdash; shared by every product.' },
     { icon: 'bot', title: 'Shared AI services', body: 'The same grounding, copilot and retrieval services feed QA scoring, the in-call copilot and agent-desktop wrap-up.' },
   ], 4)}
 </section>
-${ctaBand({ h2: 'See the platform &mdash; and where it&rsquo;s going', p: 'A 30-minute session: your calls scored live on AI Quality Management, plus an early look at the Softphone and Agent Desktop.' })}
+${ctaBand({ h2: 'See the platform &mdash; and where it&rsquo;s going', p: 'A 30-minute session: your calls scored live on AI Quality Management, plus an early look at the Softphone and Agent Workspace.' })}
 `,
 };
 
@@ -411,27 +412,28 @@ ${ctaBand({ h2: 'Two minutes. One call. Full intelligence.', p: 'Watch the pipel
 
 const softphoneFaq = faq([
   ['Is the Contact Center Softphone available today?', 'The softphone is in active development with design partners. AI Quality Management, which the softphone feeds, is generally available now. Join the early-access list to be included as it matures.'],
+  ['Do I need my own telephony or SIP trunk?', 'Yes. PolyglotCX Softphone is a call-control and calling interface, not a telephony or carrier service &mdash; it connects to a SIP trunk or CCaaS voice connection you already have (built-in SIP/WebRTC via your own provider, or Amazon Connect, Genesys Cloud, Twilio and others). PolyglotCX does not sell PSTN minutes, SIP trunks or carrier services.'],
   ['Does it work with our telephony, or only built-in SIP?', 'Both. The softphone sits on the same provider-agnostic abstraction as the rest of the platform — built-in SIP/WebRTC plus Amazon Connect, Genesys Cloud CX, NICE CXone, Talkdesk, Five9 and Dynamics 365 — and only shows the controls each provider supports.'],
   ['Is it browser-based or a desktop install?', 'Browser-based over WebRTC — nothing to install. A native iOS and Android companion app is also in development for agents and field staff.'],
   ['What does the AI copilot do on a call?', 'As the live transcript grows the copilot surfaces a read of the situation, ranked next-best actions, a suggested reply and compliance alerts, each grounded to a source document.'],
-  ['How is it different from the Agent Desktop?', 'Same backend and copilot, different scope. The Softphone is focused agent telephony; the Agent Desktop is the full omnichannel workspace with digital channels, wrap-up and supervisor tools.'],
+  ['How is it different from the Agent Workspace?', 'Same backend and copilot, different scope. The Softphone is a focused agent calling client; the Agent Workspace is the full omnichannel workspace with digital channels, wrap-up and supervisor tools.'],
 ]);
 
 const softphone = {
   path: '/products/softphone/',
-  title: 'Contact Center Softphone | Cloud Agent Telephony | PolyglotCX',
-  description: 'PolyglotCX Softphone provides intelligent browser-based telephony for modern contact centers with cloud connectivity, agent call controls, customer context and an AI copilot. In development.',
+  title: 'Contact Center Softphone | Agent Calling on Your Existing Telephony | PolyglotCX',
+  description: 'PolyglotCX Softphone is a browser-based call-control client for agents, connecting to your existing telephony or CCaaS (Amazon Connect, Genesys, Twilio, SIP) with customer context and an AI copilot. Not a telephony or carrier service. In development.',
   breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Products', href: '/products/' }, { name: 'Contact Center Softphone' }),
   ogType: 'product',
   jsonLd: [
-    softwareAppJsonLd({ name: 'PolyglotCX Contact Center Softphone', description: 'Intelligent browser-based agent telephony for cloud contact centers, with customer context and an inline AI copilot. In development.', url: '/products/softphone/', os: 'Web, iOS, Android' }),
+    softwareAppJsonLd({ name: 'PolyglotCX Contact Center Softphone', description: 'A browser-based call-control softphone for agents that connects to an existing telephony provider or CCaaS, with customer context and an inline AI copilot. Not a telephony or carrier service. In development.', url: '/products/softphone/', os: 'Web, iOS, Android' }),
     softphoneFaq.jsonLd,
   ],
   body: `
 ${phero({
   eyebrow: `${statusPill('dev')} &middot; Contact Center Softphone`,
-  h1: 'A cloud contact center <span class="gr">softphone</span> with AI built in',
-  lead: 'Intelligent, browser-based agent telephony for modern cloud contact centers. Full call control, customer context on screen-pop and an inline AI copilot &mdash; provider-agnostic and enterprise-secured. In active development with design partners.',
+  h1: 'A softphone for <span class="gr">your existing telephony</span>, with AI built in',
+  lead: 'A browser-based softphone that connects to the telephony or CCaaS you already run &mdash; full call control, customer context on screen-pop and an inline AI copilot. PolyglotCX does not provide telephony or carrier services; you keep your existing SIP trunk or CCaaS voice connection. In active development with design partners.',
   extra: `<div style="margin-top:24px"><span class="pill-new">In development &middot; browser + mobile</span></div><div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px"><a class="btn-xl primary" href="/contact/">Join the early-access list &rarr;</a><a class="btn-xl outline" href="/products/">See all products</a></div>`,
 })}
 <section class="wrap">
@@ -439,7 +441,7 @@ ${phero({
   <h2 class="h2 reveal">Sits on top of the stack <span class="gr">you already run</span></h2>
   <p class="sub reveal">The softphone reads each tenant&rsquo;s capabilities at sign-in and renders only the controls its provider supports &mdash; the same Contact Center Abstraction Layer behind the rest of the platform.</p>
   <div class="plat-strip">
-    <div class="plat-c reveal"><div class="pn">Built-in SIP &middot; WebRTC</div><div class="pd">HD voice, no extra infra</div></div>
+    <div class="plat-c reveal"><div class="pn">Built-in SIP &middot; WebRTC</div><div class="pd">your SIP trunk, HD voice</div></div>
     <div class="plat-c reveal"><div class="pn">Amazon Connect</div><div class="pd">CCP-backed voice</div></div>
     <div class="plat-c reveal"><div class="pn">Genesys Cloud CX</div><div class="pd">WebRTC station</div></div>
     <div class="plat-c reveal"><div class="pn">NICE CXone</div><div class="pd">agent + presence</div></div>
@@ -448,6 +450,7 @@ ${phero({
     <div class="plat-c reveal"><div class="pn">Dynamics 365</div><div class="pd">Contact Center</div></div>
     <div class="plat-c reveal"><div class="pn">+ your stack</div><div class="pd">one abstraction layer</div></div>
   </div>
+  <div class="roadmap-note reveal"><b>Bring your own telephony.</b> The Softphone is a call-control client, not a carrier &mdash; it needs an underlying SIP trunk or CCaaS voice connection (your own SIP provider, or Amazon Connect, Genesys Cloud, Twilio and others). PolyglotCX does not sell PSTN lines, SIP trunks or carrier minutes.</div>
 </section>
 <section class="wrap" style="padding-top:10px">
   <div class="eyebrow reveal">What it does</div>
@@ -496,34 +499,34 @@ ${ctaBand({ h2: 'Be first on the softphone', p: 'We&rsquo;re onboarding design p
 /* ═════════════════ AGENT DESKTOP ═════════════════ */
 
 const deskFaq = faq([
-  ['When is Agent Desktop available?', 'Agent Desktop is in active build with design partners. Join the early-access list to be included ahead of general availability.'],
-  ['Does it replace our CCaaS agent interface?', 'It runs on top of it. Agent Desktop uses the same provider-agnostic abstraction as the softphone — built-in SIP/WebRTC plus Amazon Connect, Genesys, NICE CXone, Talkdesk, Five9 and Dynamics 365 — and only renders the controls each provider supports.'],
+  ['When is Agent Workspace available?', 'Agent Workspace is in active build with design partners. Join the early-access list to be included ahead of general availability.'],
+  ['Does it replace our CCaaS agent interface?', 'It runs on top of it. Agent Workspace uses the same provider-agnostic abstraction as the softphone — built-in SIP/WebRTC plus Amazon Connect, Genesys, NICE CXone, Talkdesk, Five9 and Dynamics 365 — and only renders the controls each provider supports.'],
   ['Voice only, or digital channels too?', 'Voice plus chat, email and tasks in one interaction queue, with an embedded WebRTC softphone for the voice path.'],
-  ['How is it different from the Softphone?', 'Same backend, same context and copilot — different scope. The Softphone is focused agent telephony; Agent Desktop is the full browser workspace for agents, supervisors and admins.'],
-  ['Does it feed AI Quality Management?', 'Yes. Every interaction handled in Agent Desktop flows into the same QA pipeline — transcript, scoring, coaching and tickets — automatically.'],
+  ['How is it different from the Softphone?', 'Same backend, same context and copilot — different scope. The Softphone is focused agent telephony; Agent Workspace is the full browser workspace for agents, supervisors and admins.'],
+  ['Does it feed AI Quality Management?', 'Yes. Every interaction handled in Agent Workspace flows into the same QA pipeline — transcript, scoring, coaching and tickets — automatically.'],
 ]);
 
 const agentDesktop = {
   path: '/products/agent-desktop/',
-  title: 'Contact Center Agent Desktop | Unified Agent Workspace | PolyglotCX',
-  description: 'PolyglotCX Agent Desktop is a unified agent workspace: an embedded softphone, omnichannel queues, customer context, an inline AI copilot and one-click wrap-up, on any CCaaS. In development.',
-  breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Products', href: '/products/' }, { name: 'Agent Desktop' }),
+  title: 'Contact Center Agent Workspace | Unified Workspace for Agents | PolyglotCX',
+  description: 'PolyglotCX Agent Workspace is a unified agent workspace: an embedded softphone connected to your existing telephony, omnichannel queues, customer context, an inline AI copilot and one-click wrap-up. In development.',
+  breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Products', href: '/products/' }, { name: 'Agent Workspace' }),
   ogType: 'product',
   jsonLd: [
-    softwareAppJsonLd({ name: 'PolyglotCX Agent Desktop', description: 'A unified contact center agent desktop: embedded softphone, omnichannel queues, customer context, inline AI copilot and one-click wrap-up. In development.', url: '/products/agent-desktop/', os: 'Web' }),
+    softwareAppJsonLd({ name: 'PolyglotCX Agent Workspace', description: 'A unified contact center agent workspace: an embedded softphone connected to the tenant’s existing telephony, omnichannel queues, customer context, inline AI copilot and one-click wrap-up. In development.', url: '/products/agent-desktop/', os: 'Web' }),
     deskFaq.jsonLd,
   ],
   body: `
 ${phero({
-  eyebrow: `${statusPill('dev')} &middot; Agent Desktop`,
+  eyebrow: `${statusPill('dev')} &middot; Agent Workspace`,
   h1: 'Every channel, every tool &mdash; <span class="gr">one browser tab</span>',
-  lead: 'A unified agent workspace: an embedded softphone, omnichannel queues, full customer context, an inline AI copilot and one-click wrap-up &mdash; on the same provider-agnostic backend as the rest of PolyglotCX. In active development.',
+  lead: 'A unified agent workspace: an embedded softphone, omnichannel queues, full customer context, an inline AI copilot and one-click wrap-up &mdash; connected to the telephony and CCaaS you already run. In active development.',
   extra: `<div style="margin-top:24px"><span class="pill-new">In development &middot; browser-based</span></div><div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px"><a class="btn-xl primary" href="/contact/">Join the early-access list &rarr;</a><a class="btn-xl outline" href="/products/">See all products</a></div>`,
 })}
 <section class="wrap">
-  <div class="eyebrow reveal">One desktop, any CCaaS</div>
+  <div class="eyebrow reveal">One workspace, any CCaaS</div>
   <h2 class="h2 reveal">Sits on top of the stack <span class="gr">you already run</span></h2>
-  <p class="sub reveal">Agent Desktop reads each tenant&rsquo;s capabilities and renders only what their provider supports &mdash; the same Contact Center Abstraction Layer behind the softphone.</p>
+  <p class="sub reveal">Agent Workspace reads each tenant&rsquo;s capabilities and renders only what their provider supports &mdash; the same Contact Center Abstraction Layer behind the softphone. PolyglotCX does not provide telephony itself; the embedded softphone connects to your existing SIP trunk or CCaaS voice connection.</p>
   <div class="plat-strip">
     <div class="plat-c reveal"><div class="pn">Built-in SIP &middot; WebRTC</div><div class="pd">embedded softphone</div></div>
     <div class="plat-c reveal"><div class="pn">Amazon Connect</div><div class="pd">CCP / Streams</div></div>
@@ -559,10 +562,10 @@ ${phero({
 </section>
 <section class="wrap" style="padding-top:10px">
   <div class="eyebrow reveal">Common questions</div>
-  <h2 class="h2 reveal">Agent Desktop, in short</h2>
+  <h2 class="h2 reveal">Agent Workspace, in short</h2>
   ${deskFaq.html}
 </section>
-${ctaBand({ h2: 'Want it on the early list?', p: 'Agent Desktop is in build. Tell us your CCaaS and team size and we&rsquo;ll bring you in as a design partner.', cta: ['Join the early-access list', '/contact/'] })}
+${ctaBand({ h2: 'Want it on the early list?', p: 'Agent Workspace is in build. Tell us your CCaaS and team size and we&rsquo;ll bring you in as a design partner.', cta: ['Join the early-access list', '/contact/'] })}
 `,
 };
 
@@ -630,10 +633,10 @@ ${ctaBand({ h2: 'What would your Customer 360 need?', p: 'Tell us which fields a
 
 const SOLUTION_PAGES = {
   'contact-center': {
-    title: 'Contact Center Software & AI Platform | PolyglotCX',
-    description: 'Modernize your contact center with an AI platform for agent telephony, unified desktop, automated quality management and multilingual analytics.',
-    h1: 'AI platform for the <span class="gr">modern contact center</span>',
-    lead: 'Give agents better tools and give quality teams 100% coverage &mdash; without ripping out your telephony. PolyglotCX layers AI quality management, an agent softphone and a unified desktop on top of the CCaaS you already run.',
+    title: 'Contact Center Transformation Software | PolyglotCX',
+    description: 'Modernize your contact center with AI quality management, a softphone and a unified agent workspace that connect to your existing telephony and CCaaS.',
+    h1: 'AI-powered <span class="gr">contact center transformation</span>',
+    lead: 'Give agents better tools and give quality teams 100% coverage &mdash; without ripping out your telephony. PolyglotCX layers AI quality management, an agent softphone and a unified workspace on top of the CCaaS you already run.',
     values: [
       '<b>100% QA coverage</b> instead of the 1&ndash;3% you sample manually today',
       '<b>Multilingual by design</b> — auto language detection and code-switching',
@@ -660,10 +663,10 @@ const SOLUTION_PAGES = {
     products: ['ai-quality-management', 'agent-desktop'],
   },
   'enterprise': {
-    title: 'Enterprise Contact Center AI Platform | Security & Governance | PolyglotCX',
+    title: 'Enterprise Contact Center AI Software | Security & Governance | PolyglotCX',
     description: 'An enterprise contact center AI platform with SSO, RBAC, tamper-evident audit, data-residency routing and pre-LLM PII redaction across every product.',
     h1: 'Enterprise contact center AI, <span class="gr">governed properly</span>',
-    lead: 'One security and governance model across quality management, the softphone and the agent desktop. Built for regulated industries and multi-region rollouts.',
+    lead: 'One security and governance model across quality management, the softphone and the agent workspace. Built for regulated industries and multi-region rollouts.',
     values: [
       '<b>MFA + per-tenant OIDC SSO</b> and role-based access with queue scoping',
       '<b>PII redacted before any AI call</b> — cards, IDs, phones, emails, DOBs',
@@ -760,7 +763,7 @@ const INTEGRATION_PAGES = {
       ['S3 recording pickup', 'PolyglotCX reads the call recording from your Connect S3 bucket automatically, validated by magic bytes.'],
       ['API-key authentication', 'A per-tenant API key secures the ingestion endpoint; content-hash dedup makes retries safe.'],
     ],
-    roadmap: 'An embedded softphone / agent-desktop experience for Amazon Connect (via the CCP and amazon-connect-streams) is part of the softphone and agent-desktop development track.',
+    roadmap: 'An embedded softphone / agent-workspace experience for Amazon Connect (via the CCP and amazon-connect-streams) is part of the Softphone and Agent Workspace development track.',
   },
   'genesys-cloud': {
     title: 'Genesys Cloud Integration | AudioHook Streaming & QA | PolyglotCX',
@@ -772,7 +775,7 @@ const INTEGRATION_PAGES = {
       ['Org-scoped authentication', 'The integration authenticates by Genesys organisation ID, isolated per tenant.'],
       ['Same pipeline, same output', 'Streamed calls produce the same transcript, summaries, ticket and QA evaluation as any other source.'],
     ],
-    roadmap: 'A Genesys embeddable / WebRTC-station agent experience is part of the softphone and agent-desktop development track.',
+    roadmap: 'A Genesys embeddable / WebRTC-station agent experience is part of the Softphone and Agent Workspace development track.',
   },
   'twilio': {
     title: 'Twilio Integration | RecordingStatusCallback Ingestion & QA | PolyglotCX',
@@ -803,7 +806,7 @@ ${phero({ eyebrow: `Integrations &middot; ${it.name}`, h1: d.h1, lead: d.lead, e
   <div class="eyebrow reveal">Supported today</div>
   <h2 class="h2 reveal">How the ${it.name} integration works</h2>
   ${cardGrid(d.supported.map(([t, b], i) => ({ icon: ['plug', 'link', 'refresh'][i] || 'plug', title: t, body: b })), 3)}
-  <div class="roadmap-note reveal"><b>On the roadmap:</b> ${d.roadmap} Follow the <a href="/products/softphone/">softphone</a> and <a href="/products/agent-desktop/">agent desktop</a> for progress.</div>
+  <div class="roadmap-note reveal"><b>On the roadmap:</b> ${d.roadmap} Follow the <a href="/products/softphone/">softphone</a> and <a href="/products/agent-desktop/">agent workspace</a> for progress.</div>
 </section>
 <section class="wrap" style="padding-top:0">
   <div class="eyebrow reveal">What you get</div>
@@ -1020,7 +1023,7 @@ const CAPABILITIES = [
 const GUIDES = [
   ['Guide', 'AI contact center QA: a buyer&rsquo;s guide', 'What to evaluate in automated call QA, and the questions that expose weak vendors.'],
   ['Guide', 'Contact center softphone guide', 'WebRTC, CTI, provider abstraction and what "browser-based" really means.'],
-  ['Guide', 'What is a unified agent desktop?', 'Bringing voice, digital, context and AI assistance into one workspace.'],
+  ['Guide', 'What is a unified agent workspace?', 'Bringing voice, digital, context and AI assistance into one workspace.'],
   ['Guide', 'Amazon Connect softphone &amp; QA guide', 'CTR events, S3 recordings, the CCP, and adding automated quality management.'],
   ['Guide', 'Genesys Cloud softphone &amp; QA guide', 'AudioHook streaming, embeddables and layering AI QA on Genesys.'],
   ['Explainer', 'Contact center case management', 'Voice-to-ticket, workflows, SLAs and escalation.'],
@@ -1059,7 +1062,7 @@ ${ctaBand({ h2: 'Rather see it than read it?', p: 'Book a working session and we
 /* ═════════════════ PRICING ═════════════════ */
 
 const pricingFaq = faq([
-  ['What does the pricing cover?', 'These plans are for AI Quality Management, which is generally available. The Contact Center Softphone and Agent Desktop are in development — pricing for those is set with design partners; contact us.'],
+  ['What does the pricing cover?', 'These plans are for AI Quality Management, which is generally available. The Contact Center Softphone and Agent Workspace are in development — pricing for those is set with design partners; contact us.'],
   ['How does token-based quota work?', 'Each plan includes a monthly AI token allowance, roughly proportional to call volume. Usage is tracked per customer per month with a transparent table — you always see consumption and estimated cost before you hit a limit.'],
   ['What is BYOK and why would I use it?', 'Bring Your Own Key: store your own AI provider key, encrypted at rest, and AI costs are billed directly to your account at provider rates. Ideal for enterprises with existing AI agreements or data-governance requirements.'],
   ['Can we run multiple business units or clients on one deployment?', 'Yes — PolyglotCX is multi-tenant by design. Each organisation gets isolated data, its own quota and license, optional model overrides and its own scorecards. BPOs serve many clients from a single deployment.'],
@@ -1073,7 +1076,7 @@ const pricing = {
   breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Pricing' }),
   jsonLd: [webPageJsonLd({ name: 'PolyglotCX Pricing', description: 'Pricing for PolyglotCX AI Quality Management.', url: '/pricing/' }), pricingFaq.jsonLd],
   body: `
-${phero({ eyebrow: 'Pricing', h1: 'Start free. <span class="gr">Scale when it proves itself.</span>', lead: 'Simple monthly plans for <b>AI Quality Management</b>, sized by call volume. Every plan includes the full pipeline — transcription, QA, coaching and analytics. Bring your own AI key on any tier. Softphone and Agent Desktop are priced with design partners while they are in development.' })}
+${phero({ eyebrow: 'Pricing', h1: 'Start free. <span class="gr">Scale when it proves itself.</span>', lead: 'Simple monthly plans for <b>AI Quality Management</b>, sized by call volume. Every plan includes the full pipeline — transcription, QA, coaching and analytics. Bring your own AI key on any tier. Softphone and Agent Workspace are priced with design partners while they are in development.' })}
 <section class="wrap">
   <div class="price-grid">
     <div class="price-c reveal">
@@ -1113,14 +1116,16 @@ ${ctaBand({ h2: 'Not sure which plan fits?', p: 'Tell us your monthly call volum
 
 const company = {
   path: '/company/',
-  title: 'About PolyglotCX | AI Contact Center & CX Platform',
-  description: 'PolyglotCX is an AI-powered contact center and customer experience platform, built by people who have run contact centers &mdash; multilingual, evidence-first and provider-agnostic.',
+  title: 'About PolyglotCX | Contact Center Transformation Platform',
+  description: 'PolyglotCX is a contact center transformation platform, built by people who have run contact centers &mdash; multilingual, evidence-first and provider-agnostic. We are a software provider, not a telecommunications carrier.',
   breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Company' }),
   jsonLd: [webPageJsonLd({ name: 'About PolyglotCX', description: 'About the PolyglotCX platform and team.', url: '/company/' })],
   body: `
-${phero({ eyebrow: 'Company', h1: 'Built by people who&rsquo;ve <span class="gr">run contact centers</span>', lead: 'PolyglotCX is an AI-powered contact center &amp; customer experience platform. We started with the problem we knew best &mdash; quality management that never covers enough calls &mdash; and we are building outward from there.' })}
+${phero({ eyebrow: 'Company', h1: 'Built by people who&rsquo;ve <span class="gr">run contact centers</span>', lead: 'PolyglotCX is a contact center transformation platform. We started with the problem we knew best &mdash; quality management that never covers enough calls &mdash; and we are building outward from there, on top of the telephony you already run.' })}
 <section class="wrap">
   <div class="prose reveal">
+    <h2>What we are &mdash; and aren&rsquo;t</h2>
+    <p>PolyglotCX is a <strong>software platform for contact center transformation</strong>: AI Quality Management, a softphone and an agent workspace, plus Professional and Managed Services to deliver and run them. <strong>PolyglotCX is not a telecommunications carrier</strong> and does not provide PSTN, SIP trunking or telephony/carrier services. Voice connectivity is provided by your existing telephony provider or CCaaS &mdash; Amazon Connect, Genesys Cloud, Twilio, or your own SIP trunk &mdash; and our products connect to it. You keep your existing telephony relationship; we don&rsquo;t replace it.</p>
     <h2>Why we built this</h2>
     <p>Most contact-center software was designed for English-first, single-language markets and bolted multilingual support on later. Quality teams still sample 1&ndash;3% of calls by hand. Agents still work a softphone, a CRM and a knowledge base in separate windows. And AI scores that arrive without evidence are scores nobody trusts.</p>
     <p>PolyglotCX is designed around four gaps:</p>
@@ -1131,9 +1136,9 @@ ${phero({ eyebrow: 'Company', h1: 'Built by people who&rsquo;ve <span class="gr"
       <li><strong>Bolted-on multi-tenancy.</strong> PolyglotCX is multi-tenant at the core: API-enforced isolation, per-customer quotas and billing, encrypted BYOK keys, per-tenant model configuration.</li>
     </ul>
     <h2>Where we are</h2>
-    <p><strong>AI Quality Management</strong> is generally available today. The <a href="/products/softphone/">Contact Center Softphone</a> and <a href="/products/agent-desktop/">Agent Desktop</a> are in active development with design partners. <a href="/products/case-management/">Case Management</a> and <a href="/products/crm/">CRM / Customer 360</a> are on the roadmap. We label every product by stage on purpose &mdash; a platform you can trust is one that tells you what is real.</p>
+    <p><strong>AI Quality Management</strong> is generally available today. The <a href="/products/softphone/">Contact Center Softphone</a> and <a href="/products/agent-desktop/">Agent Workspace</a> are in active development with design partners. <a href="/products/case-management/">Case Management</a> and <a href="/products/crm/">CRM / Customer 360</a> are on the roadmap. We label every product by stage on purpose &mdash; a platform you can trust is one that tells you what is real.</p>
     <h2>How we work</h2>
-    <p>Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We know what a QA week actually looks like, and what supervisors will and won&rsquo;t adopt. Where teams want it, we operate the platform for them: calibration, scorecard tuning, weekly insight reports and same-day compliance escalation.</p>
+    <p>Our team has delivered CCaaS and AI programmes for banks, insurers, telcos and public sector across Asia. We know what a QA week actually looks like, and what supervisors will and won&rsquo;t adopt. Where teams want it, our <a href="/services/professional-services/">Professional Services</a> deliver the transformation and our <a href="/services/managed-services/">Managed Services</a> run it for you: calibration, scorecard tuning, weekly insight reports and same-day compliance escalation.</p>
     <h2>Get in touch</h2>
     <p>PolyglotCX is based in Bengaluru, India, and serves customers across APAC and beyond. Reach us at <a href="mailto:contactus@polyglotcx.com">contactus@polyglotcx.com</a> or <a href="/contact/">book a platform demo</a>.</p>
   </div>
@@ -1146,7 +1151,7 @@ ${ctaBand({ h2: 'The proof is your own audio', p: 'Bring your hardest call &mdas
 
 const contact = {
   path: '/contact/',
-  title: 'Contact PolyglotCX | Book a Contact Center Platform Demo',
+  title: 'Contact PolyglotCX | Book a Contact Center Transformation Demo',
   description: 'Book a PolyglotCX demo. 30 minutes: we run your recording through the live AI Quality Management pipeline, size your ROI and map the integration to your telephony.',
   breadcrumbs: bc({ name: 'Home', href: '/' }, { name: 'Contact' }),
   jsonLd: [webPageJsonLd({ name: 'Contact PolyglotCX', description: 'Contact the PolyglotCX team.', url: '/contact/' })],

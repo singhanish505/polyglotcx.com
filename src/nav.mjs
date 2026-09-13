@@ -9,8 +9,8 @@ const CARET = `<svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="cu
 // Product catalogue — used by nav, footer, /products hub, and homepage.
 export const PRODUCTS = [
   { slug: 'softphone', name: 'Contact Center Softphone', short: 'Softphone',
-    desc: 'Browser-based agent telephony for cloud contact centers.', status: 'dev' },
-  { slug: 'agent-desktop', name: 'Agent Desktop', short: 'Agent Desktop',
+    desc: 'Browser-based agent calling that connects to the telephony you already run.', status: 'dev' },
+  { slug: 'agent-desktop', name: 'Agent Workspace', short: 'Agent Workspace',
     desc: 'Unified workspace: voice, digital, context and AI assistance.', status: 'dev' },
   { slug: 'ai-quality-management', name: 'AI Quality Management', short: 'AI Quality Management',
     desc: 'Automated QA, speech analytics and evidence-backed scoring.', status: 'live' },
@@ -124,11 +124,11 @@ export function footerHtml() {
   <div class="foot-g">
     <div>
       <a class="logo" href="/" aria-label="PolyglotCX home">${LOGO_SVG.replace('viewBox="0 0 48 44"', 'viewBox="0 0 48 44" style="width:30px;height:28px"')}<span class="logo-t" style="font-size:18px">Polyglot<span>CX</span></span></a>
-      <p class="foot-d">PolyglotCX is an AI-powered contact center &amp; customer experience platform &mdash; intelligent softphones, unified agent desktops, AI quality management, analytics and automation. AI Quality Management is available today; Softphone and Agent Desktop are in active development, with Case Management and CRM on the roadmap.</p>
+      <p class="foot-d">PolyglotCX is a contact center transformation platform &mdash; AI quality management, a softphone and an agent workspace that connect to the telephony and CCaaS you already run. AI Quality Management is available today; Softphone and Agent Workspace are in active development, with Case Management and CRM on the roadmap. PolyglotCX is a software provider, not a telecommunications carrier.</p>
     </div>
     ${col('Products', [
       ['Contact Center Softphone', '/products/softphone/'],
-      ['Agent Desktop', '/products/agent-desktop/'],
+      ['Agent Workspace', '/products/agent-desktop/'],
       ['AI Quality Management', '/products/ai-quality-management/'],
       ['Case Management', '/products/case-management/'],
       ['CRM &amp; Customer 360', '/products/crm/'],
@@ -160,6 +160,7 @@ export function footerHtml() {
     <span>&copy; 2026 PolyglotCX. All rights reserved.</span>
     <span>Bengaluru, India &middot; serving APAC and beyond</span>
   </div>
+  <p class="foot-legal">PolyglotCX provides software for contact center transformation &mdash; AI quality management, a softphone and an agent workspace. PolyglotCX is not a telecommunications carrier and does not provide PSTN, SIP trunking or telephony/carrier services; voice connectivity is provided by your existing telephony provider or CCaaS (e.g. Amazon Connect, Genesys Cloud, Twilio, or your own SIP trunk).</p>
 </footer>`;
 }
 

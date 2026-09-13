@@ -85,7 +85,7 @@ export const orgJsonLd = () => ({
   url: SITE + '/',
   logo: SITE + '/assets/icon-512.png',
   description:
-    'AI-powered contact center & customer experience platform: intelligent softphones, unified agent desktops, AI quality management, analytics and automation.',
+    'AI-powered contact center transformation platform: AI quality management, a softphone and an agent workspace that connect to the telephony and CCaaS you already run. PolyglotCX is a software provider, not a telecommunications carrier.',
   email: 'contactus@polyglotcx.com',
   contactPoint: {
     '@type': 'ContactPoint',
